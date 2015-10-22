@@ -17,6 +17,11 @@
  */
 
 #include <stdint.h>
+<<<<<<< HEAD
+=======
+#include <stdlib.h>
+#include <string.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #ifdef WIN32
 #include <windows.h>
@@ -24,6 +29,7 @@
 #include <sys/resource.h>
 #endif
 
+<<<<<<< HEAD
 #ifdef WIN32
 static FILETIME cpuCounters[2];
 #else
@@ -31,11 +37,59 @@ struct rusage cpuCounters[2];
 #endif
 
 static void measureCpu(void *counter)
+=======
+#include "util.h"
+
+#ifdef WIN32
+typedef FILETIME syscounter_t;
+#else
+typedef struct rusage syscounter_t;
+#endif
+
+static syscounter_t _globalCounter[2];
+static cpucounter_t globalCounter = _globalCounter;
+
+void startCpuCounter(void)
+{
+  startCpuCounter(globalCounter);
+}
+
+void endCpuCounter(void)
+{
+  endCpuCounter(globalCounter);
+}
+
+double getCpuCounter(void)
+{
+  return getCpuCounter(globalCounter);
+}
+
+cpucounter_t newCpuCounter(void)
+{
+  syscounter_t *c;
+
+  c = (syscounter_t*)malloc(sizeof(syscounter_t) * 2);
+  if (c == NULL)
+    return NULL;
+
+  memset(c, 0, sizeof(syscounter_t) * 2);
+
+  return c;
+}
+
+void freeCpuCounter(cpucounter_t c)
+{
+  free(c);
+}
+
+static void measureCpu(syscounter_t *counter)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
 #ifdef WIN32
   FILETIME dummy1, dummy2, dummy3;
 
   GetProcessTimes(GetCurrentProcess(), &dummy1, &dummy2,
+<<<<<<< HEAD
                   &dummy3, (FILETIME*)counter);
 #else
   getrusage(RUSAGE_SELF, (struct rusage*)counter);
@@ -54,11 +108,35 @@ void endCpuCounter(void)
 
 double getCpuCounter(void)
 {
+=======
+                  &dummy3, counter);
+#else
+  getrusage(RUSAGE_SELF, counter);
+#endif
+}
+
+void startCpuCounter(cpucounter_t c)
+{
+  syscounter_t *s = (syscounter_t*)c;
+  measureCpu(&s[0]);
+}
+
+void endCpuCounter(cpucounter_t c)
+{
+  syscounter_t *s = (syscounter_t*)c;
+  measureCpu(&s[1]);
+}
+
+double getCpuCounter(cpucounter_t c)
+{
+  syscounter_t *s = (syscounter_t*)c;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   double seconds;
 
 #ifdef WIN32
   uint64_t counters[2];
 
+<<<<<<< HEAD
   counters[0] = (uint64_t)cpuCounters[0].dwHighDateTime << 32 |
                 cpuCounters[0].dwLowDateTime;
   counters[1] = (uint64_t)cpuCounters[1].dwHighDateTime << 32 |
@@ -70,6 +148,19 @@ double getCpuCounter(void)
                      cpuCounters[0].ru_utime.tv_sec);
   seconds += (double)(cpuCounters[1].ru_utime.tv_usec -
                       cpuCounters[0].ru_utime.tv_usec) / 1000000.0;
+=======
+  counters[0] = (uint64_t)s[0].dwHighDateTime << 32 |
+                s[0].dwLowDateTime;
+  counters[1] = (uint64_t)s[1].dwHighDateTime << 32 |
+                s[1].dwLowDateTime;
+
+  seconds = (double)(counters[1] - counters[0]) / 10000000.0;
+#else
+  seconds = (double)(s[1].ru_utime.tv_sec -
+                     s[0].ru_utime.tv_sec);
+  seconds += (double)(s[1].ru_utime.tv_usec -
+                      s[0].ru_utime.tv_usec) / 1000000.0;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #endif
 
   return seconds;

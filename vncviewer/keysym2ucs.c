@@ -899,7 +899,10 @@ unsigned ucs2keysym(unsigned ucs)
 {
   int cur = 0;
   int max = sizeof(keysymtab) / sizeof(struct codepair) - 1;
+<<<<<<< HEAD
   int mid;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   /* first check for Latin-1 characters (1:1 mapping) */
   if ((ucs >= 0x0020 && ucs <= 0x007e) ||

@@ -26,12 +26,25 @@ static LogWriter vlog("ManagedListener");
 
 
 ManagedListener::ManagedListener(SocketManager* mgr)
+<<<<<<< HEAD
 : sock(0), filter(0), manager(mgr), addrChangeNotifier(0), server(0), port(0), localOnly(false) {
 }
 
 ManagedListener::~ManagedListener() {
   if (sock)
     manager->remListener(sock);
+=======
+: filter(0), manager(mgr), addrChangeNotifier(0), server(0), port(0), localOnly(false) {
+}
+
+ManagedListener::~ManagedListener() {
+  if (!sockets.empty()) {
+    std::list<network::TcpListener>::iterator iter;
+    for (iter = sockets.begin(); iter != sockets.end(); ++iter)
+      manager->remListener(&*iter);
+    sockets.clear();
+  }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   delete filter;
 }
 
@@ -57,8 +70,16 @@ void ManagedListener::setFilter(const char* filterStr) {
   vlog.info("set filter to %s", filterStr);
   delete filter;
   filter = new network::TcpFilter(filterStr);
+<<<<<<< HEAD
   if (sock && !localOnly)
     sock->setFilter(filter);
+=======
+  if (!sockets.empty() && !localOnly) {
+    std::list<network::TcpListener>::iterator iter;
+    for (iter = sockets.begin(); iter != sockets.end(); ++iter)
+      iter->setFilter(filter);
+  }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 void ManagedListener::setAddressChangeNotifier(SocketManager::AddressChangeNotifier* acn) {
@@ -68,6 +89,7 @@ void ManagedListener::setAddressChangeNotifier(SocketManager::AddressChangeNotif
   refresh();
 }
 
+<<<<<<< HEAD
 
 void ManagedListener::refresh() {
   if (sock)
@@ -88,6 +110,42 @@ void ManagedListener::refresh() {
       manager->addListener(sock, server, addrChangeNotifier);
     } catch (...) {
       sock = 0;
+=======
+bool ManagedListener::isListening() {
+  return !sockets.empty();
+}
+
+void ManagedListener::refresh() {
+  std::list<network::TcpListener>::iterator iter;
+  if (!sockets.empty()) {
+    for (iter = sockets.begin(); iter != sockets.end(); ++iter)
+      manager->remListener(&*iter);
+    sockets.clear();
+  }
+  if (!server)
+    return;
+  try {
+    if (port) {
+      if (localOnly)
+        network::createLocalTcpListeners(&sockets, port);
+      else
+        network::createTcpListeners(&sockets, NULL, port);
+    }
+  } catch (rdr::Exception& e) {
+    vlog.error("%s", e.str());
+  }
+  if (!sockets.empty()) {
+    if (!localOnly) {
+      for (iter = sockets.begin(); iter != sockets.end(); ++iter)
+        iter->setFilter(filter);
+    }
+    try {
+      for (iter = sockets.begin(); iter != sockets.end(); ++iter)
+        manager->addListener(&*iter, server, addrChangeNotifier);
+    } catch (...) {
+      // FIXME: Should unwind what we've added
+      sockets.clear();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       throw;
     }
   }

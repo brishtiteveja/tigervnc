@@ -25,7 +25,10 @@
 #include <rdr/Exception.h>
 #include <rdr/TLSException.h>
 #include <rdr/TLSOutStream.h>
+<<<<<<< HEAD
 #include <rdr/TLSErrno.h>
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <errno.h>
 
 #ifdef HAVE_GNUTLS
@@ -33,7 +36,11 @@ using namespace rdr;
 
 enum { DEFAULT_BUF_SIZE = 16384 };
 
+<<<<<<< HEAD
 ssize_t TLSOutStream::push(gnutls_transport_ptr str, const void* data,
+=======
+ssize_t TLSOutStream::push(gnutls_transport_ptr_t str, const void* data,
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 				   size_t size)
 {
   TLSOutStream* self= (TLSOutStream*) str;
@@ -43,17 +50,28 @@ ssize_t TLSOutStream::push(gnutls_transport_ptr str, const void* data,
     out->writeBytes(data, size);
     out->flush();
   } catch (Exception& e) {
+<<<<<<< HEAD
     gnutls_errno_helper(self->session, EINVAL);
+=======
+    gnutls_transport_set_errno(self->session, EINVAL);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return -1;
   }
 
   return size;
 }
 
+<<<<<<< HEAD
 TLSOutStream::TLSOutStream(OutStream* _out, gnutls_session _session)
   : session(_session), out(_out), bufSize(DEFAULT_BUF_SIZE), offset(0)
 {
   gnutls_transport_ptr recv, send;
+=======
+TLSOutStream::TLSOutStream(OutStream* _out, gnutls_session_t _session)
+  : session(_session), out(_out), bufSize(DEFAULT_BUF_SIZE), offset(0)
+{
+  gnutls_transport_ptr_t recv, send;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   ptr = start = new U8[bufSize];
   end = start + bufSize;

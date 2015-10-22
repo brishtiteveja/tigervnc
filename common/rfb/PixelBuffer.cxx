@@ -96,6 +96,7 @@ ModifiablePixelBuffer::~ModifiablePixelBuffer()
 {
 }
 
+<<<<<<< HEAD
 void ModifiablePixelBuffer::fillRect(const Rect& r, Pixel pix)
 {
   int stride;
@@ -103,10 +104,19 @@ void ModifiablePixelBuffer::fillRect(const Rect& r, Pixel pix)
   int w, h, b;
 
   buf = getBufferRW(r, &stride);
+=======
+void ModifiablePixelBuffer::fillRect(const Rect& r, const void* pix)
+{
+  int stride;
+  U8 *buf;
+  int w, h, b;
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   w = r.width();
   h = r.height();
   b = format.bpp/8;
 
+<<<<<<< HEAD
   format.bufferFromPixel(pixbuf, pix);
 
   while (h--) {
@@ -116,6 +126,36 @@ void ModifiablePixelBuffer::fillRect(const Rect& r, Pixel pix)
       buf += b;
     }
     buf += (stride - w) * b;
+=======
+  if (h == 0)
+    return;
+
+  buf = getBufferRW(r, &stride);
+
+  if (b == 1) {
+    while (h--) {
+      memset(buf, *(const U8*)pix, w);
+      buf += stride * b;
+    }
+  } else {
+    U8 *start;
+    int w1;
+
+    start = buf;
+
+    w1 = w;
+    while (w1--) {
+      memcpy(buf, pix, b);
+      buf += b;
+    }
+    buf += (stride - w) * b;
+    h--;
+
+    while (h--) {
+      memcpy(buf, start, w * b);
+      buf += stride * b;
+    }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   commitBufferRW(r);
@@ -289,9 +329,17 @@ void ModifiablePixelBuffer::copyRect(const Rect &rect,
 }
 
 void ModifiablePixelBuffer::fillRect(const PixelFormat& pf, const Rect &dest,
+<<<<<<< HEAD
                                      Pixel pix)
 {
   fillRect(dest, format.pixelFromPixel(pf, pix));
+=======
+                                     const void* pix)
+{
+  rdr::U8 buf[4];
+  format.bufferFromBuffer(buf, pf, (const rdr::U8*)pix, 1);
+  fillRect(dest, buf);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 void ModifiablePixelBuffer::imageRect(const PixelFormat& pf, const Rect &dest,

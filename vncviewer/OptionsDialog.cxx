@@ -290,12 +290,17 @@ void OptionsDialog::loadOptions(void)
     desktopHeightInput->value(buf);
   }
   remoteResizeCheckbox->value(remoteResize);
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   fullScreenCheckbox->value(fullScreen);
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
   fullScreenAllMonitorsCheckbox->value(fullScreenAllMonitors);
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 #endif // HAVE_FLTK_FULLSCREEN
+=======
+  fullScreenCheckbox->value(fullScreen);
+  fullScreenAllMonitorsCheckbox->value(fullScreenAllMonitors);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   handleDesktopSize(desktopSizeCheckbox, this);
 
@@ -398,12 +403,17 @@ void OptionsDialog::storeOptions(void)
     desktopSize.setParam("");
   }
   remoteResize.setParam(remoteResizeCheckbox->value());
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   fullScreen.setParam(fullScreenCheckbox->value());
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
   fullScreenAllMonitors.setParam(fullScreenAllMonitorsCheckbox->value());
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 #endif // HAVE_FLTK_FULLSCREEN
+=======
+  fullScreen.setParam(fullScreenCheckbox->value());
+  fullScreenAllMonitors.setParam(fullScreenAllMonitorsCheckbox->value());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   /* Misc. */
   shared.setParam(sharedCheckbox->value());
@@ -422,7 +432,11 @@ void OptionsDialog::createCompressionPage(int tx, int ty, int tw, int th)
 
   int orig_tx, orig_ty;
   int half_width, full_width;
+<<<<<<< HEAD
   int width, height;
+=======
+  int height;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   tx += OUTER_MARGIN;
   ty += OUTER_MARGIN;
@@ -454,8 +468,11 @@ void OptionsDialog::createCompressionPage(int tx, int ty, int tw, int th)
     tx += GROUP_MARGIN;
     ty += GROUP_MARGIN;
 
+<<<<<<< HEAD
     width = encodingGroup->w() - GROUP_MARGIN * 2;
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     tightButton = new Fl_Round_Button(LBLRIGHT(tx, ty,
                                                RADIO_MIN_WIDTH,
                                                RADIO_HEIGHT,
@@ -504,8 +521,11 @@ void OptionsDialog::createCompressionPage(int tx, int ty, int tw, int th)
     tx += GROUP_MARGIN;
     ty += GROUP_MARGIN;
 
+<<<<<<< HEAD
     width = colorlevelGroup->w() - GROUP_MARGIN * 2;
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     fullcolorCheckbox = new Fl_Round_Button(LBLRIGHT(tx, ty,
                                                      RADIO_MIN_WIDTH,
                                                      RADIO_HEIGHT,
@@ -724,9 +744,15 @@ void OptionsDialog::createInputPage(int tx, int ty, int tw, int th)
 
   menuKeyChoice = new Fl_Choice(LBLLEFT(tx, ty, 150, CHOICE_HEIGHT, _("Menu key")));
 
+<<<<<<< HEAD
   menuKeyChoice->add(_("None"), 0, NULL, (void*)0, FL_MENU_DIVIDER);
   for (int i = 0; i < getMenuKeySymbolCount(); i++)
     menuKeyChoice->add(getMenuKeySymbols()[i].name, 0, NULL, 0, 0);
+=======
+  fltk_menu_add(menuKeyChoice, _("None"), 0, NULL, (void*)0, FL_MENU_DIVIDER);
+  for (int i = 0; i < getMenuKeySymbolCount(); i++)
+    fltk_menu_add(menuKeyChoice, getMenuKeySymbols()[i].name, 0, NULL, 0, 0);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   ty += CHOICE_HEIGHT + TIGHT_MARGIN;
 
@@ -762,26 +788,35 @@ void OptionsDialog::createScreenPage(int tx, int ty, int tw, int th)
                                                       _("Resize remote session to the local window")));
   ty += CHECK_HEIGHT + TIGHT_MARGIN;
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   fullScreenCheckbox = new Fl_Check_Button(LBLRIGHT(tx, ty,
                                                   CHECK_MIN_WIDTH,
                                                   CHECK_HEIGHT,
                                                   _("Full-screen mode")));
   ty += CHECK_HEIGHT + TIGHT_MARGIN;
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   fullScreenAllMonitorsCheckbox = new Fl_Check_Button(LBLRIGHT(tx + INDENT, ty,
                                                       CHECK_MIN_WIDTH,
                                                       CHECK_HEIGHT,
                                                       _("Enable full-screen mode over all monitors")));
   ty += CHECK_HEIGHT + TIGHT_MARGIN;
 
+<<<<<<< HEAD
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 
 #endif // HAVE_FLTK_FULLSCREEN
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   group->end();
 }
 

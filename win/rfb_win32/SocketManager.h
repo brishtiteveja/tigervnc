@@ -48,7 +48,11 @@ namespace rfb {
       class AddressChangeNotifier {
       public:
         virtual ~AddressChangeNotifier() {}
+<<<<<<< HEAD
         virtual void processAddressChange(network::SocketListener* sl) = 0;
+=======
+        virtual void processAddressChange() = 0;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       };
 
       // Add a listening socket.  Incoming connections will be added to the supplied

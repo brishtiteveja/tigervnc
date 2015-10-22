@@ -36,6 +36,13 @@
 // is assigned a particular log level.
 
 #define DEF_LOGFUNCTION(name, level) \
+<<<<<<< HEAD
+=======
+  inline void v##name(const char* fmt, va_list ap) { \
+    if (m_log && (level <= m_level))       \
+      m_log->write(level, m_name, fmt, ap);\
+  } \
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   inline void name(const char* fmt, ...) __printf_attr(2, 3) { \
     if (m_log && (level <= m_level)) {     \
       va_list ap; va_start(ap, fmt);       \
@@ -68,10 +75,22 @@ namespace rfb {
       }
     }
 
+<<<<<<< HEAD
     DEF_LOGFUNCTION(error, 0)
     DEF_LOGFUNCTION(status, 10)
     DEF_LOGFUNCTION(info, 30)
     DEF_LOGFUNCTION(debug, 100)
+=======
+    static const int LEVEL_ERROR  = 0;
+    static const int LEVEL_STATUS = 10;
+    static const int LEVEL_INFO   = 30;
+    static const int LEVEL_DEBUG  = 100;
+
+    DEF_LOGFUNCTION(error, LEVEL_ERROR)
+    DEF_LOGFUNCTION(status, LEVEL_STATUS)
+    DEF_LOGFUNCTION(info, LEVEL_INFO)
+    DEF_LOGFUNCTION(debug, LEVEL_DEBUG)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     // -=- DIAGNOSTIC & HELPER ROUTINES
 

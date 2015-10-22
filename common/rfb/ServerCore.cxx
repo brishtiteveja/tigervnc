@@ -89,8 +89,23 @@ rfb::BoolParameter rfb::Server::sendCutText
 ("SendCutText",
  "Send clipboard changes to clients.",
  true);
+<<<<<<< HEAD
+=======
+rfb::BoolParameter rfb::Server::acceptSetDesktopSize
+("AcceptSetDesktopSize",
+ "Accept set desktop size events from clients.",
+ true);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 rfb::BoolParameter rfb::Server::queryConnect
 ("QueryConnect",
  "Prompt the local user to accept or reject incoming connections.",
  false);
+<<<<<<< HEAD
 
+=======
+rfb::IntParameter rfb::Server::queryConnectTimeout
+("QueryConnectTimeout",
+ "Number of seconds to show the Accept Connection dialog before "
+ "rejecting the connection",
+ 10);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa

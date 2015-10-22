@@ -24,6 +24,7 @@ namespace rfb {
   typedef rdr::Exception Exception;
   struct AuthFailureException : public Exception {
     AuthFailureException(const char* s="Authentication failure")
+<<<<<<< HEAD
       : Exception(s) {}
   };
   struct AuthCancelledException : public rfb::Exception {
@@ -32,6 +33,17 @@ namespace rfb {
   };
   struct ConnFailedException : public Exception {
     ConnFailedException(const char* s="Connection failed") : Exception(s) {}
+=======
+      : Exception("%s", s) {}
+  };
+  struct AuthCancelledException : public rfb::Exception {
+    AuthCancelledException(const char* s="Authentication cancelled")
+      : Exception("%s", s) {}
+  };
+  struct ConnFailedException : public Exception {
+    ConnFailedException(const char* s="Connection failed")
+      : Exception("%s", s) {}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   };
 }
 #endif

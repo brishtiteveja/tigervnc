@@ -40,10 +40,19 @@ namespace winvnc {
     void setPort(int port, bool localOnly=false);
     void setFilter(const char* filter);
     void setAddressChangeNotifier(rfb::win32::SocketManager::AddressChangeNotifier* acn);
+<<<<<<< HEAD
   
     network::TcpListener* sock;
   protected:
     void refresh();
+=======
+
+    bool isListening();
+
+  protected:
+    void refresh();
+    std::list<network::TcpListener> sockets;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     network::TcpFilter* filter;
     rfb::win32::SocketManager* manager;
     rfb::win32::SocketManager::AddressChangeNotifier* addrChangeNotifier;

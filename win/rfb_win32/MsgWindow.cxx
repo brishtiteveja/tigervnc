@@ -52,7 +52,11 @@ LRESULT CALLBACK MsgWindowProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam)
     SetWindowLongPtr(wnd, GWLP_USERDATA, 0);
   MsgWindow* _this = (MsgWindow*) GetWindowLongPtr(wnd, GWLP_USERDATA);
   if (!_this) {
+<<<<<<< HEAD
     vlog.info("null _this in %x, message %x", wnd, msg);
+=======
+    vlog.info("null _this in %p, message %x", wnd, msg);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return SafeDefWindowProc(wnd, msg, wParam, lParam);
   }
 
@@ -85,7 +89,11 @@ MsgWindowClass::MsgWindowClass() : classAtom(0) {
 
 MsgWindowClass::~MsgWindowClass() {
   if (classAtom) {
+<<<<<<< HEAD
     UnregisterClass((const TCHAR*)classAtom, instance);
+=======
+    UnregisterClass((const TCHAR*)(intptr_t)classAtom, instance);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 }
 
@@ -97,18 +105,32 @@ static MsgWindowClass baseClass;
 
 MsgWindow::MsgWindow(const TCHAR* name_) : name(tstrDup(name_)), handle(0) {
   vlog.debug("creating window \"%s\"", (const char*)CStr(name.buf));
+<<<<<<< HEAD
   handle = CreateWindow((const TCHAR*)baseClass.classAtom, name.buf, WS_OVERLAPPED,
     0, 0, 10, 10, 0, 0, baseClass.instance, this);
   if (!handle) {
     throw rdr::SystemException("unable to create WMNotifier window instance", GetLastError());
   }
   vlog.debug("created window \"%s\" (%x)", (const char*)CStr(name.buf), handle);
+=======
+  handle = CreateWindow((const TCHAR*)(intptr_t)baseClass.classAtom,
+                        name.buf, WS_OVERLAPPED, 0, 0, 10, 10, 0, 0,
+                        baseClass.instance, this);
+  if (!handle) {
+    throw rdr::SystemException("unable to create WMNotifier window instance", GetLastError());
+  }
+  vlog.debug("created window \"%s\" (%p)", (const char*)CStr(name.buf), handle);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 MsgWindow::~MsgWindow() {
   if (handle)
     DestroyWindow(handle);
+<<<<<<< HEAD
   vlog.debug("destroyed window \"%s\" (%x)", (const char*)CStr(name.buf), handle); 
+=======
+  vlog.debug("destroyed window \"%s\" (%p)", (const char*)CStr(name.buf), handle);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 LRESULT

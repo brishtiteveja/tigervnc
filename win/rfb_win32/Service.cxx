@@ -99,7 +99,11 @@ VOID WINAPI serviceProc(DWORD dwArgc, LPTSTR* lpszArgv) {
     vlog.error("failed to register handler: %lu", err);
     ExitProcess(err);
   }
+<<<<<<< HEAD
   vlog.debug("registered handler (%lx)", service->status_handle);
+=======
+  vlog.debug("registered handler (%p)", service->status_handle);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   service->setStatus(SERVICE_START_PENDING);
   vlog.debug("entering %s serviceMain", service->getName());
   service->status.dwWin32ExitCode = service->serviceMain(dwArgc, lpszArgv);
@@ -132,7 +136,11 @@ Service::start() {
     entry[1].lpServiceProc = NULL;
     vlog.debug("entering dispatcher");
     if (!SetProcessShutdownParameters(0x100, 0))
+<<<<<<< HEAD
       vlog.error("unable to set shutdown parameters: %d", GetLastError());
+=======
+      vlog.error("unable to set shutdown parameters: %lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     service = this;
     if (!StartServiceCtrlDispatcher(entry))
       throw SystemException("unable to start service", GetLastError());
@@ -176,9 +184,15 @@ Service::setStatus(DWORD state) {
   if (!SetServiceStatus(status_handle, &status)) {
     status.dwCurrentState = SERVICE_STOPPED;
     status.dwWin32ExitCode = GetLastError();
+<<<<<<< HEAD
     vlog.error("unable to set service status:%u", status.dwWin32ExitCode);
   }
   vlog.debug("set status to %u(%u)", state, status.dwCheckPoint);
+=======
+    vlog.error("unable to set service status:%lu", status.dwWin32ExitCode);
+  }
+  vlog.debug("set status to %lu(%lu)", state, status.dwCheckPoint);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 Service::~Service() {
@@ -200,11 +214,19 @@ static bool
 switchToDesktop(HDESK desktop) {
   HDESK old_desktop = GetThreadDesktop(GetCurrentThreadId());
   if (!SetThreadDesktop(desktop)) {
+<<<<<<< HEAD
     vlog.debug("switchToDesktop failed:%u", GetLastError());
     return false;
   }
   if (!CloseDesktop(old_desktop))
     vlog.debug("unable to close old desktop:%u", GetLastError());
+=======
+    vlog.debug("switchToDesktop failed:%lu", GetLastError());
+    return false;
+  }
+  if (!CloseDesktop(old_desktop))
+    vlog.debug("unable to close old desktop:%lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   return true;
 }
 
@@ -218,7 +240,11 @@ inputDesktopSelected() {
 		DESKTOP_WRITEOBJECTS | DESKTOP_READOBJECTS |
 		DESKTOP_SWITCHDESKTOP | GENERIC_WRITE);
   if (!input) {
+<<<<<<< HEAD
     vlog.debug("unable to OpenInputDesktop(1):%u", GetLastError());
+=======
+    vlog.debug("unable to OpenInputDesktop(1):%lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return false;
   }
 
@@ -227,17 +253,29 @@ inputDesktopSelected() {
   char inputname[256];
 
   if (!GetUserObjectInformation(current, UOI_NAME, currentname, 256, &size)) {
+<<<<<<< HEAD
     vlog.debug("unable to GetUserObjectInformation(1):%u", GetLastError());
+=======
+    vlog.debug("unable to GetUserObjectInformation(1):%lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     CloseDesktop(input);
     return false;
   }
   if (!GetUserObjectInformation(input, UOI_NAME, inputname, 256, &size)) {
+<<<<<<< HEAD
     vlog.debug("unable to GetUserObjectInformation(2):%u", GetLastError());
+=======
+    vlog.debug("unable to GetUserObjectInformation(2):%lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     CloseDesktop(input);
     return false;
   }
   if (!CloseDesktop(input))
+<<<<<<< HEAD
     vlog.debug("unable to close input desktop:%u", GetLastError());
+=======
+    vlog.debug("unable to close input desktop:%lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // *** vlog.debug("current=%s, input=%s", currentname, inputname);
   bool result = strcmp(currentname, inputname) == 0;
@@ -254,7 +292,11 @@ selectInputDesktop() {
 		DESKTOP_WRITEOBJECTS | DESKTOP_READOBJECTS |
 		DESKTOP_SWITCHDESKTOP | GENERIC_WRITE);
   if (!desktop) {
+<<<<<<< HEAD
     vlog.debug("unable to OpenInputDesktop(2):%u", GetLastError());
+=======
+    vlog.debug("unable to OpenInputDesktop(2):%lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return false;
   }
 

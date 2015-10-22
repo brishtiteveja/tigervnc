@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 if(USE_INCLUDED_ZLIB)
   add_subdirectory(zlib)
 
@@ -5,6 +6,8 @@ if(USE_INCLUDED_ZLIB)
   set(ZLIB_LIBRARIES zlib)
 endif()
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 add_subdirectory(os)
 add_subdirectory(rdr)
 add_subdirectory(network)
@@ -19,7 +22,10 @@ add_subdirectory(rfb)
 if(CMAKE_COMPILER_IS_GNUCXX AND (CMAKE_SIZEOF_VOID_P MATCHES 8) AND NOT WIN32)
   set_target_properties(os rdr network Xregion rfb
     PROPERTIES COMPILE_FLAGS -fPIC)
+<<<<<<< HEAD
   if(USE_INCLUDED_ZLIB)
     set_target_properties(zlib PROPERTIES COMPILE_FLAGS -fPIC)
   endif()
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 endif()

@@ -18,10 +18,17 @@ include(CheckCSourceRuns)
 include(CMakeMacroLibtoolFile)
 
 project(tigervnc)
+<<<<<<< HEAD
 set(VERSION 1.4.0)
 
 # The RC version must always be four comma-separated numbers
 set(RCVERSION 1,4,0,0)
+=======
+set(VERSION 1.5.80)
+
+# The RC version must always be four comma-separated numbers
+set(RCVERSION 1,5,80,0)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 # Installation paths
 set(BIN_DIR "${CMAKE_INSTALL_PREFIX}/bin")
@@ -67,10 +74,23 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -UNDEBUG")
 set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} -UNDEBUG")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} -UNDEBUG")
 
+<<<<<<< HEAD
+=======
+# Tell the compiler to be stringent
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wformat=2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wformat=2")
+# Make sure we catch these issues whilst developing
+IF(CMAKE_BUILD_TYPE MATCHES Debug)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+ENDIF()
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 if(NOT DEFINED BUILD_WINVNC)
   set(BUILD_WINVNC 1)
 endif()
 
+<<<<<<< HEAD
 # Minimum version is Windows 2000 (5.0)
 if(WIN32)
   if(NOT CMAKE_SIZEOF_VOID_P MATCHES 8)
@@ -81,6 +101,11 @@ if(WIN32)
     # 64-bit support. Request XP (5.1) instead.
     add_definitions(-D_WIN32_IE=0x0501 -D_WIN32_WINNT=0x0501)
   endif()
+=======
+# Minimum version is Windows XP SP2 (5.2)
+if(WIN32)
+  add_definitions(-D_WIN32_IE=0x0502 -D_WIN32_WINNT=0x0502)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 endif()
 
 if(CMAKE_SIZEOF_VOID_P MATCHES 8)
@@ -116,6 +141,7 @@ if(UNIX AND NOT APPLE)
 endif()
 
 # Check for zlib
+<<<<<<< HEAD
 find_package(ZLIB)
 option(USE_INCLUDED_ZLIB "Force use of the bundled zlib")
 if(NOT ZLIB_FOUND)
@@ -124,6 +150,9 @@ endif()
 if(USE_INCLUDED_ZLIB)
   message(STATUS "Using included zlib library")
 endif()
+=======
+find_package(ZLIB REQUIRED)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 # Check for gettext
 option(ENABLE_NLS "Enable translation of program messages" ON)
@@ -226,6 +255,7 @@ if(UNIX AND NOT APPLE)
   if(X11_Xcursor_FOUND)
     set(FLTK_LIBRARIES ${FLTK_LIBRARIES} ${X11_Xcursor_LIB})
   endif()
+<<<<<<< HEAD
 endif()
 
 if(FLTK_FOUND)
@@ -261,6 +291,11 @@ if(FLTK_FOUND)
 
   set(CMAKE_REQUIRED_INCLUDES)
   set(CMAKE_REQUIRED_LIBRARIES)
+=======
+  if(X11_Xrender_FOUND)
+    set(FLTK_LIBRARIES ${FLTK_LIBRARIES} ${X11_Xrender_LIB})
+  endif()
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 endif()
 
 # Check for GNUTLS library
@@ -271,6 +306,7 @@ if(ENABLE_GNUTLS)
     include_directories(${GNUTLS_INCLUDE_DIR})
     add_definitions("-DHAVE_GNUTLS")
     add_definitions(${GNUTLS_DEFINITIONS})
+<<<<<<< HEAD
     
     # Detect old version of GnuTLS
     set(CMAKE_REQUIRED_FLAGS -I${GNUTLS_INCLUDE_DIR})
@@ -295,6 +331,8 @@ if(ENABLE_GNUTLS)
     set(CMAKE_REQUIRED_FLAGS)
     set(CMAKE_EXTRA_INCLUDE_FILES) 
     set(CMAKE_REQUIRED_LIBRARIES)
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   endif()
 endif()
 
@@ -313,6 +351,7 @@ if(ENABLE_PAM)
 endif()
 set(HAVE_PAM ${ENABLE_PAM})
 
+<<<<<<< HEAD
 # Check for socket functions
 if(WIN32)
   set(CMAKE_EXTRA_INCLUDE_FILES winsock2.h ws2tcpip.h)
@@ -325,6 +364,8 @@ check_function_exists(getaddrinfo HAVE_GETADDRINFO)
 set(CMAKE_EXTRA_INCLUDE_FILES) 
 set(CMAKE_REQUIRED_LIBRARIES)
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 # Generate config.h and make sure the source finds it
 configure_file(config.h.in config.h)
 add_definitions(-DHAVE_CONFIG_H)

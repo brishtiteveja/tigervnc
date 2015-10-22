@@ -33,6 +33,7 @@ using namespace rfb;
 static LogWriter vlog("SMsgWriter");
 
 SMsgWriter::SMsgWriter(ConnParams* cp_, rdr::OutStream* os_)
+<<<<<<< HEAD
   : cp(cp_), os(os_), currentEncoding(0),
     nRectsInUpdate(0), nRectsInHeader(0),
     needSetDesktopSize(false), needExtendedDesktopSize(false),
@@ -43,10 +44,18 @@ SMsgWriter::SMsgWriter(ConnParams* cp_, rdr::OutStream* os_)
     bytesSent[i] = 0;
     rectsSent[i] = 0;
   }
+=======
+  : cp(cp_), os(os_),
+    nRectsInUpdate(0), nRectsInHeader(0),
+    needSetDesktopSize(false), needExtendedDesktopSize(false),
+    needSetDesktopName(false), needSetCursor(false), needSetXCursor(false)
+{
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 SMsgWriter::~SMsgWriter()
 {
+<<<<<<< HEAD
   vlog.info("framebuffer updates %d",updatesSent);
   int bytes = 0;
   for (int i = 0; i <= encodingMax; i++) {
@@ -58,6 +67,8 @@ SMsgWriter::~SMsgWriter()
   }
   vlog.info("  raw bytes equivalent %llu, compression ratio %f",
           rawBytesEquivalent, (double)rawBytesEquivalent / bytes);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 void SMsgWriter::writeServerInit()
@@ -276,7 +287,10 @@ void SMsgWriter::writeFramebufferUpdateEnd()
     os->writeU32(pseudoEncodingLastRect);
   }
 
+<<<<<<< HEAD
   updatesSent++;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   endMsg();
 }
 
@@ -293,11 +307,14 @@ void SMsgWriter::startRect(const Rect& r, int encoding)
   if (++nRectsInUpdate > nRectsInHeader && nRectsInHeader)
     throw Exception("SMsgWriter::startRect: nRects out of sync");
 
+<<<<<<< HEAD
   currentEncoding = encoding;
   lenBeforeRect = os->length();
   if (encoding != encodingCopyRect)
     rawBytesEquivalent += 12 + r.width() * r.height() * (cp->pf().bpp/8);
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   os->writeS16(r.tl.x);
   os->writeS16(r.tl.y);
   os->writeU16(r.width());
@@ -307,10 +324,13 @@ void SMsgWriter::startRect(const Rect& r, int encoding)
 
 void SMsgWriter::endRect()
 {
+<<<<<<< HEAD
   if (currentEncoding <= encodingMax) {
     bytesSent[currentEncoding] += os->length() - lenBeforeRect;
     rectsSent[currentEncoding]++;
   }
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 void SMsgWriter::startMsg(int type)
@@ -327,7 +347,10 @@ void SMsgWriter::writePseudoRects()
 {
   if (needSetCursor) {
     rdr::U8* data;
+<<<<<<< HEAD
     int stride;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     const Cursor& cursor = cp->cursor();
 

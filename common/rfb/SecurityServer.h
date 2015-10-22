@@ -22,9 +22,16 @@
 
 #include <rfb/Configuration.h>
 #include <rfb/Security.h>
+<<<<<<< HEAD
 #include <rfb/SSecurity.h>
 
 namespace rfb {
+=======
+
+namespace rfb {
+  
+  class SSecurity;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   class SecurityServer : public Security {
   public:

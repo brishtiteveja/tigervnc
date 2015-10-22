@@ -86,6 +86,7 @@ TCHAR* Dialog::getItemString(int id) {
 }
 
 void Dialog::setItemChecked(int id, bool state) {
+<<<<<<< HEAD
   dlog.debug("bool[%d]=%d", id, (int)state);
   SendMessage(GetDlgItem(handle, id), BM_SETCHECK, state ? BST_CHECKED : BST_UNCHECKED, 0);
 }
@@ -95,12 +96,23 @@ void Dialog::setItemInt(int id, int value) {
 }
 void Dialog::setItemString(int id, const TCHAR* s) {
   dlog.debug("string[%d]=%s", id, (const char*)CStr(s));
+=======
+  SendMessage(GetDlgItem(handle, id), BM_SETCHECK, state ? BST_CHECKED : BST_UNCHECKED, 0);
+}
+void Dialog::setItemInt(int id, int value) {
+  SetDlgItemInt(handle, id, value, TRUE);
+}
+void Dialog::setItemString(int id, const TCHAR* s) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   SetDlgItemText(handle, id, s);
 }
 
 
 void Dialog::enableItem(int id, bool state) {
+<<<<<<< HEAD
   dlog.debug("enable[%d]=%d", id, (int)state);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   EnableWindow(GetDlgItem(handle, id), state);
 }
 
@@ -278,7 +290,11 @@ bool PropSheet::showPropSheet(HWND owner, bool showApply, bool showCtxtHelp, boo
     if ((handle == 0) || (handle == (HWND)-1))
       throw rdr::SystemException("PropertySheet failed", GetLastError());
     centerWindow(handle, owner);
+<<<<<<< HEAD
     plog.info("created %lx", handle);
+=======
+    plog.info("created %p", handle);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #ifdef _DIALOG_CAPTURE
     if (capture) {
@@ -336,7 +352,11 @@ bool PropSheet::showPropSheet(HWND owner, bool showApply, bool showCtxtHelp, boo
     }
 #endif
 
+<<<<<<< HEAD
     plog.info("finished %lx", handle);
+=======
+    plog.info("finished %p", handle);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     DestroyWindow(handle);
     handle = 0;
@@ -361,7 +381,10 @@ bool PropSheet::showPropSheet(HWND owner, bool showApply, bool showCtxtHelp, boo
 }
 
 void PropSheet::reInitPages() {
+<<<<<<< HEAD
   plog.debug("reInitPages %lx", handle);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   std::list<PropSheetPage*>::iterator pspi;
   for (pspi=pages.begin(); pspi!=pages.end(); pspi++) {
     if ((*pspi)->handle)
@@ -370,7 +393,10 @@ void PropSheet::reInitPages() {
 }
 
 bool PropSheet::commitPages() {
+<<<<<<< HEAD
   plog.debug("commitPages %lx", handle);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   bool result = true;
   std::list<PropSheetPage*>::iterator pspi;
   for (pspi=pages.begin(); pspi!=pages.end(); pspi++) {
@@ -383,7 +409,10 @@ bool PropSheet::commitPages() {
 
 void PropSheetPage::setChanged(bool changed) {
   if (propSheet) {
+<<<<<<< HEAD
     plog.debug("setChanged[%lx(%lx)]=%d", handle, propSheet->handle, (int)changed);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if (changed)
       PropSheet_Changed(propSheet->handle, handle);
     else

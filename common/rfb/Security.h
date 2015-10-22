@@ -25,7 +25,10 @@
 #include <rdr/types.h>
 #include <rfb/Configuration.h>
 #include <rfb/CSecurity.h>
+<<<<<<< HEAD
 #include <rfb/SSecurity.h>
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #include <list>
 
@@ -94,6 +97,13 @@ namespace rfb {
     /* Output char* is stored in static array */
     char *ToString(void);
 
+<<<<<<< HEAD
+=======
+#ifdef HAVE_GNUTLS
+    static StringParameter GnuTLSPriority;
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   private:
     std::list<rdr::U32> enabledSecTypes;
   };

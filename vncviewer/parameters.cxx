@@ -43,6 +43,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+<<<<<<< HEAD
+=======
+#include <errno.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #include "i18n.h"
 
@@ -91,6 +95,7 @@ IntParameter qualityLevel("QualityLevel",
                           8);
 
 BoolParameter maximize("Maximize", "Maximize viewer window", false);
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
 BoolParameter fullScreen("FullScreen", "Full screen mode", false);
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
@@ -99,6 +104,12 @@ BoolParameter fullScreenAllMonitors("FullScreenAllMonitors",
                                     true);
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 #endif // HAVE_FLTK_FULLSCREEN
+=======
+BoolParameter fullScreen("FullScreen", "Full screen mode", false);
+BoolParameter fullScreenAllMonitors("FullScreenAllMonitors",
+                                    "Enable full screen over all monitors",
+                                    true);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 StringParameter desktopSize("DesktopSize",
                             "Reconfigure desktop size on the server on "
                             "connect (if possible)", "");
@@ -142,9 +153,15 @@ BoolParameter fullscreenSystemKeys("FullscreenSystemKeys",
 StringParameter via("via", "Gateway to tunnel via", "");
 #endif
 
+<<<<<<< HEAD
 const char* IDENTIFIER_STRING = "TigerVNC Configuration file Version 1.0";
 
 VoidParameter* parameterArray[] = {
+=======
+static const char* IDENTIFIER_STRING = "TigerVNC Configuration file Version 1.0";
+
+static VoidParameter* parameterArray[] = {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #ifdef HAVE_GNUTLS
   &CSecurityTLS::X509CA,
   &CSecurityTLS::X509CRL,
@@ -159,12 +176,17 @@ VoidParameter* parameterArray[] = {
   &compressLevel,
   &noJpeg,
   &qualityLevel,
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   &fullScreen,
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
   &fullScreenAllMonitors,
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 #endif // HAVE_FLTK_FULLSCREEN
+=======
+  &fullScreen,
+  &fullScreenAllMonitors,
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   &desktopSize,
   &geometry,
   &remoteResize,
@@ -181,21 +203,33 @@ VoidParameter* parameterArray[] = {
 static struct {
   const char first;
   const char second;
+<<<<<<< HEAD
 } replaceMap[] = {'\n', 'n',
                   '\r', 'r'};
 
 bool encodeValue(const char* val, char* dest, size_t destSize) {
+=======
+} replaceMap[] = { { '\n', 'n' },
+                   { '\r', 'r' } };
+
+static bool encodeValue(const char* val, char* dest, size_t destSize) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   bool normalCharacter = true;
   size_t pos = 0;
 
+<<<<<<< HEAD
   for (int i = 0; (val[i] != '\0') && (i < (destSize - 1)); i++) {
+=======
+  for (size_t i = 0; (val[i] != '\0') && (i < (destSize - 1)); i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     
     // Check for sequences which will need encoding
     if (val[i] == '\\') {
 
       strncpy(dest+pos, "\\\\", 2);
       pos++;
+<<<<<<< HEAD
       if (pos >= destSize) {
         vlog.error(_("Encoding backslash: The size of the buffer dest "
                      "is to small, it needs to be more than %d bytes bigger."),
@@ -206,16 +240,29 @@ bool encodeValue(const char* val, char* dest, size_t destSize) {
     } else {
 
       for (int j = 0; j < sizeof(replaceMap)/sizeof(replaceMap[0]); j++) {
+=======
+      if (pos >= destSize)
+        return false;
+
+    } else {
+
+      for (size_t j = 0; j < sizeof(replaceMap)/sizeof(replaceMap[0]); j++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
         if (val[i] == replaceMap[j].first) {
           dest[pos] = '\\';
           pos++;
+<<<<<<< HEAD
           if (pos >= destSize) {
             vlog.error(_("Encoding escape sequence: The size of the buffer "
                          "dest is to small, it needs to be more than %d bytes "
                          "bigger."), (destSize - 1 - i));
             return false;
           }
+=======
+          if (pos >= destSize)
+            return false;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
           dest[pos] = replaceMap[j].second;
           normalCharacter = false;
@@ -230,6 +277,7 @@ bool encodeValue(const char* val, char* dest, size_t destSize) {
     normalCharacter = true; // Reset for next loop
 
     pos++;
+<<<<<<< HEAD
     if (pos >= destSize) {
       vlog.error(_("Encoding normal character: The size of the buffer dest "
                    "is to small, it needs to be more than %d bytes bigger."),
@@ -237,6 +285,10 @@ bool encodeValue(const char* val, char* dest, size_t destSize) {
       return false;
     }
 
+=======
+    if (pos >= destSize)
+      return false;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   dest[pos] = '\0';
@@ -244,17 +296,29 @@ bool encodeValue(const char* val, char* dest, size_t destSize) {
 }
 
 
+<<<<<<< HEAD
 bool decodeValue(const char* val, char* dest, size_t destSize) {
+=======
+static bool decodeValue(const char* val, char* dest, size_t destSize) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   size_t pos = 0;
   bool escapedCharacter = false;
   
+<<<<<<< HEAD
   for (int i = 0; (val[i] != '\0') && (i < (destSize - 1)); i++) {
+=======
+  for (size_t i = 0; (val[i] != '\0') && (i < (destSize - 1)); i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     
     // Check for escape sequences
     if (val[i] == '\\') {
       
+<<<<<<< HEAD
       for (int j = 0; j < sizeof(replaceMap)/sizeof(replaceMap[0]); j++) {
+=======
+      for (size_t j = 0; j < sizeof(replaceMap)/sizeof(replaceMap[0]); j++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         if (val[i+1] == replaceMap[j].second) {
           dest[pos] = replaceMap[j].first;
           escapedCharacter = true;
@@ -268,7 +332,10 @@ bool decodeValue(const char* val, char* dest, size_t destSize) {
           dest[pos] = val[i];
           i++;
         } else {
+<<<<<<< HEAD
           vlog.error(_("Unknown escape sequence at character %d"), i);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
           return false;
         }
       }
@@ -280,8 +347,11 @@ bool decodeValue(const char* val, char* dest, size_t destSize) {
     escapedCharacter = false; // Reset for next loop
     pos++;
     if (pos >= destSize) {
+<<<<<<< HEAD
       vlog.error(_("Decoding: The size of the buffer dest is to small, "
                    "it needs to be 1 byte bigger."));
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       return false;
     }
   }
@@ -292,44 +362,69 @@ bool decodeValue(const char* val, char* dest, size_t destSize) {
 
 
 #ifdef _WIN32
+<<<<<<< HEAD
 void setKeyString(const char *_name, const char *_value, HKEY* hKey) {
+=======
+static void setKeyString(const char *_name, const char *_value, HKEY* hKey) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   
   const DWORD buffersize = 256;
 
   wchar_t name[buffersize];
   unsigned size = fl_utf8towc(_name, strlen(_name)+1, name, buffersize);
   if (size >= buffersize) {
+<<<<<<< HEAD
     vlog.error(_("Could not convert the parameter-name %s to wchar_t* when "
                  "writing to the Registry, the buffersize is to small."),
                  _name);
+=======
+    vlog.error(_("The name of the parameter %s was too large to write to the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
 
   char encodingBuffer[buffersize];
   if (!encodeValue(_value, encodingBuffer, buffersize)) {
+<<<<<<< HEAD
     vlog.error(_("Could not encode the parameter-value %s when "
                  "writing to the Registry."), _value);
+=======
+    vlog.error(_("The parameter %s was too large to write to the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
 
   wchar_t value[buffersize];
   size = fl_utf8towc(encodingBuffer, strlen(encodingBuffer)+1, value, buffersize);
   if (size >= buffersize) {
+<<<<<<< HEAD
     vlog.error(_("Could not convert the parameter-value %s to wchar_t* when "
                  "writing to the Registry, the buffersize is to small."),
                  _value);
+=======
+    vlog.error(_("The parameter %s was too large to write to the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
 
   LONG res = RegSetValueExW(*hKey, name, 0, REG_SZ, (BYTE*)&value, (wcslen(value)+1)*2);
   if (res != ERROR_SUCCESS) {
+<<<<<<< HEAD
     vlog.error(_("Error(%d) writing %s(REG_SZ) to Registry."), res, _value);
+=======
+    vlog.error(_("Failed to write parameter %s of type %s to the registry: %ld"),
+               _name, "REG_SZ", res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
 }
 
 
+<<<<<<< HEAD
 void setKeyInt(const char *_name, const int _value, HKEY* hKey) {
+=======
+static void setKeyInt(const char *_name, const int _value, HKEY* hKey) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   const DWORD buffersize = 256;
   wchar_t name[buffersize];
@@ -337,21 +432,34 @@ void setKeyInt(const char *_name, const int _value, HKEY* hKey) {
 
   unsigned size = fl_utf8towc(_name, strlen(_name)+1, name, buffersize);
   if (size >= buffersize) {
+<<<<<<< HEAD
     vlog.error(_("Could not convert the parameter-name %s to wchar_t* when "
                  "writing to the Registry, the buffersize is to small."),
                  _name);
+=======
+    vlog.error(_("The name of the parameter %s was too large to write to the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
   
   LONG res = RegSetValueExW(*hKey, name, 0, REG_DWORD, (BYTE*)&value, sizeof(DWORD));
   if (res != ERROR_SUCCESS) {
+<<<<<<< HEAD
     vlog.error(_("Error(%d) writing %d(REG_DWORD) to Registry."), res, _value);
+=======
+    vlog.error(_("Failed to write parameter %s of type %s to the registry: %ld"),
+               _name, "REG_DWORD", res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
 }
 
 
+<<<<<<< HEAD
 bool getKeyString(const char* _name, char* dest, size_t destSize, HKEY* hKey) {
+=======
+static bool getKeyString(const char* _name, char* dest, size_t destSize, HKEY* hKey) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   
   DWORD buffersize = 256;
   WCHAR value[destSize];
@@ -359,9 +467,13 @@ bool getKeyString(const char* _name, char* dest, size_t destSize, HKEY* hKey) {
 
   unsigned size = fl_utf8towc(_name, strlen(_name)+1, name, buffersize);
   if (size >= buffersize) {
+<<<<<<< HEAD
     vlog.error(_("Could not convert the parameter-name %s to wchar_t* when "
                  "reading from the Registry, the buffersize is to small."),
                  _name);
+=======
+    vlog.error(_("The name of the parameter %s was too large to read from the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return false;
   }
 
@@ -370,7 +482,12 @@ bool getKeyString(const char* _name, char* dest, size_t destSize, HKEY* hKey) {
     if (res == ERROR_FILE_NOT_FOUND) {
       // The value does not exist, defaults will be used.
     } else {
+<<<<<<< HEAD
       vlog.error(_("Error(%d) reading %s from Registry."), res, _name);
+=======
+      vlog.error(_("Failed to read parameter %s from the registry: %ld"),
+                 _name, res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
     return false;
   }
@@ -378,9 +495,13 @@ bool getKeyString(const char* _name, char* dest, size_t destSize, HKEY* hKey) {
   char utf8val[destSize];
   size = fl_utf8fromwc(utf8val, sizeof(utf8val), value, wcslen(value)+1);
   if (size >= sizeof(utf8val)) {
+<<<<<<< HEAD
     vlog.error(_("Could not convert the parameter-value for %s to utf8 "
                  "char* when reading from the Registry, the buffer dest is "
                  "to small."), _name);
+=======
+    vlog.error(_("The parameter %s was too large to read from the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return false;
   }
   const char *ret = utf8val;
@@ -392,7 +513,11 @@ bool getKeyString(const char* _name, char* dest, size_t destSize, HKEY* hKey) {
 }
 
 
+<<<<<<< HEAD
 bool getKeyInt(const char* _name, int* dest, HKEY* hKey) {
+=======
+static bool getKeyInt(const char* _name, int* dest, HKEY* hKey) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   
   const DWORD buffersize = 256;
   DWORD dwordsize = sizeof(DWORD);
@@ -401,9 +526,13 @@ bool getKeyInt(const char* _name, int* dest, HKEY* hKey) {
 
   unsigned size = fl_utf8towc(_name, strlen(_name)+1, name, buffersize);
   if (size >= buffersize) {
+<<<<<<< HEAD
     vlog.error(_("Could not convert the parameter-name %s to wchar_t* when "
                  "reading from the Registry, the buffersize is to small."),
                  _name);
+=======
+    vlog.error(_("The name of the parameter %s was too large to read from the registry"), _name);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return false;
   }
 
@@ -412,7 +541,12 @@ bool getKeyInt(const char* _name, int* dest, HKEY* hKey) {
     if (res == ERROR_FILE_NOT_FOUND) {
       // The value does not exist, defaults will be used.
     } else {
+<<<<<<< HEAD
       vlog.error(_("Error(%d) reading %s from Registry."), res, _name);
+=======
+      vlog.error(_("Failed to read parameter %s from the registry: %ld"),
+                 _name, res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
     return false;
   }
@@ -422,7 +556,11 @@ bool getKeyInt(const char* _name, int* dest, HKEY* hKey) {
 }
 
 
+<<<<<<< HEAD
 void saveToReg(const char* servername) {
+=======
+static void saveToReg(const char* servername) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   
   HKEY hKey;
     
@@ -431,13 +569,21 @@ void saveToReg(const char* servername) {
                              REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL,
                              &hKey, NULL);
   if (res != ERROR_SUCCESS) {
+<<<<<<< HEAD
     vlog.error(_("Error(%d) creating key: Software\\TigerVNC\\vncviewer"), res);
+=======
+    vlog.error(_("Failed to create registry key: %ld"), res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
   }
 
   setKeyString("ServerName", servername, &hKey);
 
+<<<<<<< HEAD
   for (int i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+=======
+  for (size_t i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if (dynamic_cast<StringParameter*>(parameterArray[i]) != NULL) {
       setKeyString(parameterArray[i]->getName(), *(StringParameter*)parameterArray[i], &hKey);
     } else if (dynamic_cast<IntParameter*>(parameterArray[i]) != NULL) {
@@ -445,19 +591,32 @@ void saveToReg(const char* servername) {
     } else if (dynamic_cast<BoolParameter*>(parameterArray[i]) != NULL) {
       setKeyInt(parameterArray[i]->getName(), (int)*(BoolParameter*)parameterArray[i], &hKey);
     } else {      
+<<<<<<< HEAD
       vlog.info(_("The parameterArray contains a object of a invalid type "
                   "at line %d."), i);
+=======
+      vlog.error(_("Unknown parameter type for parameter %s"),
+                 parameterArray[i]->getName());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
   }
 
   res = RegCloseKey(hKey);
   if (res != ERROR_SUCCESS) {
+<<<<<<< HEAD
     vlog.error(_("Error(%d) closing key: Software\\TigerVNC\\vncviewer"), res);
+=======
+    vlog.error(_("Failed to close registry key: %ld"), res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 }
 
 
+<<<<<<< HEAD
 char* loadFromReg() {
+=======
+static char* loadFromReg() {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   HKEY hKey;
 
@@ -468,7 +627,11 @@ char* loadFromReg() {
     if (res == ERROR_FILE_NOT_FOUND) {
       // The key does not exist, defaults will be used.
     } else {
+<<<<<<< HEAD
       vlog.error(_("Error(%d) opening key: Software\\TigerVNC\\vncviewer"), res);
+=======
+      vlog.error(_("Failed to open registry key: %ld"), res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
     return NULL;
   }
@@ -483,7 +646,11 @@ char* loadFromReg() {
   int intValue = 0;
   char stringValue[buffersize];
   
+<<<<<<< HEAD
   for (int i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+=======
+  for (size_t i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if (dynamic_cast<StringParameter*>(parameterArray[i]) != NULL) {
       if (getKeyString(parameterArray[i]->getName(), stringValue, buffersize, &hKey))
         parameterArray[i]->setParam(stringValue);
@@ -494,13 +661,22 @@ char* loadFromReg() {
       if (getKeyInt(parameterArray[i]->getName(), &intValue, &hKey))
         ((BoolParameter*)parameterArray[i])->setParam(intValue);
     } else {      
+<<<<<<< HEAD
       vlog.info(_("The parameterArray contains a object of a invalid type at line %d."), i);
+=======
+      vlog.error(_("Unknown parameter type for parameter %s"),
+                 parameterArray[i]->getName());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
   }
 
   res = RegCloseKey(hKey);
   if (res != ERROR_SUCCESS){
+<<<<<<< HEAD
     vlog.error(_("Error(%d) closing key:  Software\\TigerVNC\\vncviewer"), res);
+=======
+    vlog.error(_("Failed to close registry key: %ld"), res);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
   
   return servername;
@@ -512,7 +688,10 @@ void saveViewerParameters(const char *filename, const char *servername) {
 
   const size_t buffersize = 256;
   char filepath[PATH_MAX];
+<<<<<<< HEAD
   char write_error[buffersize*2];
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   char encodingBuffer[buffersize];
 
   // Write to the registry or a predefined file if no filename was specified.
@@ -537,11 +716,17 @@ void saveViewerParameters(const char *filename, const char *servername) {
 
   /* Write parameters to file */
   FILE* f = fopen(filepath, "w+");
+<<<<<<< HEAD
   if (!f) {
     snprintf(write_error, sizeof(write_error),
              _("Failed to write configuration file, can't open %s"), filepath);
     throw Exception(write_error);
   }
+=======
+  if (!f)
+    throw Exception(_("Failed to write configuration file, can't open %s: %s"),
+                    filepath, strerror(errno));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   
   fprintf(f, "%s\r\n", IDENTIFIER_STRING);
   fprintf(f, "\r\n");
@@ -549,7 +734,11 @@ void saveViewerParameters(const char *filename, const char *servername) {
   if (encodeValue(servername, encodingBuffer, buffersize))  
     fprintf(f, "ServerName=%s\n", encodingBuffer);
   
+<<<<<<< HEAD
   for (int i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+=======
+  for (size_t i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if (dynamic_cast<StringParameter*>(parameterArray[i]) != NULL) {
       if (encodeValue(*(StringParameter*)parameterArray[i], encodingBuffer, buffersize))
         fprintf(f, "%s=%s\n", ((StringParameter*)parameterArray[i])->getName(), encodingBuffer);
@@ -558,8 +747,13 @@ void saveViewerParameters(const char *filename, const char *servername) {
     } else if (dynamic_cast<BoolParameter*>(parameterArray[i]) != NULL) {
       fprintf(f, "%s=%d\n", ((BoolParameter*)parameterArray[i])->getName(), (int)*(BoolParameter*)parameterArray[i]);
     } else {      
+<<<<<<< HEAD
       vlog.info(_("The parameterArray contains a object of a invalid type "
                   "at line %d."), i);
+=======
+      vlog.error(_("Unknown parameter type for parameter %s"),
+                 parameterArray[i]->getName());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
   }
   fclose(f);
@@ -570,10 +764,15 @@ char* loadViewerParameters(const char *filename) {
 
   const size_t buffersize = 256;
   char filepath[PATH_MAX];
+<<<<<<< HEAD
   char readError[buffersize*2];
   char line[buffersize];
   char decodingBuffer[buffersize];
   char decodedValue[buffersize];
+=======
+  char line[buffersize];
+  char decodingBuffer[buffersize];
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   static char servername[sizeof(line)];
 
   // Load from the registry or a predefined file if no filename was specified.
@@ -598,9 +797,14 @@ char* loadViewerParameters(const char *filename) {
   if (!f) {
     if (!filename)
       return NULL; // Use defaults.
+<<<<<<< HEAD
     snprintf(readError, sizeof(readError),
              _("Failed to read configuration file, can't open %s"), filepath);
     throw Exception(readError);
+=======
+    throw Exception(_("Failed to read configuration file, can't open %s: %s"),
+                    filepath, strerror(errno));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
   
   int lineNr = 0;
@@ -609,6 +813,7 @@ char* loadViewerParameters(const char *filename) {
     // Read the next line
     lineNr++;
     if (!fgets(line, sizeof(line), f)) {
+<<<<<<< HEAD
       if (line[sizeof(line) -1] != '\0') {
         vlog.error(_("Could not read the line(%d) in the configuration file,"
                      "the buffersize is to small."), lineNr);
@@ -633,6 +838,26 @@ char* loadViewerParameters(const char *filename) {
                    "\"%s\""), filepath, IDENTIFIER_STRING);
         throw Exception(readError);
       }
+=======
+      if (feof(f))
+        break;
+
+      throw Exception(_("Failed to read line %d in file %s: %s"),
+                      lineNr, filepath, strerror(errno));
+    }
+
+    if (strlen(line) == (sizeof(line) - 1))
+      throw Exception(_("Failed to read line %d in file %s: %s"),
+                      lineNr, filepath, _("Line too long"));
+    
+    // Make sure that the first line of the file has the file identifier string
+    if(lineNr == 1) {
+      if(strncmp(line, IDENTIFIER_STRING, strlen(IDENTIFIER_STRING)) == 0)
+        continue;
+      else
+        throw Exception(_("Configuration file %s is in an invalid format"),
+                        filepath);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
     
     // Skip empty lines and comments
@@ -648,8 +873,13 @@ char* loadViewerParameters(const char *filename) {
     // Find the parameter value
     char *value = strchr(line, '=');
     if (value == NULL) {
+<<<<<<< HEAD
       vlog.info(_("Bad Name/Value pair on line: %d in file: %s"),
                 lineNr, filepath);
+=======
+      vlog.error(_("Failed to read line %d in file %s: %s"),
+                 lineNr, filepath, _("Invalid format"));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       continue;
     }
     *value = '\0'; // line only contains the parameter name below.
@@ -661,8 +891,13 @@ char* loadViewerParameters(const char *filename) {
     if (strcasecmp(line, "ServerName") == 0) {
 
       if(!decodeValue(value, decodingBuffer, sizeof(decodingBuffer))) {
+<<<<<<< HEAD
         vlog.info(_("The value of the parameter %s on line %d in file %s "
                     "is invalid."), line, lineNr, filepath);
+=======
+        vlog.error(_("Failed to read line %d in file %s: %s"),
+                   lineNr, filepath, _("Invalid format or too large value"));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         continue;
       }
       snprintf(servername, sizeof(decodingBuffer), "%s", decodingBuffer);
@@ -671,14 +906,23 @@ char* loadViewerParameters(const char *filename) {
     } else {
     
       // Find and set the correct parameter
+<<<<<<< HEAD
       for (int i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+=======
+      for (size_t i = 0; i < sizeof(parameterArray)/sizeof(VoidParameter*); i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
         if (dynamic_cast<StringParameter*>(parameterArray[i]) != NULL) {
           if (strcasecmp(line, ((StringParameter*)parameterArray[i])->getName()) == 0) {
 
             if(!decodeValue(value, decodingBuffer, sizeof(decodingBuffer))) {
+<<<<<<< HEAD
               vlog.info(_("The value of the parameter %s on line %d in file %s "
                           "is invalid."), line, lineNr, filepath);
+=======
+              vlog.error(_("Failed to read line %d in file %s: %s"),
+                         lineNr, filepath, _("Invalid format or too large value"));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
               continue;
             }
             ((StringParameter*)parameterArray[i])->setParam(decodingBuffer);
@@ -698,15 +942,25 @@ char* loadViewerParameters(const char *filename) {
           }
 
         } else {
+<<<<<<< HEAD
           vlog.info(_("The parameterArray contains a object of a invalid type "
                       "at line %d."), lineNr);
+=======
+          vlog.error(_("Unknown parameter type for parameter %s"),
+                     parameterArray[i]->getName());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         }
       }
     }
 
     if (invalidParameterName)
+<<<<<<< HEAD
       vlog.info(_("Invalid parameter name on line: %d in file: %s"),
                 lineNr, filepath);
+=======
+      vlog.info(_("Unknown parameter %s on line %d in file %s"),
+                line, lineNr, filepath);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
   fclose(f); f=0;
   

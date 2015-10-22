@@ -22,6 +22,10 @@
 #define __RFB_SCREENSET_INCLUDED__
 
 #include <stdio.h>
+<<<<<<< HEAD
+=======
+#include <string.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #include <rdr/types.h>
 #include <rfb/Rect.h>
@@ -108,6 +112,7 @@ namespace rfb {
       return true;
     };
 
+<<<<<<< HEAD
     inline void debug_print(void) const {
       std::list<Screen>::const_iterator iter;
       fprintf(stderr, "%d screens\n", num_screens());
@@ -117,6 +122,22 @@ namespace rfb {
                 iter->dimensions.width(), iter->dimensions.height(),
                 iter->dimensions.tl.x, iter->dimensions.tl.y,
                 (unsigned)iter->flags);
+=======
+    inline void print(char* str, size_t len) const {
+      char buffer[128];
+      std::list<Screen>::const_iterator iter;
+      snprintf(buffer, sizeof(buffer), "%d screen(s)\n", num_screens());
+      str[0] = '\0';
+      strncat(str, buffer, len - 1 - strlen(str));
+      for (iter = screens.begin();iter != screens.end();++iter) {
+        snprintf(buffer, sizeof(buffer),
+                 "    %10d (0x%08x): %dx%d+%d+%d (flags 0x%08x)\n",
+                 (int)iter->id, (unsigned)iter->id,
+                 iter->dimensions.width(), iter->dimensions.height(),
+                 iter->dimensions.tl.x, iter->dimensions.tl.y,
+                 (unsigned)iter->flags);
+        strncat(str, buffer, len - 1 - strlen(str));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       }
     };
 

@@ -19,9 +19,25 @@
 #ifndef __TESTS_UTIL_H__
 #define __TESTS_UTIL_H__
 
+<<<<<<< HEAD
+=======
+typedef void* cpucounter_t;
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 void startCpuCounter(void);
 void endCpuCounter(void);
 
 double getCpuCounter(void);
 
+<<<<<<< HEAD
+=======
+cpucounter_t newCpuCounter(void);
+void freeCpuCounter(cpucounter_t c);
+
+void startCpuCounter(cpucounter_t c);
+void endCpuCounter(cpucounter_t c);
+
+double getCpuCounter(cpucounter_t c);
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #endif

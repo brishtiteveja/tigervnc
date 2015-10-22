@@ -1,10 +1,19 @@
 %define _default_patch_fuzz 2
+<<<<<<< HEAD
 %define mesa_version 7.7.1
+=======
+%define tigervnc_src_dir %{_builddir}/%{name}-%{version}%{?snap:-%{snap}}
+%define xorg_buildroot %{tigervnc_src_dir}/xorg.build
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 %{!?_self_signed: %define _self_signed 1}
 
 Name: tigervnc
 Version: @VERSION@
+<<<<<<< HEAD
 Release: 18%{?snap:.%{snap}}%{?dist}
+=======
+Release: 6%{?snap:.%{snap}}%{?dist}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Summary: A TigerVNC remote display system
 
 Group: User Interface/Desktops
@@ -17,6 +26,7 @@ Source1: vncserver.service
 Source2: vncserver.sysconfig
 Source6: vncviewer.desktop
 Source9: FindX11.cmake
+<<<<<<< HEAD
 Source11: http://fltk.org/pub/fltk/1.3.2/fltk-1.3.2-source.tar.gz
 Source12: http://downloads.sourceforge.net/project/libjpeg-turbo/1.3.0/libjpeg-turbo-1.3.0.tar.gz
 
@@ -141,15 +151,117 @@ BuildRequires: automake >= 1.7, autoconf >= 2.57, libtool >= 1.4, gettext >= 0.1
 BuildRequires: openssl-devel
 BuildRequires: desktop-file-utils, java-devel, jpackage-utils
 BuildRequires: gnutls-devel, pam-devel
+=======
+Source11: http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz
+Source12: http://downloads.sourceforge.net/project/libjpeg-turbo/1.3.0/libjpeg-turbo-1.3.0.tar.gz
+Source13: http://downloads.sourceforge.net/project/libpng/libpng15/older-releases/1.5.10/libpng-1.5.10.tar.bz2
+Source14: https://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.bz2
+Source15: http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.2.tar.gz
+Source16: https://ftp.gnu.org/gnu/nettle/nettle-2.7.1.tar.gz
+Source17: ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/gnutls-3.3.13.tar.xz
+
+Source100: http://www.x.org/releases/X11R7.7/src/everything/bigreqsproto-1.1.2.tar.bz2
+Source101: http://www.x.org/releases/X11R7.7/src/everything/compositeproto-0.4.2.tar.bz2
+Source102: http://www.x.org/releases/X11R7.7/src/everything/damageproto-1.2.1.tar.bz2
+Source103: http://www.x.org/releases/X11R7.7/src/everything/dmxproto-2.3.1.tar.bz2
+Source104: http://www.x.org/releases/X11R7.7/src/everything/dri2proto-2.6.tar.bz2
+Source105: http://www.x.org/releases/X11R7.7/src/everything/fixesproto-5.0.tar.bz2
+Source106: http://www.x.org/releases/X11R7.7/src/everything/font-util-1.3.0.tar.bz2
+Source107: http://www.x.org/releases/X11R7.7/src/everything/fontsproto-2.1.2.tar.bz2
+Source108: http://www.x.org/releases/X11R7.7/src/everything/glproto-1.4.15.tar.bz2
+Source109: http://www.x.org/releases/X11R7.7/src/everything/inputproto-2.2.tar.bz2
+Source110: http://www.x.org/releases/X11R7.7/src/everything/kbproto-1.0.6.tar.bz2
+Source111: http://www.x.org/releases/X11R7.7/src/everything/libICE-1.0.8.tar.bz2
+Source112: http://www.x.org/releases/X11R7.7/src/everything/libSM-1.2.1.tar.bz2
+Source113: http://www.x.org/releases/X11R7.7/src/everything/libX11-1.5.0.tar.bz2
+Source114: http://www.x.org/releases/X11R7.7/src/everything/libXScrnSaver-1.2.2.tar.bz2
+Source115: http://www.x.org/releases/X11R7.7/src/everything/libXau-1.0.7.tar.bz2
+Source116: http://www.x.org/releases/X11R7.7/src/everything/libXaw-1.0.11.tar.bz2
+Source117: http://www.x.org/releases/X11R7.7/src/everything/libXcomposite-0.4.3.tar.bz2
+Source118: http://www.x.org/releases/X11R7.7/src/everything/libXcursor-1.1.13.tar.bz2
+Source119: http://www.x.org/releases/X11R7.7/src/everything/libXdamage-1.1.3.tar.bz2
+Source120: http://www.x.org/releases/X11R7.7/src/everything/libXdmcp-1.1.1.tar.bz2
+Source121: http://www.x.org/releases/X11R7.7/src/everything/libXext-1.3.1.tar.bz2
+Source122: http://www.x.org/releases/X11R7.7/src/everything/libXfixes-5.0.tar.bz2
+Source123: http://www.x.org/releases/X11R7.7/src/everything/libXfont-1.4.5.tar.bz2
+Source124: http://www.x.org/releases/X11R7.7/src/everything/libXft-2.3.1.tar.bz2
+Source125: http://www.x.org/releases/X11R7.7/src/everything/libXi-1.6.1.tar.bz2
+Source126: http://www.x.org/releases/X11R7.7/src/everything/libXinerama-1.1.2.tar.bz2
+Source127: http://www.x.org/releases/X11R7.7/src/everything/libXmu-1.1.1.tar.bz2
+Source128: http://www.x.org/releases/X11R7.7/src/everything/libXpm-3.5.10.tar.bz2
+Source129: http://www.x.org/releases/X11R7.7/src/everything/libXrandr-1.3.2.tar.bz2
+Source130: http://www.x.org/releases/X11R7.7/src/everything/libXrender-0.9.7.tar.bz2
+Source131: http://www.x.org/releases/X11R7.7/src/everything/libXres-1.0.6.tar.bz2
+Source132: http://www.x.org/releases/X11R7.7/src/everything/libXt-1.1.3.tar.bz2
+Source133: http://www.x.org/releases/X11R7.7/src/everything/libXtst-1.2.1.tar.bz2
+Source134: http://www.x.org/releases/X11R7.7/src/everything/libXv-1.0.7.tar.bz2
+Source135: http://www.x.org/releases/X11R7.7/src/everything/libXvMC-1.0.7.tar.bz2
+Source136: http://www.x.org/releases/X11R7.7/src/everything/libXxf86dga-1.1.3.tar.bz2
+Source137: http://www.x.org/releases/X11R7.7/src/everything/libXxf86vm-1.1.2.tar.bz2
+Source138: http://www.x.org/releases/X11R7.7/src/everything/libfontenc-1.1.1.tar.bz2
+Source139: http://www.x.org/releases/X11R7.7/src/everything/libpciaccess-0.13.1.tar.bz2
+#Source140: http://www.x.org/releases/X11R7.7/src/everything/libpthread-stubs-0.3.tar.bz2
+# libpthread-stubs fails to compile, so we use the same method
+# as the el6 libxcb rpm. pthread-stubs.pc.in taken from el6 libxcb rpm
+Source140: pthread-stubs.pc.in
+Source141: http://www.x.org/releases/X11R7.7/src/everything/libxcb-1.8.1.tar.bz2
+Source142: http://www.x.org/releases/X11R7.7/src/everything/libxkbfile-1.0.8.tar.bz2
+Source143: http://www.x.org/releases/X11R7.7/src/everything/makedepend-1.0.4.tar.bz2
+Source144: http://www.x.org/releases/X11R7.7/src/everything/randrproto-1.3.2.tar.bz2
+Source145: http://www.x.org/releases/X11R7.7/src/everything/recordproto-1.14.2.tar.bz2
+Source146: http://www.x.org/releases/X11R7.7/src/everything/renderproto-0.11.1.tar.bz2
+Source147: http://www.x.org/releases/X11R7.7/src/everything/resourceproto-1.2.0.tar.bz2
+Source148: http://www.x.org/releases/X11R7.7/src/everything/scrnsaverproto-1.2.2.tar.bz2
+Source149: http://www.x.org/releases/X11R7.7/src/everything/util-macros-1.17.tar.bz2
+Source150: http://www.x.org/releases/X11R7.7/src/everything/videoproto-2.3.1.tar.bz2
+Source151: http://www.x.org/releases/X11R7.7/src/everything/xcb-proto-1.7.1.tar.bz2
+Source152: http://www.x.org/releases/X11R7.7/src/everything/xcmiscproto-1.2.2.tar.bz2
+Source153: http://www.x.org/releases/X11R7.7/src/everything/xextproto-7.2.1.tar.bz2
+Source154: http://www.x.org/releases/X11R7.7/src/everything/xf86bigfontproto-1.2.0.tar.bz2
+Source155: http://www.x.org/releases/X11R7.7/src/everything/xf86dgaproto-2.1.tar.bz2
+Source156: http://www.x.org/releases/X11R7.7/src/everything/xf86driproto-2.1.1.tar.bz2
+Source157: http://www.x.org/releases/X11R7.7/src/everything/xf86vidmodeproto-2.3.1.tar.bz2
+Source158: http://www.x.org/releases/X11R7.7/src/everything/xineramaproto-1.2.1.tar.bz2
+Source159: http://www.x.org/releases/X11R7.7/src/everything/xorg-server-1.12.2.tar.bz2
+Source160: http://www.x.org/releases/X11R7.7/src/everything/xproto-7.0.23.tar.bz2
+Source161: http://www.x.org/releases/X11R7.7/src/everything/xrandr-1.3.5.tar.bz2
+Source162: http://www.x.org/releases/X11R7.7/src/everything/xtrans-1.2.7.tar.bz2
+
+Source200: http://fontconfig.org/release/fontconfig-2.8.0.tar.gz
+Source201: http://download.savannah.gnu.org/releases/freetype/freetype-old/freetype-2.3.11.tar.bz2
+Source202: http://xorg.freedesktop.org/archive/individual/lib/pixman-0.32.4.tar.bz2
+Source203: http://dri.freedesktop.org/libdrm/libdrm-2.4.52.tar.bz2
+Source204: ftp://ftp.freedesktop.org/pub/mesa/older-versions/9.x/9.2.5/MesaLib-9.2.5.tar.bz2
+# NOTE:
+#   libgcrypt from el5 is not new enough to satisfy newer Xorg requirements for --with-sha1,
+#   which causes Xorg to link against libssl.so and introduce about 10 dynamic dependencies. 
+#   to prevent this, build a static libsha1 and link against that.
+# NOTE:
+Source205: https://github.com/dottedmag/libsha1/archive/0.3.tar.gz
+
+BuildRoot: %{_tmppath}/%{name}-%{version}%{?snap:-%{snap}}-%{release}-root-%(%{__id_u} -n)
+
+# xorg requires newer versions of automake, & autoconf than are available with el5. Use el6 versions.
+BuildRequires: automake >= 1.11, autoconf >= 2.60, libtool >= 1.4, gettext >= 0.14.4, gettext-devel >= 0.14.4, bison-devel, python26
+BuildRequires: desktop-file-utils, java-devel, jpackage-utils
+BuildRequires: pam-devel
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 BuildRequires: cmake28
 BuildRequires: pkgconfig >= 0.20
 BuildRequires: gcc44, gcc44-c++
 BuildRequires: glibc-devel, libstdc++-devel, libpng-devel
 BuildRequires: expat-devel
+<<<<<<< HEAD
 BuildRequires: gperf, intltool, libtalloc-devel
 
 BuildRequires: openmotif-devel
 Requires: openmotif, openmotif22
+=======
+BuildRequires: git, gperf, intltool, libtalloc-devel
+BuildRequires: kernel-headers, libatomic_ops-devel
+BuildRequires: xz
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Requires(post): initscripts chkconfig coreutils
 Requires(postun):coreutils
 Requires: hicolor-icon-theme
@@ -160,6 +272,7 @@ Obsoletes: vnc < 4.1.3-2, vnc-libs < 4.1.3-2
 Provides: tightvnc = 1.5.0-0.15.20090204svn3586
 Obsoletes: tightvnc < 1.5.0-0.15.20090204svn3586
 
+<<<<<<< HEAD
 Patch4: tigervnc-cookie.patch
 Patch10: tigervnc11-ldnow.patch
 Patch11: tigervnc11-gethomedir.patch
@@ -384,6 +497,61 @@ Patch10201: libXext-1.1-XAllocID.patch
 Patch10301: libfontenc-1.0.0-get-fontdir-from-pkgconfig.patch
 
 Patch10400: libXt-1.0.2-libsm-fix.patch
+=======
+# tigervnc patches
+Patch4: tigervnc-cookie.patch
+Patch12: tigervnc14-static-build-fixes.patch
+
+# fltk patches
+Patch15: fltk-1.3.3-static-libs.patch
+
+# freetype patches
+Patch20:  freetype-2.1.10-enable-ft2-bci.patch
+Patch21:  freetype-2.3.0-enable-spr.patch
+
+# Enable otvalid and gxvalid modules
+Patch46:  freetype-2.2.1-enable-valid.patch
+
+# Fix multilib conflicts
+Patch88:  freetype-multilib.patch
+
+Patch89:  freetype-2.3.11-CVE-2010-2498.patch
+Patch90:  freetype-2.3.11-CVE-2010-2499.patch
+Patch91:  freetype-2.3.11-CVE-2010-2500.patch
+Patch92:  freetype-2.3.11-CVE-2010-2519.patch
+Patch93:  freetype-2.3.11-CVE-2010-2520.patch
+Patch96:  freetype-2.3.11-CVE-2010-1797.patch
+Patch97:  freetype-2.3.11-CVE-2010-2805.patch
+Patch98:  freetype-2.3.11-CVE-2010-2806.patch
+Patch99:  freetype-2.3.11-CVE-2010-2808.patch
+Patch100:  freetype-2.3.11-CVE-2010-3311.patch
+Patch101:  freetype-2.3.11-CVE-2010-3855.patch
+Patch102:  freetype-2.3.11-CVE-2011-0226.patch
+Patch103:  freetype-2.3.11-CVE-2011-3256.patch
+Patch104:  freetype-2.3.11-CVE-2011-3439.patch
+Patch105:  freetype-2.3.11-CVE-2012-1126.patch
+Patch106:  freetype-2.3.11-CVE-2012-1127.patch
+Patch107:  freetype-2.3.11-CVE-2012-1130.patch
+Patch108:  freetype-2.3.11-CVE-2012-1131.patch
+Patch109:  freetype-2.3.11-CVE-2012-1132.patch
+Patch110:  freetype-2.3.11-CVE-2012-1134.patch
+Patch111:  freetype-2.3.11-CVE-2012-1136.patch
+Patch112:  freetype-2.3.11-CVE-2012-1137.patch
+Patch113:  freetype-2.3.11-CVE-2012-1139.patch
+Patch114:  freetype-2.3.11-CVE-2012-1140.patch
+Patch115:  freetype-2.3.11-CVE-2012-1141.patch
+Patch116:  freetype-2.3.11-CVE-2012-1142.patch
+Patch117:  freetype-2.3.11-CVE-2012-1143.patch
+Patch118:  freetype-2.3.11-CVE-2012-1144.patch
+Patch119:  freetype-2.3.11-bdf-overflow.patch
+Patch120:  freetype-2.3.11-array-initialization.patch
+Patch121:  freetype-2.3.11-CVE-2012-5669.patch
+
+# Patches for Xorg CVE-2014-12-09 taken from Debian:
+# https://release.debian.org/proposed-updates/stable_diffs/xorg-server_1.12.4-6+deb7u5.debdiff
+Patch10000: 16_CVE-2014-mult.diff
+Patch10001: 17_CVE-regressions.diff
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 %description
 Virtual Network Computing (VNC) is a remote display system which
@@ -420,6 +588,10 @@ Requires(preun):initscripts
 Requires(postun):initscripts
 
 Requires: xkeyboard-config, xorg-x11-xkb-utils
+<<<<<<< HEAD
+=======
+Requires: keyutils-libs-devel
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Requires: tigervnc-license
 
 %description server-minimal
@@ -464,6 +636,7 @@ This package contains icons for TigerVNC viewer
 rm -rf %{_builddir}/%{name}-%{version}%{?snap:-%{snap}}
 %setup -q -n %{name}-%{version}%{?snap:-%{snap}}
 
+<<<<<<< HEAD
 # sed -i -e 's/80/0/g' CMakeLists.txt
 cp %SOURCE9 cmake/Modules/
 %patch4 -p1 -b .cookie
@@ -489,6 +662,29 @@ mkdir xorg
 pushd xorg
 tar xjf %SOURCE98
 tar xjf %SOURCE99
+=======
+# Search paths for X11 are hard coded into FindX11.cmake
+cp %SOURCE9 cmake/Modules/
+sed -i -e "s#@_includedir@#%{xorg_buildroot}%{_includedir}#" cmake/Modules/FindX11.cmake
+sed -i -e "s#@_libdir@#%{xorg_buildroot}%{_libdir}#" cmake/Modules/FindX11.cmake
+%patch4 -p1 -b .cookie
+%patch12 -p1 -b .static-build-fixes
+
+tar xzf %SOURCE11
+pushd fltk-*
+%patch15 -p1 -b .static-libs
+popd
+
+tar xzf %SOURCE12
+tar xjf %SOURCE13
+tar xjf %SOURCE14
+tar xzf %SOURCE15
+tar xzf %SOURCE16
+xzcat %SOURCE17 | tar xf -
+
+mkdir xorg
+pushd xorg
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 tar xjf %SOURCE100
 tar xjf %SOURCE101
 tar xjf %SOURCE102
@@ -529,7 +725,11 @@ tar xjf %SOURCE136
 tar xjf %SOURCE137
 tar xjf %SOURCE138
 tar xjf %SOURCE139
+<<<<<<< HEAD
 tar xjf %SOURCE140
+=======
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 tar xjf %SOURCE141
 tar xjf %SOURCE142
 tar xjf %SOURCE143
@@ -546,6 +746,7 @@ tar xjf %SOURCE153
 tar xjf %SOURCE154
 tar xjf %SOURCE155
 tar xjf %SOURCE156
+<<<<<<< HEAD
 # tar xjf %SOURCE157
 # tar xjf %SOURCE158
 tar xjf %SOURCE159
@@ -774,16 +975,85 @@ done
 
 %patch8000 -p1 -b .cve-2011-4818
 %patch8001 -p1 -b .cve-2011-4818-extra
+=======
+tar xjf %SOURCE157
+tar xjf %SOURCE158
+tar xjf %SOURCE159
+tar xjf %SOURCE160
+tar xjf %SOURCE161
+tar xjf %SOURCE162
+tar xzf %SOURCE200
+tar xjf %SOURCE201
+pushd freetype-*
+%patch46  -p1 -b .enable-valid
+%patch88 -p1 -b .multilib
+%patch89 -p1 -b .CVE-2010-2498
+%patch90 -p1 -b .CVE-2010-2499
+%patch91 -p1 -b .CVE-2010-2500
+%patch92 -p1 -b .CVE-2010-2519
+%patch93 -p1 -b .CVE-2010-2520
+%patch96 -p1 -b .CVE-2010-1797
+%patch97 -p1 -b .CVE-2010-2805
+%patch98 -p1 -b .CVE-2010-2806
+%patch99 -p1 -b .CVE-2010-2808
+%patch100 -p1 -b .CVE-2010-3311
+%patch101 -p1 -b .CVE-2010-3855
+%patch102 -p1 -b .CVE-2011-0226
+%patch103 -p1 -b .CVE-2011-3256
+%patch104 -p1 -b .CVE-2011-3439
+%patch105 -p1 -b .CVE-2012-1126
+%patch106 -p1 -b .CVE-2012-1127
+%patch107 -p1 -b .CVE-2012-1130
+%patch108 -p1 -b .CVE-2012-1131
+%patch109 -p1 -b .CVE-2012-1132
+%patch110 -p1 -b .CVE-2012-1134
+%patch111 -p1 -b .CVE-2012-1136
+%patch112 -p1 -b .CVE-2012-1137
+%patch113 -p1 -b .CVE-2012-1139
+%patch114 -p1 -b .CVE-2012-1140
+%patch115 -p1 -b .CVE-2012-1141
+%patch116 -p1 -b .CVE-2012-1142
+%patch117 -p1 -b .CVE-2012-1143
+%patch118 -p1 -b .CVE-2012-1144
+%patch119 -p1 -b .bdf-overflow
+%patch120 -p1 -b .array-initialization
+%patch121 -p1 -b .CVE-2012-5669
+popd
+tar xjf %SOURCE202
+tar xjf %SOURCE203
+tar xjf %SOURCE204
+pushd xorg-server-1*
+%patch10000 -p1 -b .CVE-2014-mult
+%patch10001 -p1 -b .CVE-regressions
+for f in `find . -type f -perm -000`; do
+  chmod +r "$f"
+done
+popd
+tar xzf %SOURCE205
+popd
+
+cp -a xorg/xorg-server-1*/* unix/xserver
+
+pushd unix/xserver
+for all in `find . -type f -perm -001`; do
+  chmod -x "$all"
+done
+patch -p1 < %{_builddir}/%{name}-%{version}%{?snap:-%{snap}}/unix/xserver112.patch
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 popd
 
 %build
+<<<<<<< HEAD
 %define tigervnc_src_dir %{_builddir}/%{name}-%{version}%{?snap:-%{snap}}
 %define static_lib_buildroot %{tigervnc_src_dir}/build
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 export CC=gcc44
 export CXX=g++44
 export CFLAGS="$RPM_OPT_FLAGS -fPIC"
 export CXXFLAGS="$CFLAGS -static-libgcc"
+<<<<<<< HEAD
 
 %define xorg_buildroot %{tigervnc_src_dir}/xorg.build
 mkdir -p %{xorg_buildroot}%{_libdir}
@@ -797,26 +1067,118 @@ ln -s `g++44 -print-file-name=libcrypto.a`
 ln -s `g++44 -print-file-name=libz.a`
 ln -s `g++44 -print-file-name=libgcc.a`
 ln -s `g++44 -print-file-name=libpng.a`
+=======
+export PYTHON=python26
+
+mkdir -p %{xorg_buildroot}%{_libdir}
+pushd %{xorg_buildroot}%{_libdir}
+ln -s `g++44 -print-file-name=libz.a`
+ln -s `g++44 -print-file-name=libgcc.a`
+ln -s `g++44 -print-file-name=libexpat.a`
+ln -s `g++44 -print-file-name=libcrypto.a`
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 popd
 
 echo "*** Building libjpeg-turbo ***"
 pushd libjpeg-turbo-*
+<<<<<<< HEAD
 ./configure --prefix=%{_prefix} --libdir=%{_libdir} --disable-nls --enable-static --disable-shared
 make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+=======
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --disable-nls --enable-static --disable-shared
+make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+popd
+
+echo "*** Building Xorg ***"
+pushd xorg
+
+echo "*** Building libsha1 ***"
+pushd libsha1-*
+autoreconf -fiv
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --disable-nls --enable-static --disable-shared
+make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+popd
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 popd
 
 export CFLAGS="$RPM_OPT_FLAGS -fPIC -I%{xorg_buildroot}%{_includedir}"
 export CXXFLAGS="$RPM_OPT_FLAGS -fPIC -I%{xorg_buildroot}%{_includedir} -static-libgcc"
 export CPPFLAGS=$CXXFLAGS
+<<<<<<< HEAD
 export LDFLAGS="$LDFLAGS -L%{xorg_buildroot}%{_libdir}"
 export ACLOCAL="aclocal -I %{xorg_buildroot}%{_datadir}/aclocal"
 export PKG_CONFIG_PATH="%{xorg_buildroot}%{_libdir}/pkgconfig:%{xorg_buildroot}%{_datadir}/pkgconfig"
 
 echo "*** Building Xorg ***"
+=======
+export LDFLAGS="-L%{xorg_buildroot}%{_libdir} -L%{xorg_buildroot}%{_libdir}/tigervnc $LDFLAGS"
+export ACLOCAL="aclocal -I %{xorg_buildroot}%{_datadir}/aclocal"
+export PKG_CONFIG_PATH="%{xorg_buildroot}%{_libdir}/pkgconfig:%{xorg_buildroot}%{_libdir}/tigervnc/pkgconfig:%{xorg_buildroot}%{_datadir}/pkgconfig:%{_libdir}/pkgconfig:%{_datadir}/pkgconfig"
+
+echo "*** Building gmp ***"
+pushd gmp-*
+%ifarch x86_64 s390x ia64 ppc64 alpha sparc64
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ABI=64 ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared --enable-cxx
+%else
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ABI=32 ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared --enable-cxx
+%endif
+make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building libtasn1 ***"
+pushd libtasn1-*
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared
+make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building nettle ***"
+pushd nettle-*
+autoreconf -fiv
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared --disable-openssl
+make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building gnutls ***"
+pushd gnutls-*
+LDFLAGS="-L%{xorg_buildroot}%{_libdir} -lgmp $LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure \
+  --prefix=%{_prefix} \
+  --libdir=%{_libdir} \
+  --enable-static \
+  --disable-shared \
+  --without-p11-kit \
+  --disable-guile \
+  --disable-srp-authentication \
+  --disable-libdane \
+  --disable-doc \
+  --enable-local-libopts \
+  --without-tpm \
+  --disable-dependency-tracking \
+  --disable-silent-rules \
+  --disable-heartbeat-support
+make %{?_smp_mflags} DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+popd
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 pushd xorg
 
 echo "*** Building freetype ***"
 pushd freetype-*
+<<<<<<< HEAD
 CFLAGS="$CFLAGS -fno-strict-aliasing" LDFLAGS="$LDFLAGS -static" ./configure --prefix=/usr --libdir=%{_libdir} --enable-static --disable-shared
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' builds/unix/libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' builds/unix/libtool
@@ -824,6 +1186,16 @@ make DESTDIR=%{xorg_buildroot} install
 find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -exec sed -i -e "s|libdir='%{_libdir}'|libdir='%{xorg_buildroot}%{_libdir}'|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=/usr|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+=======
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" CFLAGS="$CFLAGS -fno-strict-aliasing" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' builds/unix/libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' builds/unix/libtool
+make DESTDIR=%{xorg_buildroot} install
+# FIXME: fontconfig bails out if we delete the libtool archives
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -exec sed -i -e "s|libdir='%{_libdir}'|libdir='%{xorg_buildroot}%{_libdir}'|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 # fix multilib issues
 %ifarch x86_64 s390x ia64 ppc64 alpha sparc64
 %define wordsize 64
@@ -851,6 +1223,7 @@ cat >%{xorg_buildroot}%{_includedir}/freetype2/freetype/config/ftconfig.h <<EOF
 EOF
 popd
 
+<<<<<<< HEAD
 pushd util-macros-*
 echo "Building macros"
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-nls --enable-static --disable-shared
@@ -858,6 +1231,26 @@ make DESTDIR=%{xorg_buildroot} install
 find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -exec sed -i -e "s|libdir='%{_libdir}'|libdir='%{xorg_buildroot}%{_libdir}'|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=/usr|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+=======
+echo "*** Building fontconfig ***"
+pushd fontconfig-*
+autoreconf -fiv
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" HASDOCBOOK=no ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared --with-confdir=%{_sysconfdir}/fonts --with-cache-dir=%{_localstatedir}/cache/fontconfig --with-default-fonts=%{_datadir}/fonts --with-add-fonts="%{_datadir}/X11/fonts/Type1,%{_datadir}/X11/fonts/OTF,%{_datadir}/X11/fonts/TTF,%{_datadir}/X11/fonts/misc,%{_datadir}/X11/fonts/100dpi,%{_datadir}/X11/fonts/75dpi,%{_prefix}/local/share/fonts,~/.fonts"
+make %{?_smp_mflags}
+make DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+popd
+
+pushd util-macros-*
+echo "Building macros"
+LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared
+make DESTDIR=%{xorg_buildroot} install
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 popd
 
 modules="\
@@ -876,6 +1269,10 @@ modules="\
     resourceproto \
     scrnsaverproto \
     videoproto \
+<<<<<<< HEAD
+=======
+    xcb-proto \
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     xproto \
     xcmiscproto \
     xextproto \
@@ -883,13 +1280,20 @@ modules="\
     xf86dgaproto \
     xf86driproto \
     xf86vidmodeproto \
+<<<<<<< HEAD
     xf86miscproto \
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     xineramaproto \
     makedepend \
     xtrans \
     libXau \
     libXdmcp \
+<<<<<<< HEAD
     libpthread-stubs \
+=======
+    libxcb \
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     libX11 \
     libXext \
     libfontenc \
@@ -916,10 +1320,17 @@ modules="\
     libXv \
     libXxf86dga \
     libXxf86vm \
+<<<<<<< HEAD
     libXxf86misc \
     libpciaccess \
     pixman \
     libdrm"
+=======
+    libpciaccess \
+    pixman \
+    libdrm \
+    font-util"
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 for module in ${modules}; do
   extraoptions=""
@@ -927,6 +1338,7 @@ for module in ${modules}; do
   echo ======================
   echo configuring ${module}
   echo ======================
+<<<<<<< HEAD
 %ifarch i386 i686
   if [ "${module}" = "libdrm" ]; then
     extraoptions="${extraoptions} --disable-intel"
@@ -937,12 +1349,47 @@ for module in ${modules}; do
   fi
   if [ "${module}" = "libX11" ]; then
     extraoptions="${extraoptions} --without-xcb --disable-specs"
+=======
+%ifarch i386 i686 x86_64
+  if [ "${module}" = "libdrm" ]; then
+    autoreconf -fiv
+    extraoptions="${extraoptions} --enable-udev --disable-libkms --disable-manpages --disable-intel --disable-radeon --disable-nouveau --disable-vmwgfx"
+  fi
+%endif
+  if [ "${module}" = "libXdmcp" ]; then
+    autoreconf -fiv
+  fi
+  if [ "${module}" = "libXcursor" ]; then
+    autoreconf -fiv
+  fi
+  if [ "${module}" = "libfontenc" ]; then
+    autoconf
+  fi
+  if [ "${module}" = "libXi" ]; then
+    autoreconf -fiv
+  fi
+  if [ "${module}" = "libXaw" ]; then
+    extraoptions="${extraoptions} --disable-xaw8 --disable-xaw6"
+  fi
+  if [ "${module}" = "libxcb" ]; then
+    sed -i 's/pthread-stubs //' configure.ac
+    autoreconf -fiv
+  fi
+  if [ "${module}" = "libX11" ]; then
+    autoreconf -fiv
+    sed -i -e 's|^\(#pragma weak pthread_equal.*\)$||' src/UIThrStubs.c
+    extraoptions="${extraoptions} --disable-specs"
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   fi
   if [ "${module}" = "libSM" ]; then
     extraoptions="${extraoptions} --without-libuuid"
   fi
   if [ "${module}" = "pixman" ]; then
+<<<<<<< HEAD
     extraoptions="${extraoptions} --disable-gtk"
+=======
+    extraoptions="${extraoptions} --disable-gtk --disable-openmp"
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     aclocal -I %{xorg_buildroot}%{_datadir}/aclocal
     autoconf
     autoreconf -fiv
@@ -950,6 +1397,7 @@ for module in ${modules}; do
   if [ "${module}" = "libXfont" ]; then
     extraoptions="${extraoptions} --with-freetype-config=%{xorg_buildroot}%{_bindir}/freetype-config"
   fi
+<<<<<<< HEAD
   if [ "${module}" = "libpthread-stubs" ]; then
     LDFLAGS="" ./configure --prefix=/usr --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
   elif [ "${module}" = "libX11" ]; then
@@ -958,20 +1406,61 @@ for module in ${modules}; do
     XTST_FLAGS="-L%{xorg_buildroot}%{_libdir} -Wl,-B,static -lXext" ./configure --prefix=/usr --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
   else
     ./configure --prefix=/usr --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+=======
+  if [ "${module}" = "libXScrnSaver" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" CFLAGS="$CFLAGS -fno-strict-aliasing" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+  elif [ "${module}" = "libxkbfile" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" CFLAGS="$CFLAGS -fno-strict-aliasing" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+  elif [ "${module}" = "pixman" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" CFLAGS="$CFLAGS -fno-strict-aliasing" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+  elif [ "${module}" = "libXt" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" CFLAGS="$CFLAGS -fno-strict-aliasing" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic --with-xfile-search-path="%{_sysconfdir}/X11/%%L/%%T/%%N%%C%%S:%{_sysconfdir}/X11/%%l/%%T/\%%N%%C%%S:%{_sysconfdir}/X11/%%T/%%N%%C%%S:%{_sysconfdir}/X11/%%L/%%T/%%N%%S:%{_sysconfdir}/X\11/%%l/%%T/%%N%%S:%{_sysconfdir}/X11/%%T/%%N%%S:%{_datadir}/X11/%%L/%%T/%%N%%C%%S:%{_datadir}/X1\1/%%l/%%T/%%N%%C%%S:%{_datadir}/X11/%%T/%%N%%C%%S:%{_datadir}/X11/%%L/%%T/%%N%%S:%{_datadir}/X11/%%\l/%%T/%%N%%S:%{_datadir}/X11/%%T/%%N%%S"
+  elif [ "${module}" = "libX11" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+  elif [ "${module}" = "libXtst" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+  elif [ "${module}" = "libXpm" ]; then
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+  else
+    LDFLAGS="$LDFLAGS -static" PKG_CONFIG="pkg-config --static" ./configure --prefix=%{_prefix} --libdir=%{_libdir} ${extraoptions} --enable-static --disable-shared --with-pic
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   fi
   echo ======================
   echo building ${module}
   echo ======================
+<<<<<<< HEAD
   make DESTDIR=%{xorg_buildroot} install
   find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -exec sed -i -e "s|libdir='%{_libdir}'|libdir='%{xorg_buildroot}%{_libdir}'|" {} \;
   find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
   find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=/usr|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+=======
+  make DESTDIR=%{xorg_buildroot}
+  if [ "${module}" = "libX11" ]; then
+    make DESTDIR=%{xorg_buildroot} INSTALL="install -p" install
+  else
+    make DESTDIR=%{xorg_buildroot} install
+  fi
+  find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+  find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+  find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+  if [ "${module}" = "libxcb" ]; then
+    sed 's,@libdir@,%{xorg_buildroot}%{_libdir},;s,@prefix@,%{xorg_buildroot}%{_prefix},;s,@exec_prefix@,%{xorg_buildroot}%{_exec_prefix},' %{SOURCE140} > %{xorg_buildroot}%{_libdir}/pkgconfig/pthread-stubs.pc
+    sed -i -e 's/^\(Libs.private:.*\)$/\1 -L${libdir} -lXdmcp -lXau/' %{xorg_buildroot}%{_libdir}/pkgconfig/xcb.pc 
+  elif [ "${module}" = "libX11" ]; then
+    sed -i -e 's/^\(Libs:.*\)$/\1 -ldl/' %{xorg_buildroot}%{_libdir}/pkgconfig/x11.pc 
+    sed -i -e 's/^\(Libs.private:.*\)$/\1 -L${libdir} -lxcb/' %{xorg_buildroot}%{_libdir}/pkgconfig/x11.pc 
+  elif [ "${module}" = "libSM" ]; then
+    echo 'Libs.private: -L${libdir} -lICE' >> %{xorg_buildroot}%{_libdir}/pkgconfig/sm.pc
+  fi
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   popd
 done
 
 # build mesa
 echo "*** Building Mesa ***"
 pushd Mesa-*
+<<<<<<< HEAD
 %ifarch %{ix86}
 # i do not have words for how much the assembly dispatch code infuriates me
 %define _mesa_flags --enable-pic --disable-asm
@@ -1005,10 +1494,48 @@ make DESTDIR=%{xorg_buildroot} install
 find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -exec sed -i -e "s|libdir='%{_libdir}'|libdir='%{xorg_buildroot}%{_libdir}'|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=/usr|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+=======
+export PYTHON2=python26
+%ifarch %{ix86}
+sed -i -e 's/-std=c99/-std=gnu99/g' configure.ac
+%endif
+autoreconf -fiv
+%ifarch %{ix86}
+# i do not have words for how much the assembly dispatch code infuriates me
+%define common_flags --disable-selinux --enable-pic --disable-asm
+%else
+%define common_flags --disable-selinux --enable-pic
+%endif
+
+# link libGL statically against any xorg libraries built above
+LDFLAGS="$LDFLAGS -Wl,-Bstatic -lxcb -lX11 -lXdmcp -lXau -lXext -lXxf86vm -ldrm -Wl,-Bdynamic -Wl,-rpath,%{_libdir}/tigervnc:%{_libdir}" \
+PKG_CONFIG="pkg-config --static" ./configure %{common_flags} \
+    --prefix=%{_prefix} \
+    --libdir=%{_libdir}/tigervnc \
+    --disable-osmesa \
+    --disable-shared-glapi \
+    --disable-egl \
+    --disable-gbm \
+    --enable-glx \
+    --disable-glx-tls \
+    --disable-opencl \
+    --disable-xvmc \
+    --with-dri-driverdir=%{_libdir}/tigervnc/dri \
+    --disable-gallium-egl \
+    --with-gallium-drivers="" \
+    --with-dri-drivers=swrast
+
+make DESTDIR=%{xorg_buildroot}
+make install DESTDIR=%{xorg_buildroot}
+find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
+find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 popd
 
 popd
 
+<<<<<<< HEAD
 echo "*** Building fontconfig ***"
 pushd fontconfig-*
 HASDOCBOOK=no ./configure --prefix=%{_prefix} --libdir=%{_libdir} --with-add-fonts=/usr/share/X11/fonts/Type1,/usr/share/X11/fonts/OTF --enable-static --disable-shared
@@ -1017,11 +1544,23 @@ make DESTDIR=%{xorg_buildroot} install
 find %{xorg_buildroot}%{_prefix} -type f -name "*.la" -exec sed -i -e "s|libdir='%{_libdir}'|libdir='%{xorg_buildroot}%{_libdir}'|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{xorg_buildroot}%{_libdir}|" {} \;
 find %{xorg_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=/usr|prefix=%{xorg_buildroot}%{_prefix}|" {} \;
+=======
+echo "*** Building libpng ***"
+pushd libpng-*
+CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" ./configure \
+  --prefix=%{_prefix} \
+  --libdir=%{_libdir} \
+  --disable-shared \
+  --enable-static
+make %{?_smp_mflags}
+make DESTDIR=%{xorg_buildroot} install
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 popd
 
 echo "*** Building fltk ***"
 pushd fltk-*
 export CMAKE_PREFIX_PATH="%{xorg_buildroot}%{_prefix}:%{_prefix}"
+<<<<<<< HEAD
 export CMAKE_EXE_LINKER_FLAGS="-static-libgcc -L%{xorg_buildroot}%{_libdir}"
 %{cmake28} -G"Unix Makefiles" \
   -DCMAKE_INSTALL_PREFIX=%{xorg_buildroot}%{_prefix} \
@@ -1032,12 +1571,34 @@ export CMAKE_EXE_LINKER_FLAGS="-static-libgcc -L%{xorg_buildroot}%{_libdir}"
   -DOPTION_BUILD_EXAMPLES=off \
   -DOPTION_USE_SYSTEM_LIBPNG=on
 make %{?_smp_mflags}
+=======
+export CMAKE_EXE_LINKER_FLAGS=$LDFLAGS
+export PKG_CONFIG="pkg-config --static" 
+CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" ./configure \
+  --prefix=%{_prefix} \
+  --libdir=%{_libdir} \
+  --enable-x11 \
+  --enable-gl \
+  --disable-shared \
+  --enable-localjpeg \
+  --enable-localzlib \
+  --disable-localpng \
+  --enable-xinerama \
+  --enable-xft \
+  --enable-xdbe \
+  --enable-xfixes \
+  --enable-xcursor \
+  --with-x 
+make %{?_smp_mflags}
+make DESTDIR=%{xorg_buildroot} install
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 popd
 
 echo "*** Building VNC ***"
 export CFLAGS="$CFLAGS -fPIC"
 export CXXFLAGS=`echo $CXXFLAGS | sed -e 's/ -c //g'`
 %{cmake28} -G"Unix Makefiles" \
+<<<<<<< HEAD
   -DX11_INC_SEARCH_PATH=%{xorg_buildroot}%{_includedir} \
   -DX11_LIB_SEARCH_PATH=%{xorg_buildroot}%{_libdir} \
   -DFLTK_LIBRARY_DIR=%{tigervnc_src_dir}/fltk-1.3.2/lib \
@@ -1047,11 +1608,22 @@ export CXXFLAGS=`echo $CXXFLAGS | sed -e 's/ -c //g'`
   -DBUILD_STATIC=1 \
   -DCMAKE_BUILD_TYPE=Release \
   -DUSE_INCLUDED_ZLIB=0 \
+=======
+  -DFLTK_FLUID_EXECUTABLE=%{xorg_buildroot}%{_bindir}/fluid \
+  -DFLTK_LIBRARY_DIR=%{xorg_buildroot}%{_libdir} \
+  -DFLTK_INCLUDE_DIR=%{xorg_buildroot}%{_includedir} \
+  -DBUILD_STATIC=1 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DUSE_INCLUDED_ZLIB=0 \
+  -DZLIB_INCLUDE_DIR=%{_includedir} \
+  -DZLIB_LIBRARY=%{_libdir}/libz.a \
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   -DCMAKE_INSTALL_PREFIX=%{_prefix}
 
 make %{?_smp_mflags}
 
 pushd unix/xserver
+<<<<<<< HEAD
 export LD=$CXX
 export PIXMANINCDIR=%{xorg_buildroot}%{_includedir}/pixman-1
 autoreconf -fiv 
@@ -1099,6 +1671,39 @@ autoreconf -fiv
 	--disable-maintainer-mode
 
 sed -i -e 's/^ECHO/echo/' ./libtool
+=======
+export PIXMANINCDIR=%{xorg_buildroot}%{_includedir}/pixman-1
+sed -i -e 's/^\(\s*WAYLAND_SCANNER_RULES.*\)/dnl\1/' configure.ac
+autoreconf -fiv 
+chmod +x ./configure
+# create a relocatable Xvnc so that we can bundle the custom libGL & swrast w/o overwriting existing libs
+GL_LIBS='-Wl,-Bdynamic -lGL' LDFLAGS="$LDFLAGS -L%{xorg_buildroot}%{_libdir}/tigervnc -Wl,-rpath,%{_libdir}/tigervnc:%{_libdir}" \
+%configure \
+  --prefix=%{_prefix} --libdir=%{_libdir} --mandir=%{_datadir}/man \
+  --sysconfdir=%{_sysconfdir} --localstatedir=%{_localstatedir} \
+  --with-vendor-name="The TigerVNC Project" --with-vendor-name-short="TigerVNC" \
+  --with-vendor-web="http://www.tigervnc.org" \
+  --disable-xorg --disable-xnest --disable-xvfb --disable-dmx \
+  --disable-xwin --disable-xephyr --disable-kdrive --disable-wayland \
+  --with-pic --enable-static --disable-shared --enable-xinerama \
+  --with-default-xkb-rules=base \
+  --with-default-font-path="catalogue:%{_sysconfdir}/X11/fontpath.d,%{_datadir}/X11/fonts/misc,%{_datadir}/X11/fonts/OTF,%{_datadir}/X11/fonts/TTF,%{_datadir}/X11/fonts/Type1,%{_datadir}/X11/fonts/100dpi,%{_datadir}/X11/fonts/75dpi,built-ins" \
+  --with-serverconfig-path=%{_libdir}/xorg \
+  --with-fontrootdir=%{_datadir}/X11/fonts \
+  --with-xkb-output=%{_localstatedir}/lib/xkb \
+  --enable-install-libxf86config \
+  --enable-glx --disable-glx-tls --disable-dri --enable-dri2 --disable-dri3 \
+  --disable-present \
+  --disable-config-dbus \
+  --disable-config-hal \
+  --disable-config-udev \
+  --without-dtrace \
+  --disable-unit-tests \
+  --disable-docs \
+  --disable-devel-docs \
+  --disable-selective-werror \
+  --with-sha1=libsha1
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 make TIGERVNC_SRCDIR=%{tigervnc_src_dir} %{?_smp_mflags}
 popd
@@ -1112,12 +1717,21 @@ popd
 pushd java
 %{cmake28} \
 %if !%{_self_signed}
+<<<<<<< HEAD
 	-DJAVA_KEYSTORE=%{_keystore} \
 	-DJAVA_KEYSTORE_TYPE=%{_keystore_type} \
 	-DJAVA_KEY_ALIAS=%{_key_alias} \
 	-DJAVA_STOREPASS=":env STOREPASS" \
 	-DJAVA_KEYPASS=":env KEYPASS" \
 	-DJAVA_TSA_URL=https://timestamp.geotrust.com/tsa .
+=======
+  -DJAVA_KEYSTORE=%{_keystore} \
+  -DJAVA_KEYSTORE_TYPE=%{_keystore_type} \
+  -DJAVA_KEY_ALIAS=%{_key_alias} \
+  -DJAVA_STOREPASS=":env STOREPASS" \
+  -DJAVA_KEYPASS=":env KEYPASS" \
+  -DJAVA_TSA_URL=https://timestamp.geotrust.com/tsa .
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 %endif
 
 JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8" make
@@ -1131,6 +1745,13 @@ pushd unix/xserver/hw/vnc
 make install DESTDIR=$RPM_BUILD_ROOT
 popd
 
+<<<<<<< HEAD
+=======
+pushd xorg/Mesa-*
+make install DESTDIR=$RPM_BUILD_ROOT
+popd
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/init.d
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 install -m644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/init.d/vncserver
@@ -1161,6 +1782,7 @@ popd
 %find_lang %{name} %{name}.lang
 
 # remove unwanted files
+<<<<<<< HEAD
 rm -f $RPM_BUILD_ROOT%{_libdir}/xorg/modules/extensions/libvnc.la
 rm -f $RPM_BUILD_ROOT%{_libdir}/xorg/modules/extensions/libvnc.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/dri/libdricore.so
@@ -1168,6 +1790,14 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/dri/libdricore.so
 # move files to correct location
 mkdir -p $RPM_BUILD_ROOT%{_libdir}/dri
 cp %{xorg_buildroot}%{_libdir}/dri/* $RPM_BUILD_ROOT%{_libdir}/dri/
+=======
+rm -rf $RPM_BUILD_ROOT%{_libdir}/tigervnc/pkgconfig
+rm -rf $RPM_BUILD_ROOT%{_libdir}/pkgconfig
+rm -rf $RPM_BUILD_ROOT%{_libdir}/xorg
+rm -rf $RPM_BUILD_ROOT%{_includedir}
+rm -f $RPM_BUILD_ROOT%{_libdir}/tigervnc/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/tigervnc/dri/*.la
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -1220,7 +1850,11 @@ fi
 %{_mandir}/man1/Xvnc.1*
 %{_mandir}/man1/vncpasswd.1*
 %{_mandir}/man1/vncconfig.1*
+<<<<<<< HEAD
 %{_libdir}/dri/swrast_dri.so
+=======
+%{_libdir}/*
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 %files server-applet
 %defattr(-,root,root,-)
@@ -1236,6 +1870,29 @@ fi
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+<<<<<<< HEAD
+=======
+* Sat Mar 14 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-6
+- Build static libraries to meet new minimum requirements
+
+* Sat Mar 07 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-5
+- Don't disable xinerama extension
+
+* Thu Feb 19 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-4
+- Bumped fltk to 1.3.3, no longer requires patching
+
+* Mon Jan 19 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.0-3
+- Added default font paths to Xvnc and fontconfig
+- Added vendor strings to Xvnc
+- Specified xfile-search-path when configuring libXt the same way el6 does
+
+* Wed Dec 24 2014 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-1.20141119git59c5a55c
+- Rebuilt against Xorg 7.7 with CVE-2104-12-09 patches from debian.
+- Bumped versions of Mesa, Freetype, fontconfig, etc.
+- Link against our own version of libGL to improve portability.
+- Added static libsha1 to avoid linking against libssl.so.
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 * Wed Nov 19 2014 Brian P. Hinz <bphinz@users.sourceforge.net> 1.3.80-18.20141119git59c5a55c
 - Removed server module sub-package
 

@@ -87,7 +87,11 @@ Clipboard::Clipboard()
 }
 
 Clipboard::~Clipboard() {
+<<<<<<< HEAD
   vlog.debug("removing %x from chain (next is %x)", getHandle(), next_window);
+=======
+  vlog.debug("removing %p from chain (next is %p)", getHandle(), next_window);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   ChangeClipboardChain(getHandle(), next_window);
 }
 
@@ -96,7 +100,12 @@ Clipboard::processMessage(UINT msg, WPARAM wParam, LPARAM lParam) {
   switch (msg) {
 
   case WM_CHANGECBCHAIN:
+<<<<<<< HEAD
     vlog.debug("change clipboard chain (%x, %x)", wParam, lParam);
+=======
+    vlog.debug("change clipboard chain (%I64x, %I64x)",
+               (long long)wParam, (long long)lParam);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if ((HWND) wParam == next_window)
       next_window = (HWND) lParam;
     else if (next_window != 0)
@@ -111,7 +120,11 @@ Clipboard::processMessage(UINT msg, WPARAM wParam, LPARAM lParam) {
       if (owner == getHandle()) {
         vlog.debug("local clipboard changed by me");
       } else {
+<<<<<<< HEAD
         vlog.debug("local clipboard changed by %x", owner);
+=======
+        vlog.debug("local clipboard changed by %p", owner);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 			  // Open the clipboard
 			  if (OpenClipboard(getHandle())) {
@@ -190,7 +203,11 @@ Clipboard::setClipText(const char* text) {
 
   // - Close the clipboard
   if (!CloseClipboard())
+<<<<<<< HEAD
     vlog.debug("unable to close Win32 clipboard: %u", GetLastError());
+=======
+    vlog.debug("unable to close Win32 clipboard: %lu", GetLastError());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   else
     vlog.debug("closed clipboard");
   if (clip_handle) {

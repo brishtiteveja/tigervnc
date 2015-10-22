@@ -81,6 +81,39 @@ static int encrypt_pipe() {
   else return 1;
 }
 
+<<<<<<< HEAD
+=======
+static ObfuscatedPasswd* readpassword() {
+  while (true) {
+    PlainPasswd passwd(getpassword("Password:"));
+    if (!passwd.buf) {
+      perror("getpassword error");
+      exit(1);
+    }
+    if (strlen(passwd.buf) < 6) {
+      if (strlen(passwd.buf) == 0) {
+        fprintf(stderr,"Password not changed\n");
+        exit(1);
+      }
+      fprintf(stderr,"Password must be at least 6 characters - try again\n");
+      continue;
+    }
+
+    PlainPasswd passwd2(getpassword("Verify:"));
+    if (!passwd2.buf) {
+      perror("getpass error");
+      exit(1);
+    }
+    if (strcmp(passwd.buf, passwd2.buf) != 0) {
+      fprintf(stderr,"Passwords don't match - try again\n");
+      continue;
+    }
+
+    return new ObfuscatedPasswd(passwd);
+  }
+}
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 int main(int argc, char** argv)
 {
   prog = argv[0];
@@ -113,6 +146,7 @@ int main(int argc, char** argv)
   }
 
   while (true) {
+<<<<<<< HEAD
     PlainPasswd passwd(getpassword("Password:"));
     if (!passwd.buf) {
       perror("getpassword error");
@@ -135,6 +169,15 @@ int main(int argc, char** argv)
     if (strcmp(passwd.buf, passwd2.buf) != 0) {
       fprintf(stderr,"Passwords don't match - try again\n");
       continue;
+=======
+    ObfuscatedPasswd* obfuscated = readpassword();
+    ObfuscatedPasswd* obfuscatedReadOnly = 0;
+
+    fprintf(stderr, "Would you like to enter a view-only password (y/n)? ");
+    char yesno[3];
+    if (fgets(yesno, 3, stdin) != NULL && (yesno[0] == 'y' || yesno[0] == 'Y')) {
+      obfuscatedReadOnly = readpassword();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
 
     FILE* fp = fopen(fname,"w");
@@ -144,13 +187,27 @@ int main(int argc, char** argv)
     }
     chmod(fname, S_IRUSR|S_IWUSR);
 
+<<<<<<< HEAD
     ObfuscatedPasswd obfuscated(passwd);
 
     if (fwrite(obfuscated.buf, obfuscated.length, 1, fp) != 1) {
+=======
+    if (fwrite(obfuscated->buf, obfuscated->length, 1, fp) != 1) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       fprintf(stderr,"Writing to %s failed\n",fname);
       exit(1);
     }
 
+<<<<<<< HEAD
+=======
+    if (obfuscatedReadOnly) {
+      if (fwrite(obfuscatedReadOnly->buf, obfuscatedReadOnly->length, 1, fp) != 1) {
+        fprintf(stderr,"Writing to %s failed\n",fname);
+        exit(1);
+      }
+    }
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     fclose(fp);
 
     return 0;

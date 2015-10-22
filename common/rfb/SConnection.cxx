@@ -28,6 +28,10 @@
 #include <rfb/ServerCore.h>
 #include <rfb/encodings.h>
 #include <rfb/EncodeManager.h>
+<<<<<<< HEAD
+=======
+#include <rfb/SSecurity.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #include <rfb/LogWriter.h>
 
@@ -36,6 +40,7 @@ using namespace rfb;
 static LogWriter vlog("SConnection");
 
 // AccessRights values
+<<<<<<< HEAD
 const SConnection::AccessRights SConnection::AccessView       = 0x0001;
 const SConnection::AccessRights SConnection::AccessKeyEvents  = 0x0002;
 const SConnection::AccessRights SConnection::AccessPtrEvents  = 0x0004;
@@ -50,6 +55,23 @@ SConnection::SConnection(bool reverseConnection_)
     is(0), os(0), reader_(0), writer_(0),
     security(0), ssecurity(0), state_(RFBSTATE_UNINITIALISED),
     reverseConnection(reverseConnection_),
+=======
+const SConnection::AccessRights SConnection::AccessView           = 0x0001;
+const SConnection::AccessRights SConnection::AccessKeyEvents      = 0x0002;
+const SConnection::AccessRights SConnection::AccessPtrEvents      = 0x0004;
+const SConnection::AccessRights SConnection::AccessCutText        = 0x0008;
+const SConnection::AccessRights SConnection::AccessSetDesktopSize = 0x0010;
+const SConnection::AccessRights SConnection::AccessNonShared      = 0x0020;
+const SConnection::AccessRights SConnection::AccessDefault        = 0x03ff;
+const SConnection::AccessRights SConnection::AccessNoQuery        = 0x0400;
+const SConnection::AccessRights SConnection::AccessFull           = 0xffff;
+
+
+SConnection::SConnection()
+  : readyForSetColourMapEntries(false),
+    is(0), os(0), reader_(0), writer_(0),
+    security(0), ssecurity(0), state_(RFBSTATE_UNINITIALISED),
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     preferredEncoding(encodingRaw)
 {
   defaultMajorVersion = 3;
@@ -223,6 +245,10 @@ void SConnection::processSecurityMsg()
     if (done) {
       state_ = RFBSTATE_QUERYING;
       queryConnection(ssecurity->getUserName());
+<<<<<<< HEAD
+=======
+      setAccessRights(ssecurity->getAccessRights());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
   } catch (AuthFailureException& e) {
     vlog.error("AuthFailureException: %s", e.str());
@@ -267,7 +293,11 @@ void SConnection::writeConnFailedFromScratch(const char* msg,
   os->flush();
 }
 
+<<<<<<< HEAD
 void SConnection::setEncodings(int nEncodings, rdr::S32* encodings)
+=======
+void SConnection::setEncodings(int nEncodings, const rdr::S32* encodings)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
   int i;
 

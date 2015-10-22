@@ -46,7 +46,13 @@ namespace rfb {
     static BoolParameter acceptPointerEvents;
     static BoolParameter acceptCutText;
     static BoolParameter sendCutText;
+<<<<<<< HEAD
     static BoolParameter queryConnect;
+=======
+    static BoolParameter acceptSetDesktopSize;
+    static BoolParameter queryConnect;
+    static IntParameter queryConnectTimeout;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   };
 

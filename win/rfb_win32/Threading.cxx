@@ -34,11 +34,19 @@ static DWORD threadStorage = TlsAlloc();
 
 
 inline void logAction(Thread* t, const char* action) {
+<<<<<<< HEAD
   vlog.debug("%-16.16s %s(%lx)", action, t->getName(), t);
 }
 
 inline void logError(Thread* t, const char* err) {
   vlog.error("%-16.16s %s(%lx):%s", "failed", t->getName(), t, err);
+=======
+  vlog.debug("%-16.16s %s(%p)", action, t->getName(), t);
+}
+
+inline void logError(Thread* t, const char* err) {
+  vlog.error("%-16.16s %s(%p):%s", "failed", t->getName(), t, err);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 

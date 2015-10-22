@@ -38,13 +38,21 @@ void CMsgHandler::setDesktopSize(int width, int height)
   cp.height = height;
 }
 
+<<<<<<< HEAD
 void CMsgHandler::setExtendedDesktopSize(int reason, int result,
+=======
+void CMsgHandler::setExtendedDesktopSize(unsigned reason, unsigned result,
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
                                          int width, int height,
                                          const ScreenSet& layout)
 {
   cp.supportsSetDesktopSize = true;
 
+<<<<<<< HEAD
   if ((reason == (signed)reasonClient) && (result != (signed)resultSuccess))
+=======
+  if ((reason == reasonClient) && (result != resultSuccess))
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return;
 
   if (!layout.validate(width, height))
@@ -74,3 +82,14 @@ void CMsgHandler::endOfContinuousUpdates()
 {
   cp.supportsContinuousUpdates = true;
 }
+<<<<<<< HEAD
+=======
+
+void CMsgHandler::framebufferUpdateStart()
+{
+}
+
+void CMsgHandler::framebufferUpdateEnd()
+{
+}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa

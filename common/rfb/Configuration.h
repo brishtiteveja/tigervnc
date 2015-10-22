@@ -165,8 +165,11 @@ namespace rfb {
     virtual bool isBool() const;
 
     virtual void setImmutable();
+<<<<<<< HEAD
     virtual void setHasBeenSet();
     bool hasBeenSet();
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   protected:
     friend class Configuration;
@@ -174,7 +177,10 @@ namespace rfb {
 
     VoidParameter* _next;
     bool immutable;
+<<<<<<< HEAD
     bool _hasBeenSet;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     const char* name;
     const char* description;
   };

@@ -32,7 +32,11 @@ namespace rdr {
 
   class TLSOutStream : public OutStream {
   public:
+<<<<<<< HEAD
     TLSOutStream(OutStream* out, gnutls_session session);
+=======
+    TLSOutStream(OutStream* out, gnutls_session_t session);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual ~TLSOutStream();
 
     void flush();
@@ -43,9 +47,15 @@ namespace rdr {
 
   private:
     int writeTLS(const U8* data, int length);
+<<<<<<< HEAD
     static ssize_t push(gnutls_transport_ptr str, const void* data, size_t size);
 
     gnutls_session session;
+=======
+    static ssize_t push(gnutls_transport_ptr_t str, const void* data, size_t size);
+
+    gnutls_session_t session;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     OutStream* out;
     int bufSize;
     U8* start;

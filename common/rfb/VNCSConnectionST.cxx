@@ -1,5 +1,9 @@
 /* Copyright (C) 2002-2005 RealVNC Ltd.  All Rights Reserved.
+<<<<<<< HEAD
  * Copyright 2009-2014 Pierre Ossman for Cendio AB
+=======
+ * Copyright 2009-2015 Pierre Ossman for Cendio AB
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,6 +70,7 @@ struct RTTInfo {
 
 VNCSConnectionST::VNCSConnectionST(VNCServerST* server_, network::Socket *s,
                                    bool reverse)
+<<<<<<< HEAD
   : SConnection(reverse), sock(s), inProcessMessages(false),
     pendingSyncFence(false), syncFence(false), fenceFlags(0),
     fenceDataLen(0), fenceData(NULL),
@@ -73,6 +78,17 @@ VNCSConnectionST::VNCSConnectionST(VNCServerST* server_, network::Socket *s,
     ackedOffset(0), sentOffset(0), congWindow(0), congestionTimer(this),
     server(server_), updates(false),
     drawRenderedCursor(false), removeRenderedCursor(false),
+=======
+  : sock(s), reverseConnection(reverse),
+    queryConnectTimer(this), inProcessMessages(false),
+    pendingSyncFence(false), syncFence(false), fenceFlags(0),
+    fenceDataLen(0), fenceData(NULL),
+    baseRTT(-1), congWindow(0), ackedOffset(0), sentOffset(0),
+    minRTT(-1), seenCongestion(false),
+    pingCounter(0), congestionTimer(this),
+    server(server_), updates(false),
+    updateRenderedCursor(false), removeRenderedCursor(false),
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     continuousUpdates(false), encodeManager(this),
     updateTimer(this), pointerEventTime(0),
     accessRights(AccessDefault), startTime(time(0))
@@ -196,7 +212,11 @@ void VNCSConnectionST::pixelBufferChange()
       // We need to clip the next update to the new size, but also add any
       // extra bits if it's bigger.  If we wanted to do this exactly, something
       // like the code below would do it, but at the moment we just update the
+<<<<<<< HEAD
       // entire new size.  However, we do need to clip the renderedCursorRect
+=======
+      // entire new size.  However, we do need to clip the damagedCursorRegion
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       // because that might be added to updates in writeFramebufferUpdate().
 
       //updates.intersect(server->pb->getRect());
@@ -208,7 +228,11 @@ void VNCSConnectionST::pixelBufferChange()
       //  updates.add_changed(Rect(0, cp.height, cp.width,
       //                           server->pb->height()));
 
+<<<<<<< HEAD
       renderedCursorRect = renderedCursorRect.intersect(server->pb->getRect());
+=======
+      damagedCursorRegion.assign_intersect(server->pb->getRect());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
       cp.width = server->pb->width();
       cp.height = server->pb->height();
@@ -339,10 +363,17 @@ bool VNCSConnectionST::getComparerState()
 void VNCSConnectionST::renderedCursorChange()
 {
   if (state() != RFBSTATE_NORMAL) return;
+<<<<<<< HEAD
   if (!renderedCursorRect.is_empty())
     removeRenderedCursor = true;
   if (needRenderedCursor()) {
     drawRenderedCursor = true;
+=======
+  if (!damagedCursorRegion.is_empty())
+    removeRenderedCursor = true;
+  if (needRenderedCursor()) {
+    updateRenderedCursor = true;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     writeFramebufferUpdateOrClose();
   }
 }
@@ -434,8 +465,15 @@ void VNCSConnectionST::queryConnection(const char* userName)
   CharArray reason;
   VNCServerST::queryResult qr = server->queryConnection(sock, userName,
                                                         &reason.buf);
+<<<<<<< HEAD
   if (qr == VNCServerST::PENDING)
     return;
+=======
+  if (qr == VNCServerST::PENDING) {
+    queryConnectTimer.start(rfb::Server::queryConnectTimeout * 1000);
+    return;
+  }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // - If server returns ACCEPT/REJECT then pass result to SConnection
   approveConnection(qr == VNCServerST::ACCEPT, reason.buf);
@@ -445,9 +483,16 @@ void VNCSConnectionST::clientInit(bool shared)
 {
   lastEventTime = time(0);
   if (rfb::Server::alwaysShared || reverseConnection) shared = true;
+<<<<<<< HEAD
   if (rfb::Server::neverShared) shared = false;
   if (!shared) {
     if (rfb::Server::disconnectClients) {
+=======
+  if (!(accessRights & AccessNonShared)) shared = true;
+  if (rfb::Server::neverShared) shared = false;
+  if (!shared) {
+    if (rfb::Server::disconnectClients && (accessRights & AccessNonShared)) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       // - Close all the other connected clients
       vlog.debug("non-shared connection - closing clients");
       server->closeClients("Non-shared connection requested", getSock());
@@ -584,6 +629,12 @@ void VNCSConnectionST::setDesktopSize(int fb_width, int fb_height,
 {
   unsigned int result;
 
+<<<<<<< HEAD
+=======
+  if (!(accessRights & AccessSetDesktopSize)) return;
+  if (!rfb::Server::acceptSetDesktopSize) return;
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   // Don't bother the desktop with an invalid configuration
   if (!layout.validate(fb_width, fb_height)) {
     writer()->writeExtendedDesktopSize(reasonClient, resultInvalid,
@@ -680,9 +731,14 @@ void VNCSConnectionST::enableContinuousUpdates(bool enable,
 void VNCSConnectionST::supportsLocalCursor()
 {
   if (cp.supportsLocalCursor || cp.supportsLocalXCursor) {
+<<<<<<< HEAD
     if (!renderedCursorRect.is_empty())
       removeRenderedCursor = true;
     drawRenderedCursor = false;
+=======
+    if (!damagedCursorRegion.is_empty())
+      removeRenderedCursor = true;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     setCursor();
   }
 }
@@ -710,6 +766,13 @@ bool VNCSConnectionST::handleTimeout(Timer* t)
       writeFramebufferUpdate();
     else if (t == &congestionTimer)
       updateCongestion();
+<<<<<<< HEAD
+=======
+    else if (t == &queryConnectTimer) {
+      if (state() == RFBSTATE_QUERYING)
+        approveConnection(false, "The attempt to prompt the user to accept the connection failed");
+    }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   } catch (rdr::Exception& e) {
     close(e.str());
   }
@@ -749,7 +812,10 @@ void VNCSConnectionST::writeRTTPing()
 void VNCSConnectionST::handleRTTPong(const struct RTTInfo &rttInfo)
 {
   unsigned rtt, delay;
+<<<<<<< HEAD
   int bdp;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   pingCounter--;
 
@@ -899,6 +965,10 @@ void VNCSConnectionST::writeFramebufferUpdate()
   Region req;
   UpdateInfo ui;
   bool needNewUpdateInfo;
+<<<<<<< HEAD
+=======
+  bool drawRenderedCursor;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   updateTimer.stop();
 
@@ -964,15 +1034,25 @@ void VNCSConnectionST::writeFramebufferUpdate()
   // copy, then when the copy happens the corresponding rectangle in the
   // destination will be wrong, so add it to the changed region.
 
+<<<<<<< HEAD
   if (!ui.copied.is_empty() && !renderedCursorRect.is_empty()) {
     Rect bogusCopiedCursor = (renderedCursorRect.translate(ui.copy_delta)
                               .intersect(server->pb->getRect()));
+=======
+  if (!ui.copied.is_empty() && !damagedCursorRegion.is_empty()) {
+    Region bogusCopiedCursor;
+
+    bogusCopiedCursor.copyFrom(damagedCursorRegion);
+    bogusCopiedCursor.translate(ui.copy_delta);
+    bogusCopiedCursor.assign_intersect(server->pb->getRect());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if (!ui.copied.intersect(bogusCopiedCursor).is_empty()) {
       updates.add_changed(bogusCopiedCursor);
       needNewUpdateInfo = true;
     }
   }
 
+<<<<<<< HEAD
   // If we need to remove the old rendered cursor, just add the rectangle to
   // the changed region.
 
@@ -980,12 +1060,25 @@ void VNCSConnectionST::writeFramebufferUpdate()
     updates.add_changed(renderedCursorRect);
     needNewUpdateInfo = true;
     renderedCursorRect.clear();
+=======
+  // If we need to remove the old rendered cursor, just add the region to
+  // the changed region.
+
+  if (removeRenderedCursor) {
+    updates.add_changed(damagedCursorRegion);
+    needNewUpdateInfo = true;
+    damagedCursorRegion.clear();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     removeRenderedCursor = false;
   }
 
   // Return if there is nothing to send the client.
 
+<<<<<<< HEAD
   if (updates.is_empty() && !writer()->needFakeUpdate() && !drawRenderedCursor)
+=======
+  if (updates.is_empty() && !writer()->needFakeUpdate() && !updateRenderedCursor)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     goto out;
 
   // The `updates' object could change, make sure we have valid update info.
@@ -998,13 +1091,25 @@ void VNCSConnectionST::writeFramebufferUpdate()
   // with the update region, we need to draw the rendered cursor regardless of
   // whether it has changed.
 
+<<<<<<< HEAD
   if (needRenderedCursor()) {
+=======
+  drawRenderedCursor = false;
+  if (needRenderedCursor()) {
+    Rect renderedCursorRect;
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     renderedCursorRect
       = server->renderedCursor.getEffectiveRect()
          .intersect(req.get_bounding_rect());
 
     if (renderedCursorRect.is_empty()) {
       drawRenderedCursor = false;
+<<<<<<< HEAD
+=======
+    } else if (updateRenderedCursor) {
+      drawRenderedCursor = true;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     } else if (!ui.changed.union_(ui.copied)
                .intersect(renderedCursorRect).is_empty()) {
       drawRenderedCursor = true;
@@ -1019,6 +1124,12 @@ void VNCSConnectionST::writeFramebufferUpdate()
     //  updates.subtract(renderedCursorRect);
     //  updates.getUpdateInfo(&ui, req);
     //}
+<<<<<<< HEAD
+=======
+
+    damagedCursorRegion.assign_union(renderedCursorRect);
+    updateRenderedCursor = false;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   if (!ui.is_empty() || writer()->needFakeUpdate() || drawRenderedCursor) {
@@ -1034,9 +1145,17 @@ void VNCSConnectionST::writeFramebufferUpdate()
 
     writeRTTPing();
 
+<<<<<<< HEAD
     drawRenderedCursor = false;
     requested.clear();
     updates.clear();
+=======
+    // The request might be for just part of the screen, so we cannot
+    // just clear the entire update tracker.
+    updates.subtract(req);
+
+    requested.clear();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
 out:
@@ -1120,7 +1239,11 @@ void VNCSConnectionST::setStatus(int status)
     accessRights = accessRights | AccessPtrEvents | AccessKeyEvents | AccessView;
     break;
   case 1:
+<<<<<<< HEAD
     accessRights = accessRights & ~(AccessPtrEvents | AccessKeyEvents) | AccessView;
+=======
+    accessRights = (accessRights & ~(AccessPtrEvents | AccessKeyEvents)) | AccessView;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     break;
   case 2:
     accessRights = accessRights & ~(AccessPtrEvents | AccessKeyEvents | AccessView);

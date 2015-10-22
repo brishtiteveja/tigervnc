@@ -39,12 +39,17 @@ extern rfb::BoolParameter noJpeg;
 extern rfb::IntParameter qualityLevel;
 
 extern rfb::BoolParameter maximize;
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
 extern rfb::BoolParameter fullScreen;
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
 extern rfb::BoolParameter fullScreenAllMonitors;
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 #endif // HAVE_FLTK_FULLSCREEN
+=======
+extern rfb::BoolParameter fullScreen;
+extern rfb::BoolParameter fullScreenAllMonitors;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 extern rfb::StringParameter desktopSize;
 extern rfb::StringParameter geometry;
 extern rfb::BoolParameter remoteResize;

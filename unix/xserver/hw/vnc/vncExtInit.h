@@ -1,4 +1,8 @@
 /* Copyright (C) 2002-2005 RealVNC Ltd.  All Rights Reserved.
+<<<<<<< HEAD
+=======
+ * Copyright 2011-2015 Pierre Ossman for Cendio AB
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +22,7 @@
 #ifndef __VNCEXTINIT_H__
 #define __VNCEXTINIT_H__
 
+<<<<<<< HEAD
 #ifdef HAVE_DIX_CONFIG_H
 #include <dix-config.h>
 #endif
@@ -34,5 +39,80 @@ extern int vncFbstride[];
 extern bool noclipboard;
 extern int vncInetdSock;
 extern rfb::StringParameter httpDir;
+=======
+#include <stdint.h>
+#include <stddef.h>
+#include <sys/select.h>
+
+// Only from C++
+#ifdef __cplusplus
+namespace rfb { class StringParameter; };
+
+extern rfb::StringParameter httpDir;
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// vncExt.c
+extern int vncNoClipboard;
+
+int vncAddExtension(void);
+
+int vncNotifyQueryConnect(void);
+
+void vncClientCutText(const char* str, int len);
+
+// vncExtInit.cc
+extern void* vncFbptr[];
+extern int vncFbstride[];
+
+extern int vncInetdSock;
+
+void vncExtensionInit(void);
+
+void vncCallReadBlockHandlers(fd_set * fds, struct timeval ** timeout);
+void vncCallReadWakeupHandlers(fd_set * fds, int nfds);
+void vncCallWriteBlockHandlers(fd_set * fds, struct timeval ** timeout);
+void vncCallWriteWakeupHandlers(fd_set * fds, int nfds);
+
+int vncGetAvoidShiftNumLock(void);
+
+void vncUpdateDesktopName(void);
+
+void vncServerCutText(const char *text, size_t len);
+
+int vncConnectClient(const char *addr);
+
+void vncGetQueryConnect(uint32_t *opaqueId, const char**username,
+                        const char **address, int *timeout);
+void vncApproveConnection(uint32_t opaqueId, int approve);
+
+void vncBell(void);
+
+// Must match rfb::ShortRect in common/rfb/Region.h, and BoxRec in the
+// Xorg source.
+struct UpdateRect {
+  short x1, y1, x2, y2;
+};
+
+void vncAddChanged(int scrIdx, const struct UpdateRect *extents,
+                   int nRects, const struct UpdateRect *rects);
+void vncAddCopied(int scrIdx, const struct UpdateRect *extents,
+                  int nRects, const struct UpdateRect *rects,
+                  int dx, int dy);
+
+void vncSetCursor(int scrIdx, int width, int height, int hotX, int hotY,
+                  const unsigned char *rgbaData);
+
+void vncPreScreenResize(int scrIdx);
+void vncPostScreenResize(int scrIdx, int success, int width, int height);
+void vncRefreshScreenLayout(int scrIdx);
+
+#ifdef __cplusplus
+}
+#endif
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #endif

@@ -1,7 +1,11 @@
 # Gettext support - mostly borrowed from the Licq project
 
 set(po_FILES
+<<<<<<< HEAD
     de es fr it nl pl pt_BR ru sk sv tr uk
+=======
+    de el eo es fi fr it nl pl pt_BR ru sk sv tr uk
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 )
 
 if (NOT GETTEXT_MSGMERGE_EXECUTABLE AND NOT GETTEXT_MSGFMT_EXECUTABLE)
@@ -12,6 +16,10 @@ find_program(GETTEXT_XGETTEXT_EXECUTABLE xgettext)
 if (GETTEXT_XGETTEXT_EXECUTABLE)
   # Get list of all source files
   file(GLOB_RECURSE po_source
+<<<<<<< HEAD
+=======
+    RELATIVE ${PROJECT_SOURCE_DIR}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     ${PROJECT_SOURCE_DIR}/vncviewer/*.h
     ${PROJECT_SOURCE_DIR}/vncviewer/*.cxx
   )
@@ -25,8 +33,14 @@ if (GETTEXT_XGETTEXT_EXECUTABLE)
       --keyword=N_
       "--copyright-holder=TigerVNC Team and many others \(see README.txt\)"
       --msgid-bugs-address=tigervnc-devel@googlegroups.com
+<<<<<<< HEAD
       --sort-output
       --add-location
+=======
+      --sort-by-file
+      --add-location
+      --add-comments
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       ${po_source}
     COMMENT "Updating tigervnc.pot"
     VERBATIM
@@ -37,6 +51,7 @@ foreach(lang ${po_FILES})
   set(po  "${CMAKE_CURRENT_SOURCE_DIR}/${lang}.po")
   set(mo "${CMAKE_CURRENT_BINARY_DIR}/${lang}.mo")
 
+<<<<<<< HEAD
   # Update po files after pot file
   add_custom_command(TARGET translations_update POST_BUILD
     COMMAND ${GETTEXT_MSGMERGE_EXECUTABLE} --quiet --update --backup=none
@@ -44,6 +59,8 @@ foreach(lang ${po_FILES})
     COMMENT "Updating ${lang}.po"
   )
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   # Add command to build X.mo from X.po
   add_custom_command(OUTPUT ${mo}
     COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} -o ${mo} ${po}

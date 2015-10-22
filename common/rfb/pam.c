@@ -38,8 +38,18 @@ typedef struct
   const char *password;
 } AuthData;
 
+<<<<<<< HEAD
 static int pam_callback(int count, const struct pam_message **in,
 			struct pam_response **out, void *ptr)
+=======
+#if defined(__sun)
+static int pam_callback(int count, struct pam_message **in,
+                        struct pam_response **out, void *ptr)
+#else
+static int pam_callback(int count, const struct pam_message **in,
+                        struct pam_response **out, void *ptr)
+#endif
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
   int i;
   AuthData *auth = (AuthData *) ptr;

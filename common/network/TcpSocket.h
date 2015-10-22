@@ -30,6 +30,17 @@
 
 #include <network/Socket.h>
 
+<<<<<<< HEAD
+=======
+#ifdef WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#else
+#include <sys/socket.h> /* for socklen_t */
+#include <netinet/in.h> /* for struct sockaddr_in */
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <list>
 
 /* Tunnelling support. */
@@ -66,13 +77,21 @@ namespace network {
 
   class TcpListener : public SocketListener {
   public:
+<<<<<<< HEAD
     TcpListener(const char *listenaddr, int port, bool localhostOnly=false,
 		int sock=-1, bool close=true);
+=======
+    TcpListener(const struct sockaddr *listenaddr, socklen_t listenaddrlen);
+    TcpListener(int sock);
+    TcpListener(const TcpListener& other);
+    TcpListener& operator= (const TcpListener& other);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual ~TcpListener();
 
     virtual void shutdown();
     virtual Socket* accept();
 
+<<<<<<< HEAD
     void getMyAddresses(std::list<char*>* addrs);
     int getMyPort();
 
@@ -80,6 +99,26 @@ namespace network {
     bool closeFd;
   };
 
+=======
+    static void getMyAddresses(std::list<char*>* result);
+    int getMyPort();
+  };
+
+  void createLocalTcpListeners(std::list<TcpListener> *listeners,
+                               int port);
+  void createTcpListeners(std::list<TcpListener> *listeners,
+                          const char *addr,
+                          int port);
+
+  typedef struct vnc_sockaddr {
+    union {
+      sockaddr     sa;
+      sockaddr_in  sin;
+      sockaddr_in6 sin6;
+    } u;
+  } vnc_sockaddr_t;
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   class TcpFilter : public ConnectionFilter {
   public:
     TcpFilter(const char* filter);
@@ -90,8 +129,15 @@ namespace network {
     typedef enum {Accept, Reject, Query} Action;
     struct Pattern {
       Action action;
+<<<<<<< HEAD
       unsigned long address;
       unsigned long mask;
+=======
+      vnc_sockaddr_t address;
+      unsigned int prefixlen;
+
+      vnc_sockaddr_t mask; // computed from address and prefix
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     };
     static Pattern parsePattern(const char* s);
     static char* patternToStr(const Pattern& p);

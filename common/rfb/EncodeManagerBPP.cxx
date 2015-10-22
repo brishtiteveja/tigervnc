@@ -59,9 +59,12 @@ inline bool EncodeManager::analyseRect(int width, int height,
   rdr::UBPP colour;
   int count;
 
+<<<<<<< HEAD
   rdr::UBPP c0, c1, ci = 0;
   int i, n0, n1, ni;
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   info->rleRuns = 0;
   info->palette.clear();
 

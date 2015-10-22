@@ -49,6 +49,15 @@ using namespace std;
 
 static LogWriter vlog("Security");
 
+<<<<<<< HEAD
+=======
+#ifdef HAVE_GNUTLS
+StringParameter Security::GnuTLSPriority("GnuTLSPriority",
+  "GnuTLS priority string that controls the TLS session’s handshake algorithms",
+  "NORMAL");
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Security::Security()
 {
 }

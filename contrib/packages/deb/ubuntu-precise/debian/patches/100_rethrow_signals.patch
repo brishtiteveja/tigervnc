@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 --- a/unix/xserver/hw/vnc/xvnc.cc	2013-07-14 14:05:29.963390223 -0400
 +++ b/unix/xserver/hw/vnc/xvnc.cc	2013-07-14 14:04:12.840357191 -0400
+=======
+--- a/unix/xserver/hw/vnc/xvnc.c	2013-07-14 14:05:29.963390223 -0400
++++ b/unix/xserver/hw/vnc/xvnc.c	2013-07-14 14:04:12.840357191 -0400
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 @@ -250,7 +250,7 @@
  #if XORG < 111
  AbortDDX()

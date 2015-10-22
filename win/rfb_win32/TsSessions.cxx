@@ -48,7 +48,11 @@ namespace win32 {
     id = 0;
     if (!_ProcessIdToSessionId.isValid())
       return;
+<<<<<<< HEAD
     if (processId == -1)
+=======
+    if (processId == (DWORD)-1)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       processId = GetCurrentProcessId();
     if (!(*_ProcessIdToSessionId)(GetCurrentProcessId(), &id))
       throw rdr::SystemException("ProcessIdToSessionId", GetLastError());
@@ -72,12 +76,20 @@ namespace win32 {
 #ifdef RFB_HAVE_WINSTATION_CONNECT
     if (!_WinStationConnect.isValid())
       throw rdr::Exception("WinSta APIs missing");
+<<<<<<< HEAD
     if (sessionId == -1)
+=======
+    if (sessionId == (DWORD)-1)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       sessionId = mySessionId.id;
 
     // Try to reconnect our session to the console
     ConsoleSessionId console;
+<<<<<<< HEAD
     vlog.info("Console session is %d", console.id);
+=======
+    vlog.info("Console session is %lu", console.id);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if (!(*_WinStationConnect)(0, sessionId, console.id, L"", 0))
       throw rdr::SystemException("Unable to connect session to Console", GetLastError());
 

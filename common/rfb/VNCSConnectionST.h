@@ -173,6 +173,12 @@ namespace rfb {
 
     network::Socket* sock;
     CharArray peerEndpoint;
+<<<<<<< HEAD
+=======
+    bool reverseConnection;
+
+    Timer queryConnectTimer;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     bool inProcessMessages;
 
@@ -183,7 +189,11 @@ namespace rfb {
 
     unsigned baseRTT;
     unsigned congWindow;
+<<<<<<< HEAD
     int ackedOffset, sentOffset;
+=======
+    unsigned ackedOffset, sentOffset;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     unsigned minRTT;
     bool seenCongestion;
@@ -193,8 +203,13 @@ namespace rfb {
     VNCServerST* server;
     SimpleUpdateTracker updates;
     Region requested;
+<<<<<<< HEAD
     bool drawRenderedCursor, removeRenderedCursor;
     Rect renderedCursorRect;
+=======
+    bool updateRenderedCursor, removeRenderedCursor;
+    Region damagedCursorRegion;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     bool continuousUpdates;
     Region cuRegion;
     EncodeManager encodeManager;

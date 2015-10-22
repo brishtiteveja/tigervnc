@@ -119,7 +119,11 @@ namespace rfb {
     // These operations DO NOT clip to the pixelbuffer area, or trap overruns.
 
     // Fill a rectangle
+<<<<<<< HEAD
     void fillRect(const Rect &dest, Pixel pix);
+=======
+    void fillRect(const Rect &dest, const void* pix);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     // Copy pixel data to the buffer
     void imageRect(const Rect &dest, const void* pixels, int stride=0);
@@ -140,7 +144,11 @@ namespace rfb {
     // Render in a specific format
     //   Does the exact same thing as the above methods, but the given
     //   pixel values are defined by the given PixelFormat.
+<<<<<<< HEAD
     void fillRect(const PixelFormat& pf, const Rect &dest, Pixel pix);
+=======
+    void fillRect(const PixelFormat& pf, const Rect &dest, const void* pix);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     void imageRect(const PixelFormat& pf, const Rect &dest,
                    const void* pixels, int stride=0);
 

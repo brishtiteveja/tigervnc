@@ -45,7 +45,10 @@ bool WinPasswdValidator::validateInternal(rfb::SConnection* sc,
 		return true;
 	}
 
+<<<<<<< HEAD
 	int err = GetLastError();
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 	return false;
 }

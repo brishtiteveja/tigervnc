@@ -21,12 +21,25 @@
 #ifndef __RDR_EXCEPTION_H__
 #define __RDR_EXCEPTION_H__
 
+<<<<<<< HEAD
+=======
+#ifdef __GNUC__
+#  define __printf_attr(a, b) __attribute__((__format__ (__printf__, a, b)))
+#else
+#  define __printf_attr(a, b)
+#endif // __GNUC__
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 namespace rdr {
 
   struct Exception {
     enum { len = 256 };
     char str_[len];
+<<<<<<< HEAD
     Exception(const char *format = 0, ...);
+=======
+    Exception(const char *format = 0, ...) __printf_attr(2, 3);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual ~Exception() {}
     virtual const char* str() const { return str_; }
   };
@@ -37,6 +50,7 @@ namespace rdr {
   }; 
 
   struct TimedOut : public Exception {
+<<<<<<< HEAD
     TimedOut(const char* s="Timed out") : Exception(s) {}
   };
  
@@ -46,6 +60,17 @@ namespace rdr {
 
   struct FrameException : public Exception {
     FrameException(const char* s="Frame exception") : Exception(s) {}
+=======
+    TimedOut(const char* s="Timed out") : Exception("%s", s) {}
+  };
+ 
+  struct EndOfStream : public Exception {
+    EndOfStream(const char* s="End of stream") : Exception("%s", s) {}
+  };
+
+  struct FrameException : public Exception {
+    FrameException(const char* s="Frame exception") : Exception("%s", s) {}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   };
 
 }

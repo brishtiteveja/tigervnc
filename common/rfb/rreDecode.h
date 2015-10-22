@@ -41,7 +41,11 @@ void RRE_DECODE (const Rect& r, rdr::InStream* is,
 {
   int nSubrects = is->readU32();
   PIXEL_T bg = is->READ_PIXEL();
+<<<<<<< HEAD
   pb->fillRect(pf, r, bg);
+=======
+  pb->fillRect(pf, r, &bg);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   for (int i = 0; i < nSubrects; i++) {
     PIXEL_T pix = is->READ_PIXEL();
@@ -49,7 +53,11 @@ void RRE_DECODE (const Rect& r, rdr::InStream* is,
     int y = is->readU16();
     int w = is->readU16();
     int h = is->readU16();
+<<<<<<< HEAD
     pb->fillRect(pf, Rect(r.tl.x+x, r.tl.y+y, r.tl.x+x+w, r.tl.y+y+h), pix);
+=======
+    pb->fillRect(pf, Rect(r.tl.x+x, r.tl.y+y, r.tl.x+x+w, r.tl.y+y+h), &pix);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 }
 

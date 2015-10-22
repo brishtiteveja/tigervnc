@@ -51,8 +51,13 @@ public:
   void serverInit();
 
   void setDesktopSize(int w, int h);
+<<<<<<< HEAD
   void setExtendedDesktopSize(int reason, int result, int w, int h,
                               const rfb::ScreenSet& layout);
+=======
+  void setExtendedDesktopSize(unsigned reason, unsigned result,
+                              int w, int h, const rfb::ScreenSet& layout);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   void setName(const char* name);
 

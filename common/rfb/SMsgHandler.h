@@ -46,7 +46,11 @@ namespace rfb {
     virtual void clientInit(bool shared);
 
     virtual void setPixelFormat(const PixelFormat& pf);
+<<<<<<< HEAD
     virtual void setEncodings(int nEncodings, rdr::S32* encodings);
+=======
+    virtual void setEncodings(int nEncodings, const rdr::S32* encodings);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual void framebufferUpdateRequest(const Rect& r, bool incremental) = 0;
     virtual void setDesktopSize(int fb_width, int fb_height,
                                 const ScreenSet& layout) = 0;

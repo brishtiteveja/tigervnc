@@ -23,6 +23,12 @@
 
 package com.tigervnc.rfb;
 
+<<<<<<< HEAD
+=======
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 import com.tigervnc.rdr.*;
 
 abstract public class CMsgReader {
@@ -64,6 +70,7 @@ abstract public class CMsgReader {
     }
     byte[] buf = new byte[len];
     is.readBytes(buf, 0, len);
+<<<<<<< HEAD
     String str = new String();
     try {
       str = new String(buf,"UTF8");
@@ -71,6 +78,11 @@ abstract public class CMsgReader {
       e.printStackTrace();
     }
     handler.serverCutText(str, len);
+=======
+    Charset latin1 = Charset.forName("ISO-8859-1");
+    CharBuffer chars = latin1.decode(ByteBuffer.wrap(buf));
+    handler.serverCutText(chars.toString(), len);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   protected void readFramebufferUpdateStart()

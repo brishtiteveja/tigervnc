@@ -28,7 +28,10 @@
 #include <rdr/OutStream.h>
 #include <rfb/SMsgHandler.h>
 #include <rfb/SecurityServer.h>
+<<<<<<< HEAD
 #include <rfb/SSecurity.h>
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 namespace rfb {
 
@@ -39,7 +42,11 @@ namespace rfb {
   class SConnection : public SMsgHandler {
   public:
 
+<<<<<<< HEAD
     SConnection(bool reverseConnection_);
+=======
+    SConnection();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual ~SConnection();
 
     // Methods to initialise the connection
@@ -72,7 +79,11 @@ namespace rfb {
 
     // Overridden from SMsgHandler
 
+<<<<<<< HEAD
     virtual void setEncodings(int nEncodings, rdr::S32* encodings);
+=======
+    virtual void setEncodings(int nEncodings, const rdr::S32* encodings);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 
     // Methods to be overridden in a derived class
@@ -123,6 +134,7 @@ namespace rfb {
     // is up to the derived class.
 
     typedef rdr::U16 AccessRights;
+<<<<<<< HEAD
     static const AccessRights AccessView;         // View display contents
     static const AccessRights AccessKeyEvents;    // Send key events
     static const AccessRights AccessPtrEvents;    // Send pointer events
@@ -130,6 +142,17 @@ namespace rfb {
     static const AccessRights AccessDefault;      // The default rights, INCLUDING FUTURE ONES
     static const AccessRights AccessNoQuery;      // Connect without local user accepting
     static const AccessRights AccessFull;         // All of the available AND FUTURE rights
+=======
+    static const AccessRights AccessView;           // View display contents
+    static const AccessRights AccessKeyEvents;      // Send key events
+    static const AccessRights AccessPtrEvents;      // Send pointer events
+    static const AccessRights AccessCutText;        // Send/receive clipboard events
+    static const AccessRights AccessSetDesktopSize; // Change desktop size
+    static const AccessRights AccessNonShared;      // Exclusive access to the server
+    static const AccessRights AccessDefault;        // The default rights, INCLUDING FUTURE ONES
+    static const AccessRights AccessNoQuery;        // Connect without local user accepting
+    static const AccessRights AccessFull;           // All of the available AND FUTURE rights
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual void setAccessRights(AccessRights ar) = 0;
 
     // Other methods
@@ -182,6 +205,14 @@ namespace rfb {
 
   protected:
     void setState(stateEnum s) { state_ = s; }
+<<<<<<< HEAD
+=======
+
+    void setReader(SMsgReader *r) { reader_ = r; }
+    void setWriter(SMsgWriter *w) { writer_ = w; }
+
+  private:
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     void writeFakeColourMap(void);
 
     bool readyForSetColourMapEntries;
@@ -200,7 +231,10 @@ namespace rfb {
     SecurityServer *security;
     SSecurity* ssecurity;
     stateEnum state_;
+<<<<<<< HEAD
     bool reverseConnection;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     rdr::S32 preferredEncoding;
   };
 }

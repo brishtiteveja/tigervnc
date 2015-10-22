@@ -24,10 +24,15 @@
 #include <dix-config.h>
 #endif
 
+<<<<<<< HEAD
 #if XORG_VERSION_CURRENT < ((1 * 10000000) + (5 * 100000) + (99 * 1000))
 #define XORG 15
 #elif XORG_VERSION_CURRENT < ((1 * 10000000) + (6 * 100000) + (99 * 1000))
 #define XORG 16
+=======
+#if XORG_VERSION_CURRENT < ((1 * 10000000) + (6 * 100000) + (99 * 1000))
+#error "X.Org older than 1.7 is not supported"
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #elif XORG_VERSION_CURRENT < ((1 * 10000000) + (7 * 100000) + (99 * 1000))
 #define XORG 17
 #elif XORG_VERSION_CURRENT < ((1 * 10000000) + (8 * 100000) + (99 * 1000))
@@ -48,8 +53,15 @@
 #define XORG 115
 #elif XORG_VERSION_CURRENT < ((1 * 10000000) + (16 * 100000) + (99 * 1000))
 #define XORG 116
+<<<<<<< HEAD
 #else
 #error "X.Org newer than 1.16 is not supported"
+=======
+#elif XORG_VERSION_CURRENT < ((1 * 10000000) + (17 * 100000) + (99 * 1000))
+#define XORG 117
+#else
+#error "X.Org newer than 1.17 is not supported"
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #endif
 
 #endif

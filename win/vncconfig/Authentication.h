@@ -92,7 +92,12 @@ namespace rfb {
 
 
       static bool haveVncPassword() {
+<<<<<<< HEAD
         PlainPasswd password(SSecurityVncAuth::vncAuthPasswd.getVncAuthPasswd());
+=======
+        PlainPasswd password, passwordReadOnly;
+        SSecurityVncAuth::vncAuthPasswd.getVncAuthPasswd(&password, &passwordReadOnly);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         return password.buf && strlen(password.buf) != 0;
       }
 

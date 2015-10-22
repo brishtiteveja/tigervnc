@@ -97,12 +97,20 @@ void CConnection::processVersionMsg()
 
   // The only official RFB protocol versions are currently 3.3, 3.7 and 3.8
   if (cp.beforeVersion(3,3)) {
+<<<<<<< HEAD
     char msg[256];
     sprintf(msg,"Server gave unsupported RFB protocol version %d.%d",
             cp.majorVersion, cp.minorVersion);
     vlog.error("%s", msg);
     state_ = RFBSTATE_INVALID;
     throw Exception(msg);
+=======
+    vlog.error("Server gave unsupported RFB protocol version %d.%d",
+               cp.majorVersion, cp.minorVersion);
+    state_ = RFBSTATE_INVALID;
+    throw Exception("Server gave unsupported RFB protocol version %d.%d",
+                    cp.majorVersion, cp.minorVersion);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   } else if (useProtocol3_3 || cp.beforeVersion(3,7)) {
     cp.setVersion(3,3);
   } else if (cp.afterVersion(3,8)) {

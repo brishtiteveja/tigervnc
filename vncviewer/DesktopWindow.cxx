@@ -85,7 +85,11 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
   // coordinates relative to the right edge / bottom edge) at this
   // time.
   int geom_x = 0, geom_y = 0;
+<<<<<<< HEAD
   if (geometry.hasBeenSet()) {
+=======
+  if (strcmp(geometry, "") != 0) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     int matched;
     matched = sscanf(geometry.getValueStr(), "+%d+%d", &geom_x, &geom_y);
     if (matched == 2) {
@@ -112,6 +116,7 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
   // On OS X we can do the maximize thing properly before the
   // window is showned. Other platforms handled further down...
   if (maximize) {
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_WORK_AREA
     int dummy;
     Fl::screen_work_area(dummy, dummy, w, h, geom_x, geom_y);
@@ -119,6 +124,10 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
     w = Fl::w();
     h = Fl::h();
 #endif
+=======
+    int dummy;
+    Fl::screen_work_area(dummy, dummy, w, h, geom_x, geom_y);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 #endif
 
@@ -128,7 +137,10 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
     size(w, h);
   }
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (fullScreen) {
     // Hack: Window managers seem to be rather crappy at respecting
     // fullscreen hints on initial windows. So on X11 we'll have to
@@ -139,16 +151,24 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
     delayedFullscreen = true;
 #endif
   }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   show();
 
   // Full screen events are not sent out for a hidden window,
   // so send a fake one here to set up things properly.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   if (fullscreen_active())
     handle(FL_FULLSCREEN);
 #endif
+=======
+  if (fullscreen_active())
+    handle(FL_FULLSCREEN);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // Unfortunately, current FLTK does not allow us to set the
   // maximized property on Windows and X11 before showing the window.
@@ -165,7 +185,10 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
   if ((w != this->w()) || (h != this->h()))
     scroll->size(this->w(), this->h());
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (delayedFullscreen) {
     // Hack: Fullscreen requests may be ignored, so we need a timeout for
     // when we should stop waiting. We also really need to wait for the
@@ -173,7 +196,10 @@ DesktopWindow::DesktopWindow(int w, int h, const char *name,
     Fl::add_timeout(0.5, handleFullscreenTimeout, this);
     fullscreen_on();
   }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 
@@ -245,9 +271,13 @@ void DesktopWindow::resizeFramebuffer(int new_w, int new_h)
   // If we're letting the viewport match the window perfectly, then
   // keep things that way for the new size, otherwise just keep things
   // like they are.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   if (!fullscreen_active()) {
 #endif
+=======
+  if (!fullscreen_active()) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     if ((w() == viewport->w()) && (h() == viewport->h()))
       size(new_w, new_h);
     else {
@@ -257,9 +287,13 @@ void DesktopWindow::resizeFramebuffer(int new_w, int new_h)
       if ((w() > new_w) || (h() > new_h))
         size(__rfbmin(w(), new_w), __rfbmin(h(), new_h));
     }
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   }
 #endif
+=======
+  }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   viewport->size(new_w, new_h);
 
@@ -288,10 +322,14 @@ void DesktopWindow::resize(int x, int y, int w, int h)
 #if ! (defined(WIN32) || defined(__APPLE__))
   // X11 window managers will treat a resize to cover the entire
   // monitor as a request to go full screen. Make sure we avoid this.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   if (!fullscreen_active())
 #endif
   {
+=======
+  if (!fullscreen_active()) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     bool resize_req;
 
     // If there is no X11 window, then this must be a resize request,
@@ -367,7 +405,10 @@ void DesktopWindow::resize(int x, int y, int w, int h)
 int DesktopWindow::handle(int event)
 {
   switch (event) {
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   case FL_FULLSCREEN:
     fullScreen.setParam(fullscreen_active());
 
@@ -406,6 +447,7 @@ int DesktopWindow::handle(int event)
     }
     // Continue processing so that the viewport also gets mouse events
     break;
+<<<<<<< HEAD
 #endif
 
   case FL_SHORTCUT:
@@ -416,6 +458,8 @@ int DesktopWindow::handle(int event)
       Fl::handle(FL_KEYDOWN, this);
     }
     return 1;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   return Fl_Window::handle(event);
@@ -428,7 +472,10 @@ int DesktopWindow::fltkHandle(int event, Fl_Window *win)
 
   ret = Fl::handle_(event, win);
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   // This is hackish and the result of the dodgy focus handling in FLTK.
   // The basic problem is that FLTK's view of focus and the system's tend
   // to differ, and as a result we do not see all the FL_FOCUS events we
@@ -456,7 +503,10 @@ int DesktopWindow::fltkHandle(int event, Fl_Window *win)
       break;
     }
   }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   return ret;
 }
@@ -464,8 +514,11 @@ int DesktopWindow::fltkHandle(int event, Fl_Window *win)
 
 void DesktopWindow::fullscreen_on()
 {
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (not fullScreenAllMonitors)
     fullscreen_screens(-1, -1, -1, -1);
   else {
@@ -504,10 +557,15 @@ void DesktopWindow::fullscreen_on()
 
     fullscreen_screens(top, bottom, left, right);
   }
+<<<<<<< HEAD
 #endif // HAVE_FLTK_FULLSCREEN_SCREENS
 
   fullscreen();
 #endif // HAVE_FLTK_FULLSCREEN
+=======
+
+  fullscreen();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 void DesktopWindow::grabKeyboard()
@@ -527,6 +585,7 @@ void DesktopWindow::grabKeyboard()
 #elif defined(__APPLE__)
   int ret;
   
+<<<<<<< HEAD
   ret = cocoa_capture_display(this,
 #ifdef HAVE_FLTK_FULLSCREEN_SCREENS
                               fullScreenAllMonitors
@@ -534,6 +593,9 @@ void DesktopWindow::grabKeyboard()
                               false
 #endif
                               );
+=======
+  ret = cocoa_capture_display(this, fullScreenAllMonitors);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (ret != 0)
     vlog.error(_("Failure grabbing keyboard"));
 #else
@@ -590,14 +652,20 @@ void DesktopWindow::handleGrab(void *data)
 
   assert(self);
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (!fullscreenSystemKeys)
     return;
   if (!self->fullscreen_active())
     return;
 
   self->grabKeyboard();
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 
@@ -608,20 +676,27 @@ void DesktopWindow::maximizeWindow()
   // We cannot use ShowWindow() in full screen mode as it will
   // resize things implicitly. Fortunately modifying the style
   // directly results in a maximized state once we leave full screen.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (fullscreen_active()) {
     WINDOWINFO wi;
     wi.cbSize = sizeof(WINDOWINFO);
     GetWindowInfo(fl_xid(this), &wi);
     SetWindowLongPtr(fl_xid(this), GWL_STYLE, wi.dwStyle | WS_MAXIMIZE);
   } else
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     ShowWindow(fl_xid(this), SW_MAXIMIZE);
 #elif defined(__APPLE__)
   // OS X is somewhat strange and does not really have a concept of a
   // maximized window, so we can simply resize the window to the workarea.
   // Note that we shouldn't do this whilst in full screen as that will
   // incorrectly adjust things.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   if (fullscreen_active())
     return;
@@ -633,6 +708,12 @@ void DesktopWindow::maximizeWindow()
   W = Fl::w();
   H = Fl::h();
 #endif
+=======
+  if (fullscreen_active())
+    return;
+  int X, Y, W, H;
+  Fl::screen_work_area(X, Y, W, H, this->x(), this->y());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   size(W, H);
 #else
   // X11
@@ -658,12 +739,20 @@ void DesktopWindow::maximizeWindow()
 
 void DesktopWindow::handleDesktopSize()
 {
+<<<<<<< HEAD
   if (desktopSize.hasBeenSet()) {
+=======
+  if (strcmp(desktopSize, "") != 0) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     int width, height;
 
     // An explicit size has been requested
 
+<<<<<<< HEAD
     if (sscanf(desktopSize.getValueStr(), "%dx%d", &width, &height) != 2)
+=======
+    if (sscanf(desktopSize, "%dx%d", &width, &height) != 2)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       return;
 
     remoteResize(width, height);
@@ -690,9 +779,13 @@ void DesktopWindow::remoteResize(int width, int height)
   ScreenSet layout;
   ScreenSet::iterator iter;
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
   if (!fullscreen_active() || (width > w()) || (height > h())) {
 #endif
+=======
+  if (!fullscreen_active() || (width > w()) || (height > h())) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     // In windowed mode (or the framebuffer is so large that we need
     // to scroll) we just report a single virtual screen that covers
     // the entire framebuffer.
@@ -723,7 +816,10 @@ void DesktopWindow::remoteResize(int width, int height)
     layout.begin()->dimensions.tl.y = 0;
     layout.begin()->dimensions.br.x = width;
     layout.begin()->dimensions.br.y = height;
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   } else {
     int i;
     rdr::U32 id;
@@ -790,7 +886,10 @@ void DesktopWindow::remoteResize(int width, int height)
     if (layout.num_screens() == 0)
       layout.add_screen(rfb::Screen(0, 0, 0, width, height, 0));
   }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // Do we actually change anything?
   if ((width == cc->cp.width) &&
@@ -798,8 +897,16 @@ void DesktopWindow::remoteResize(int width, int height)
       (layout == cc->cp.screenLayout))
     return;
 
+<<<<<<< HEAD
   vlog.debug("Requesting framebuffer resize from %dx%d to %dx%d (%d screens)",
              cc->cp.width, cc->cp.height, width, height, layout.num_screens());
+=======
+  char buffer[2048];
+  vlog.debug("Requesting framebuffer resize from %dx%d to %dx%d",
+             cc->cp.width, cc->cp.height, width, height);
+  layout.print(buffer, sizeof(buffer));
+  vlog.debug("%s", buffer);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   if (!layout.validate(width, height)) {
     vlog.error(_("Invalid screen layout computed for resize request!"));
@@ -863,7 +970,10 @@ void DesktopWindow::handleOptions(void *data)
 {
   DesktopWindow *self = (DesktopWindow*)data;
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (self->fullscreen_active() && fullscreenSystemKeys)
     self->grabKeyboard();
   else
@@ -873,7 +983,10 @@ void DesktopWindow::handleOptions(void *data)
     self->fullscreen_on();
   else if (!fullScreen && self->fullscreen_active())
     self->fullscreen_off();
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 void DesktopWindow::handleFullscreenTimeout(void *data)
@@ -892,7 +1005,10 @@ void DesktopWindow::handleFullscreenTimeout(void *data)
 
 void DesktopWindow::handleEdgeScroll(void *data)
 {
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   DesktopWindow *self = (DesktopWindow *)data;
 
   int mx, my;
@@ -949,5 +1065,8 @@ void DesktopWindow::handleEdgeScroll(void *data)
   self->scroll->scroll_to(self->scroll->xposition() - dx, self->scroll->yposition() - dy);
 
   Fl::repeat_timeout(0.1, handleEdgeScroll, data);
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }

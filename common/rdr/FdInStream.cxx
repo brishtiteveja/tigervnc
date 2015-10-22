@@ -22,6 +22,10 @@
 
 #include <stdio.h>
 #include <string.h>
+<<<<<<< HEAD
+=======
+#include <errno.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #ifdef _WIN32
 #include <winsock2.h>
 #ifndef _WIN32_WCE
@@ -31,11 +35,17 @@
 #define close closesocket
 #undef errno
 #define errno WSAGetLastError()
+<<<<<<< HEAD
 #undef EINTR
 #define EINTR WSAEINTR
 #else
 #include <sys/types.h>
 #include <errno.h>
+=======
+#include <os/winerrno.h>
+#else
+#include <sys/types.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <unistd.h>
 #include <sys/time.h>
 #endif

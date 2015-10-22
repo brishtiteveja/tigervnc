@@ -50,15 +50,24 @@ static rfb::win32::DynamicFn<_GetMonitorInfo_proto> _GetMonitorInfo(_T("user32.d
 typedef BOOL (WINAPI *_EnumDisplayMonitors_proto)(HDC, LPCRECT, MONITORENUMPROC, LPARAM);
 static rfb::win32::DynamicFn<_EnumDisplayMonitors_proto> _EnumDisplayMonitors(_T("user32.dll"), "EnumDisplayMonitors");
 static void fillMonitorInfo(HMONITOR monitor, MonitorInfo* mi) {
+<<<<<<< HEAD
   vlog.debug("monitor=%lx", monitor);
+=======
+  vlog.debug("monitor=%p", monitor);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (!_GetMonitorInfo.isValid())
     throw rdr::Exception("no GetMonitorInfo");
   memset(mi, 0, sizeof(MONITORINFOEXA));
   mi->cbSize = sizeof(MONITORINFOEXA);
   if (!(*_GetMonitorInfo)(monitor, mi))
     throw rdr::SystemException("failed to GetMonitorInfo", GetLastError());
+<<<<<<< HEAD
   vlog.debug("monitor is %d,%d-%d,%d", mi->rcMonitor.left, mi->rcMonitor.top, mi->rcMonitor.right, mi->rcMonitor.bottom);
   vlog.debug("work area is %d,%d-%d,%d", mi->rcWork.left, mi->rcWork.top, mi->rcWork.right, mi->rcWork.bottom);
+=======
+  vlog.debug("monitor is %ld,%ld-%ld,%ld", mi->rcMonitor.left, mi->rcMonitor.top, mi->rcMonitor.right, mi->rcMonitor.bottom);
+  vlog.debug("work area is %ld,%ld-%ld,%ld", mi->rcWork.left, mi->rcWork.top, mi->rcWork.right, mi->rcWork.bottom);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   vlog.debug("device is \"%s\"", mi->szDevice);
 }
 #else

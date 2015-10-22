@@ -100,7 +100,11 @@ struct TestEntry tests[] = {
 
 static void doTests(rfb::PixelFormat &dstpf, rfb::PixelFormat &srcpf)
 {
+<<<<<<< HEAD
   int i;
+=======
+  size_t i;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   char dstb[256], srcb[256];
 
   dstpf.print(dstb, sizeof(dstb));
@@ -118,19 +122,31 @@ static void doTests(rfb::PixelFormat &dstpf, rfb::PixelFormat &srcpf)
 
 int main(int argc, char **argv)
 {
+<<<<<<< HEAD
   int bufsize;
+=======
+  size_t bufsize;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   time_t t;
   char datebuffer[256];
 
+<<<<<<< HEAD
   int i;
+=======
+  size_t i;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   bufsize = fbsize * fbsize * 4;
 
   fb1 = new rdr::U8[bufsize];
   fb2 = new rdr::U8[bufsize];
 
+<<<<<<< HEAD
   for (int i = 0;i < bufsize;i++) {
+=======
+  for (i = 0;i < bufsize;i++) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     fb1[i] = rand();
     fb2[i] = rand();
   }

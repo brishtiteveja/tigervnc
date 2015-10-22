@@ -171,3 +171,19 @@ bool SSecurityVeNCrypt::processMsg(SConnection* sc)
   return ssecurity->processMsg(sc);
 }
 
+<<<<<<< HEAD
+=======
+const char* SSecurityVeNCrypt::getUserName() const
+{
+  if (ssecurity == NULL)
+    return NULL;
+  return ssecurity->getUserName();
+}
+
+SConnection::AccessRights SSecurityVeNCrypt::getAccessRights() const
+{
+  if (ssecurity == NULL)
+    return SSecurity::getAccessRights();
+  return ssecurity->getAccessRights();
+}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa

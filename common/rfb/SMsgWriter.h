@@ -109,11 +109,14 @@ namespace rfb {
     void startRect(const Rect& r, int enc);
     void endRect();
 
+<<<<<<< HEAD
     int getUpdatesSent()           { return updatesSent; }
     int getRectsSent(int encoding) { return rectsSent[encoding]; }
     int getBytesSent(int encoding) { return bytesSent[encoding]; }
     rdr::U64 getRawBytesEquivalent()    { return rawBytesEquivalent; }
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   protected:
     void startMsg(int type);
     void endMsg();
@@ -137,8 +140,11 @@ namespace rfb {
     ConnParams* cp;
     rdr::OutStream* os;
 
+<<<<<<< HEAD
     int currentEncoding;
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     int nRectsInUpdate;
     int nRectsInHeader;
 
@@ -149,12 +155,15 @@ namespace rfb {
     bool needSetCursor;
     bool needSetXCursor;
 
+<<<<<<< HEAD
     int lenBeforeRect;
     int updatesSent;
     int bytesSent[encodingMax+1];
     int rectsSent[encodingMax+1];
     rdr::U64 rawBytesEquivalent;
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     typedef struct {
       rdr::U16 reason, result;
       int fb_width, fb_height;

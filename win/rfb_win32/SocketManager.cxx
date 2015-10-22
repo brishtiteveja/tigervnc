@@ -174,7 +174,11 @@ void SocketManager::processEvent(HANDLE event) {
       vlog.info("deleting listening socket");
       remListener(li.sock);
     } else if (network_events.lNetworkEvents & FD_ADDRESS_LIST_CHANGE) {
+<<<<<<< HEAD
       li.notifier->processAddressChange(li.sock);
+=======
+      li.notifier->processAddressChange();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       requestAddressChangeEvents(li.sock);
     } else {
       vlog.error("unknown listener event: %lx", network_events.lNetworkEvents);

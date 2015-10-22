@@ -16,6 +16,10 @@
  * USA.
  */
 
+<<<<<<< HEAD
+=======
+#include <winsock2.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <windows.h>
 #include <commctrl.h>
 #include <string.h>
@@ -42,7 +46,11 @@ static LogWriter vlog("main");
 #include <vncconfig/Desktop.h>
 
 
+<<<<<<< HEAD
 TStr rfb::win32::AppName("VNC Config");
+=======
+TStr rfb::win32::AppName("TigerVNC Configuration");
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 
 #ifdef _DEBUG

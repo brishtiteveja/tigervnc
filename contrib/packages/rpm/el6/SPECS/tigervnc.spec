@@ -2,7 +2,11 @@
 
 Name: tigervnc
 Version: @VERSION@
+<<<<<<< HEAD
 Release: 18%{?snap:.%{snap}}%{?dist}
+=======
+Release: 21%{?snap:.%{snap}}%{?dist}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Summary: A TigerVNC remote display system
 
 Group: User Interface/Desktops
@@ -14,9 +18,21 @@ Source0: %{name}-%{version}%{?snap:-%{snap}}.tar.bz2
 Source1: vncserver.service
 Source2: vncserver.sysconfig
 Source6: vncviewer.desktop
+<<<<<<< HEAD
 Source11: http://fltk.org/pub/fltk/1.3.2/fltk-1.3.2-source.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
+=======
+Source11: http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz
+Source13: http://downloads.sourceforge.net/project/libpng/libpng15/older-releases/1.5.10/libpng-1.5.10.tar.bz2
+Source14: https://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.bz2
+Source15: http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.2.tar.gz
+Source16: https://ftp.gnu.org/gnu/nettle/nettle-2.7.1.tar.gz
+Source17: ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/gnutls-3.3.13.tar.xz
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+BuildRequires: gcc, gcc-c++
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 BuildRequires: libX11-devel, automake, autoconf, libtool, gettext, gettext-devel
 BuildRequires: libXext-devel, xorg-x11-server-source, libXi-devel
 BuildRequires: xorg-x11-xtrans-devel, xorg-x11-util-macros, libXtst-devel
@@ -25,14 +41,22 @@ BuildRequires: libxkbfile-devel, openssl-devel, libpciaccess-devel
 BuildRequires: mesa-libGL-devel, libXinerama-devel, ImageMagick
 BuildRequires: freetype-devel, libXdmcp-devel
 BuildRequires: desktop-file-utils, java-devel, jpackage-utils
+<<<<<<< HEAD
 BuildRequires: libjpeg-turbo-devel, gnutls-devel, pam-devel
 BuildRequires: cmake28
+=======
+BuildRequires: libjpeg-turbo-devel, pam-devel
+BuildRequires: cmake >= 2.8
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 %ifnarch s390 s390x
 BuildRequires: xorg-x11-server-devel
 %endif
 
+<<<<<<< HEAD
 BuildRequires: openmotif-devel
 Requires: openmotif, openmotif22
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Requires(post): initscripts chkconfig coreutils
 Requires(postun): coreutils
 Requires: libjpeg-turbo
@@ -46,8 +70,11 @@ Provides: tightvnc = 1.5.0-0.15.20090204svn3586
 Obsoletes: tightvnc < 1.5.0-0.15.20090204svn3586
 
 Patch4: tigervnc-cookie.patch
+<<<<<<< HEAD
 Patch10: tigervnc11-ldnow.patch
 Patch11: tigervnc11-gethomedir.patch
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 Patch16: tigervnc-xorg-manpages.patch
 
 %description
@@ -140,6 +167,7 @@ This package contains icons for TigerVNC viewer
 
 # sed -i -e 's/80/0/g' CMakeLists.txt
 %patch4 -p1 -b .cookie
+<<<<<<< HEAD
 %patch10 -p1 -b .ldnow
 %patch11 -p1 -b .gethomedir
 
@@ -150,6 +178,15 @@ do
   patch -p1 -i $p
 done
 popd
+=======
+
+tar xzf %SOURCE11
+tar xjf %SOURCE13
+tar xjf %SOURCE14
+tar xzf %SOURCE15
+tar xzf %SOURCE16
+xzcat %SOURCE17 | tar xf -
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 cp -r /usr/share/xorg-x11-server-source/* unix/xserver
 pushd unix/xserver
@@ -164,6 +201,7 @@ popd
 %build
 %define tigervnc_src_dir %{_builddir}/%{name}-%{version}%{?snap:-%{snap}}
 %define static_lib_buildroot %{tigervnc_src_dir}/build
+<<<<<<< HEAD
 %ifarch sparcv9 sparc64 s390 s390x
 export CFLAGS="$RPM_OPT_FLAGS -fPIC"
 %else
@@ -189,13 +227,124 @@ popd
   -DFLTK_LIBRARIES="%{tigervnc_src_dir}/fltk-1.3.2/lib/libfltk.a;%{tigervnc_src_dir}/fltk-1.3.2/lib/libfltk_images.a;-lpng" \
   -DFLTK_INCLUDE_DIR=%{tigervnc_src_dir}/fltk-1.3.2
 make LDFLAGS="-lpng" %{?_smp_mflags}
+=======
+mkdir -p %{static_lib_buildroot}%{_libdir}
+
+%ifarch sparcv9 sparc64 s390 s390x
+export CFLAGS="$RPM_OPT_FLAGS -fPIC -I%{static_lib_buildroot}%{_includedir}"
+%else
+export CFLAGS="$RPM_OPT_FLAGS -fpic -I%{static_lib_buildroot}%{_includedir}"
+%endif
+export CXXFLAGS=$CFLAGS
+export CPPFLAGS=$CXXFLAGS
+export PKG_CONFIG_PATH="%{static_lib_buildroot}%{_libdir}/pkgconfig:%{static_lib_buildroot}%{_datadir}/pkgconfig:%{_libdir}/pkgconfig:%{_datadir}/pkgconfig"
+
+echo "*** Building gmp ***"
+pushd gmp-*
+./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared --enable-cxx --disable-assembly
+make %{?_smp_mflags} DESTDIR=%{static_lib_buildroot} install
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{static_lib_buildroot}%{_libdir}|" {} \;
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{static_lib_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building libtasn1 ***"
+pushd libtasn1-*
+LDFLAGS="-L%{static_lib_buildroot}%{_libdir} $LDFLAGS" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared
+make %{?_smp_mflags} DESTDIR=%{static_lib_buildroot} install
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{static_lib_buildroot}%{_libdir}|" {} \;
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{static_lib_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building nettle ***"
+pushd nettle-*
+autoreconf -fiv
+LDFLAGS="-L%{static_lib_buildroot}%{_libdir} -Wl,-Bstatic -ltasn1 -lgmp -Wl,-Bdynamic $LDFLAGS" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --enable-static --disable-shared --disable-openssl
+make %{?_smp_mflags} DESTDIR=%{static_lib_buildroot} install
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{static_lib_buildroot}%{_libdir}|" {} \;
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{static_lib_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building gnutls ***"
+pushd gnutls-*
+LDFLAGS="-L%{static_lib_buildroot}%{_libdir} -Wl,-Bstatic -lnettle -lhogweed -ltasn1 -lgmp -Wl,-Bdynamic $LDFLAGS" ./configure \
+  --prefix=%{_prefix} \
+  --libdir=%{_libdir} \
+  --enable-static \
+  --disable-shared \
+  --without-p11-kit \
+  --disable-guile \
+  --disable-srp-authentication \
+  --disable-libdane \
+  --disable-doc \
+  --enable-local-libopts \
+  --without-tpm \
+  --disable-dependency-tracking \
+  --disable-silent-rules \
+  --disable-heartbeat-support
+make %{?_smp_mflags} DESTDIR=%{static_lib_buildroot} install
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.la" -delete
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|libdir=%{_libdir}|libdir=%{static_lib_buildroot}%{_libdir}|" {} \;
+find %{static_lib_buildroot}%{_prefix} -type f -name "*.pc" -exec sed -i -e "s|prefix=%{_prefix}|prefix=%{static_lib_buildroot}%{_prefix}|" {} \;
+popd
+
+echo "*** Building libpng ***"
+pushd libpng-*
+CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" ./configure \
+  --prefix=%{_prefix} \
+  --libdir=%{_libdir} \
+  --disable-shared \
+  --enable-static
+make %{?_smp_mflags}
+make DESTDIR=%{static_lib_buildroot} install
+popd
+
+echo "*** Building fltk ***"
+pushd fltk-*
+export CMAKE_PREFIX_PATH="%{static_lib_buildroot}%{_prefix}:%{_prefix}"
+export CMAKE_EXE_LINKER_FLAGS=$LDFLAGS
+export PKG_CONFIG="pkg-config --static"
+CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="-L%{static_lib_buildroot}%{_libdir} -Wl,-Bstatic -lpng -Wl,-Bdynamic $LDFLAGS" ./configure \
+  --prefix=%{_prefix} \
+  --libdir=%{_libdir} \
+  --enable-x11 \
+  --enable-gl \
+  --disable-shared \
+  --enable-localjpeg \
+  --enable-localzlib \
+  --disable-localpng \
+  --enable-xinerama \
+  --enable-xft \
+  --enable-xdbe \
+  --enable-xfixes \
+  --enable-xcursor \
+  --with-x
+make %{?_smp_mflags} 
+make DESTDIR=%{static_lib_buildroot} install
+popd
+
+%{cmake} -G"Unix Makefiles" \
+  -DBUILD_STATIC=off \
+  -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+  -DFLTK_LIBRARIES="%{static_lib_buildroot}%{_libdir}/libfltk.a;%{static_lib_buildroot}%{_libdir}/libfltk_images.a;%{static_lib_buildroot}%{_libdir}/libpng.a" \
+  -DFLTK_INCLUDE_DIR=%{static_lib_buildroot}%{_includedir} \
+  -DGNUTLS_INCLUDE_DIR=%{static_lib_buildroot}%{_includedir} \
+  -DGNUTLS_LIBRARY="%{static_lib_buildroot}%{_libdir}/libgnutls.a;%{static_lib_buildroot}%{_libdir}/libtasn1.a;%{static_lib_buildroot}%{_libdir}/libnettle.a;%{static_lib_buildroot}%{_libdir}/libhogweed.a;%{static_lib_buildroot}%{_libdir}/libgmp.a"
+make %{?_smp_mflags}
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 pushd unix/xserver
 autoreconf -fiv
 %configure \
 	--disable-xorg --disable-xnest --disable-xvfb --disable-dmx \
 	--disable-xwin --disable-xephyr --disable-kdrive --disable-wayland \
+<<<<<<< HEAD
 	--with-pic --disable-static --disable-xinerama \
+=======
+	--with-pic --disable-static --enable-xinerama \
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 	--with-default-font-path="catalogue:%{_sysconfdir}/X11/fontpath.d,built-ins" \
 	--with-serverconfig-path=%{_libdir}/xorg \
 	--with-fontrootdir=%{_datadir}/X11/fonts \
@@ -221,7 +370,11 @@ popd
 
 # Build Java applet
 pushd java
+<<<<<<< HEAD
 %{cmake28} \
+=======
+%{cmake} \
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 %if !%{_self_signed}
 	-DJAVA_KEYSTORE=%{_keystore} \
 	-DJAVA_KEYSTORE_TYPE=%{_keystore_type} \
@@ -344,6 +497,18 @@ fi
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+<<<<<<< HEAD
+=======
+* Sat Mar 14 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-21
+- Build static libraries to meet new minimum requirements
+
+* Sat Mar 07 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-20
+- Don't disable xinerama extension
+
+* Thu Feb 19 2015 Brian P. Hinz <bphinz@users.sourceforge.net> 1.4.80-19
+- Bumped fltk version to 1.3.3, no longer requires any patching
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 * Tue Nov 04 2014 Brian P. Hinz <bphinz@users.sourceforge.net> 1.3.80-18.20131128svn5139
 - Bumped xserver patch to keep pace with native version
 

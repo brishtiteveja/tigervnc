@@ -29,9 +29,18 @@
 #include <errno.h>
 #include <signal.h>
 #include <locale.h>
+<<<<<<< HEAD
 #include <sys/stat.h>
 
 #ifdef WIN32
+=======
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+
+#ifdef WIN32
+#include <os/winerrno.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <direct.h>
 #define mkdir(path, mode) _mkdir(path)
 #endif
@@ -56,6 +65,10 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Widget.H>
 #include <FL/Fl_PNG_Image.H>
+<<<<<<< HEAD
+=======
+#include <FL/Fl_Sys_Menu_Bar.H>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <FL/fl_ask.H>
 #include <FL/x.H>
 
@@ -65,6 +78,10 @@
 #include "ServerDialog.h"
 #include "UserDialog.h"
 #include "vncviewer.h"
+<<<<<<< HEAD
+=======
+#include "fltk_layout.h"
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 #ifdef WIN32
 #include "resource.h"
@@ -77,6 +94,7 @@ using namespace network;
 using namespace rfb;
 using namespace std;
 
+<<<<<<< HEAD
 static const char _aboutText[] = N_("TigerVNC Viewer %d-bit v%s\n"
                                     "Built on: %s\n"
                                     "Copyright (C) 1999-%d TigerVNC Team and many others (see README.txt)\n"
@@ -88,6 +106,33 @@ char vncServerName[VNCSERVERNAMELEN] = { '\0' };
 static bool exitMainloop = false;
 static const char *exitError = NULL;
 
+=======
+char vncServerName[VNCSERVERNAMELEN] = { '\0' };
+
+static const char *argv0 = NULL;
+
+static bool exitMainloop = false;
+static const char *exitError = NULL;
+
+static const char *about_text()
+{
+  static char buffer[1024];
+
+  // This is used in multiple places with potentially different
+  // encodings, so we need to make sure we get a fresh string every
+  // time.
+  snprintf(buffer, sizeof(buffer),
+           _("TigerVNC Viewer %d-bit v%s\n"
+             "Built on: %s\n"
+             "Copyright (C) 1999-%d TigerVNC Team and many others (see README.txt)\n"
+             "See http://www.tigervnc.org for information on TigerVNC."),
+           (int)sizeof(size_t)*8, PACKAGE_VERSION,
+           BUILD_TIMESTAMP, 2015);
+
+  return buffer;
+}
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 void exit_vncviewer(const char *error)
 {
   // Prioritise the first error we get as that is probably the most
@@ -101,19 +146,57 @@ void exit_vncviewer(const char *error)
 void about_vncviewer()
 {
   fl_message_title(_("About TigerVNC Viewer"));
+<<<<<<< HEAD
   fl_message("%s", aboutText);
 }
 
+=======
+  fl_message("%s", about_text());
+}
+
+#ifdef __APPLE__
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 static void about_callback(Fl_Widget *widget, void *data)
 {
   about_vncviewer();
 }
 
+<<<<<<< HEAD
+=======
+static void new_connection_cb(Fl_Widget *widget, void *data)
+{
+  const char *argv[2];
+  pid_t pid;
+
+  pid = fork();
+  if (pid == -1) {
+    vlog.error(_("Error starting new TigerVNC Viewer: %s"), strerror(errno));
+    return;
+  }
+
+  if (pid != 0)
+    return;
+
+  argv[0] = argv0;
+  argv[1] = NULL;
+
+  execvp(argv[0], (char * const *)argv);
+
+  vlog.error(_("Error starting new TigerVNC Viewer: %s"), strerror(errno));
+  _exit(1);
+}
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 static void CleanupSignalHandler(int sig)
 {
   // CleanupSignalHandler allows C++ object cleanup to happen because it calls
   // exit() rather than the default which is to abort.
+<<<<<<< HEAD
   vlog.info(_("CleanupSignalHandler called"));
+=======
+  vlog.info(_("Termination signal %d has been received. TigerVNC Viewer will now exit."), sig);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   exit(1);
 }
 
@@ -137,7 +220,10 @@ static void init_fltk()
   Fl_Window::default_xclass("vncviewer");
 
   // Set the default icon for all windows.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_ICONS
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #ifdef WIN32
   HICON lg, sm;
 
@@ -197,7 +283,10 @@ static void init_fltk()
   for (int i = 0;i < count;i++)
       delete icons[i];
 #endif
+<<<<<<< HEAD
 #endif // FLTK_HAVE_ICONS
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // This makes the "icon" in dialogs rounded, which fits better
   // with the above schemes.
@@ -239,6 +328,19 @@ static void init_fltk()
   Fl_Mac_App_Menu::show = _("Show All");
 
   fl_mac_set_about(about_callback, NULL);
+<<<<<<< HEAD
+=======
+
+  Fl_Sys_Menu_Bar *menubar;
+  char buffer[1024];
+  menubar = new Fl_Sys_Menu_Bar(0, 0, 500, 25);
+  // Fl_Sys_Menu_Bar overrides methods without them being virtual,
+  // which means we cannot use our generic Fl_Menu_ helpers.
+  if (fltk_menu_escape(_("&File"), buffer, sizeof(buffer)) < sizeof(buffer))
+      menubar->add(buffer, 0, 0, 0, FL_SUBMENU);
+  if (fltk_menu_escape(_("&New Connection"), buffer, sizeof(buffer)) < sizeof(buffer))
+      menubar->insert(1, buffer, FL_COMMAND | 'n', new_connection_cb);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #endif
 }
 
@@ -260,6 +362,23 @@ static void mkvnchomedir()
 
 static void usage(const char *programName)
 {
+<<<<<<< HEAD
+=======
+#ifdef WIN32
+  // If we don't have a console then we need to create one for output
+  if (GetConsoleWindow() == NULL) {
+    HANDLE handle;
+    int fd;
+
+    AllocConsole();
+
+    handle = GetStdHandle(STD_ERROR_HANDLE);
+    fd = _open_osfhandle((intptr_t)handle, O_TEXT);
+    *stderr = *fdopen(fd, "w");
+  }
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   fprintf(stderr,
           "\nusage: %s [parameters] [host:displayNum] [parameters]\n"
           "       %s [parameters] -listen [port] [parameters]\n",
@@ -272,6 +391,15 @@ static void usage(const char *programName)
           "--<param>=<value>\n"
           "Parameter names are case-insensitive.  The parameters are:\n\n");
   Configuration::listParams(79, 14);
+<<<<<<< HEAD
+=======
+
+#ifdef WIN32
+  // Just wait for the user to kill the console window
+  Sleep(INFINITE);
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   exit(1);
 }
 
@@ -308,7 +436,10 @@ interpretViaParam(char *remoteHost, int *remotePort, int localPort)
 
   snprintf(vncServerName, VNCSERVERNAMELEN, "localhost::%d", localPort);
   vncServerName[VNCSERVERNAMELEN - 1] = '\0';
+<<<<<<< HEAD
   vlog.error(vncServerName);
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   return 0;
 }
@@ -356,10 +487,16 @@ int main(int argc, char** argv)
 {
   UserDialog dlg;
 
+<<<<<<< HEAD
+=======
+  argv0 = argv[0];
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   setlocale(LC_ALL, "");
   bindtextdomain(PACKAGE_NAME, LOCALE_DIR);
   textdomain(PACKAGE_NAME);
 
+<<<<<<< HEAD
   // Generate the about string now that we get the proper translation
   snprintf(aboutText, sizeof(aboutText), _aboutText,
            (int)sizeof(size_t)*8, PACKAGE_VERSION,
@@ -369,6 +506,12 @@ int main(int argc, char** argv)
 
   // Write about text to console, still using normal locale codeset
   fprintf(stderr,"\n%s\n", aboutText);
+=======
+  rfb::SecurityClient::setDefaults();
+
+  // Write about text to console, still using normal locale codeset
+  fprintf(stderr,"\n%s\n", about_text());
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // Set gettext codeset to what our GUI toolkit uses. Since we are
   // passing strings from strerror/gai_strerror to the GUI, these must
@@ -404,6 +547,10 @@ int main(int argc, char** argv)
   try {
     defaultServerName = loadViewerParameters(NULL);
   } catch (rfb::Exception& e) {
+<<<<<<< HEAD
+=======
+    defaultServerName = "";
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     fl_alert("%s", e.str());
   }
   
@@ -427,6 +574,7 @@ int main(int argc, char** argv)
       vncServerName[VNCSERVERNAMELEN - 1] = '\0';
     }
 
+<<<<<<< HEAD
   if (!::autoSelect.hasBeenSet()) {
     // Default to AutoSelect=0 if -PreferredEncoding or -FullColor is used
     if (::preferredEncoding.hasBeenSet() || ::fullColour.hasBeenSet() ||
@@ -448,6 +596,8 @@ int main(int argc, char** argv)
     }
   }
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   mkvnchomedir();
 
   CSecurity::upg = &dlg;
@@ -460,6 +610,11 @@ int main(int argc, char** argv)
 #ifndef WIN32
   /* Specifying -via and -listen together is nonsense */
   if (listenMode && strlen(via.getValueStr()) > 0) {
+<<<<<<< HEAD
+=======
+    // TRANSLATORS: "Parameters" are command line arguments, or settings
+    // from a file or the Windows registry.
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     vlog.error(_("Parameters -listen and -via are incompatible"));
     fl_alert(_("Parameters -listen and -via are incompatible"));
     exit_vncviewer();
@@ -468,15 +623,55 @@ int main(int argc, char** argv)
 #endif
 
   if (listenMode) {
+<<<<<<< HEAD
+=======
+    std::list<TcpListener> listeners;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     try {
       int port = 5500;
       if (isdigit(vncServerName[0]))
         port = atoi(vncServerName);
 
+<<<<<<< HEAD
       TcpListener listener(NULL, port);
 
       vlog.info(_("Listening on port %d\n"), port);
       sock = listener.accept();   
+=======
+      createTcpListeners(&listeners, 0, port);
+
+      vlog.info(_("Listening on port %d"), port);
+
+      /* Wait for a connection */
+      while (sock == NULL) {
+        fd_set rfds;
+        FD_ZERO(&rfds);
+        for (std::list<TcpListener>::iterator i = listeners.begin();
+             i != listeners.end();
+             i++)
+          FD_SET((*i).getFd(), &rfds);
+
+        int n = select(FD_SETSIZE, &rfds, 0, 0, 0);
+        if (n < 0) {
+          if (errno == EINTR) {
+            vlog.debug("Interrupted select() system call");
+            continue;
+          } else {
+            throw rdr::SystemException("select", errno);
+          }
+        }
+
+        for (std::list<TcpListener>::iterator i = listeners.begin ();
+             i != listeners.end();
+             i++)
+          if (FD_ISSET((*i).getFd(), &rfds)) {
+            sock = (*i).accept();
+            if (sock)
+              /* Got a connection */
+              break;
+          }
+      }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     } catch (rdr::Exception& e) {
       vlog.error("%s", e.str());
       fl_alert("%s", e.str());

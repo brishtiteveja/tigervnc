@@ -134,7 +134,11 @@ CConn::~CConn()
 {
   OptionsDialog::removeCallback(handleOptions);
 
+<<<<<<< HEAD
   for (int i = 0; i < sizeof(decoders)/sizeof(decoders[0]); i++)
+=======
+  for (size_t i = 0; i < sizeof(decoders)/sizeof(decoders[0]); i++)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     delete decoders[i];
 
   if (desktop)
@@ -183,12 +187,21 @@ const char *CConn::connectionInfo()
   strcat(infoText, scratch);
   strcat(infoText, "\n");
 
+<<<<<<< HEAD
+=======
+  // TRANSLATORS: Will be filled in with a string describing the
+  // protocol pixel format in a fairly language neutral way
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   cp.pf().print(pfStr, 100);
   snprintf(scratch, sizeof(scratch),
            _("Pixel format: %s"), pfStr);
   strcat(infoText, scratch);
   strcat(infoText, "\n");
 
+<<<<<<< HEAD
+=======
+  // TRANSLATORS: Similar to the earlier "Pixel format" string
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   serverPF.print(pfStr, 100);
   snprintf(scratch, sizeof(scratch),
            _("(server default %s)"), pfStr);
@@ -310,8 +323,13 @@ void CConn::setDesktopSize(int w, int h)
 }
 
 // setExtendedDesktopSize() is a more advanced version of setDesktopSize()
+<<<<<<< HEAD
 void CConn::setExtendedDesktopSize(int reason, int result, int w, int h,
                                    const rfb::ScreenSet& layout)
+=======
+void CConn::setExtendedDesktopSize(unsigned reason, unsigned result,
+                                   int w, int h, const rfb::ScreenSet& layout)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
   CConnection::setExtendedDesktopSize(reason, result, w, h, layout);
 
@@ -408,7 +426,11 @@ void CConn::serverCutText(const char* str, rdr::U32 len)
   ret = fl_utf8froma(buffer, size, str, len);
   assert(ret < size);
 
+<<<<<<< HEAD
   vlog.debug("Got clipboard data (%d bytes)", strlen(buffer));
+=======
+  vlog.debug("Got clipboard data (%d bytes)", (int)strlen(buffer));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   // RFB doesn't have separate selection and clipboard concepts, so we
   // dump the data into both variants.
@@ -426,15 +448,26 @@ void CConn::dataRect(const Rect& r, int encoding)
     lastServerEncoding = encoding;
 
   if (!Decoder::supported(encoding)) {
+<<<<<<< HEAD
     vlog.error(_("Unknown rect encoding %d"), encoding);
     throw Exception(_("Unknown rect encoding"));
+=======
+    // TRANSLATORS: Refers to a VNC protocol encoding type
+    vlog.error(_("Unknown encoding %d"), encoding);
+    throw Exception(_("Unknown encoding"));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   if (!decoders[encoding]) {
     decoders[encoding] = Decoder::createDecoder(encoding, this);
     if (!decoders[encoding]) {
+<<<<<<< HEAD
       vlog.error(_("Unknown rect encoding %d"), encoding);
       throw Exception(_("Unknown rect encoding"));
+=======
+      vlog.error(_("Unknown encoding %d"), encoding);
+      throw Exception(_("Unknown encoding"));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
   }
   decoders[encoding]->readRect(r, desktop->getFramebuffer());

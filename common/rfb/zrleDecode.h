@@ -73,7 +73,11 @@ void ZRLE_DECODE (const Rect& r, rdr::InStream* is,
 
       if (palSize == 1) {
         PIXEL_T pix = palette[0];
+<<<<<<< HEAD
         pb->fillRect(pf, t, pix);
+=======
+        pb->fillRect(pf, t, &pix);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         continue;
       }
 

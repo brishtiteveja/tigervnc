@@ -25,7 +25,10 @@
 #include <rdr/Exception.h>
 #include <rdr/TLSException.h>
 #include <rdr/TLSInStream.h>
+<<<<<<< HEAD
 #include <rdr/TLSErrno.h>
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <errno.h>
 
 #ifdef HAVE_GNUTLS 
@@ -33,34 +36,57 @@ using namespace rdr;
 
 enum { DEFAULT_BUF_SIZE = 16384 };
 
+<<<<<<< HEAD
 ssize_t TLSInStream::pull(gnutls_transport_ptr str, void* data, size_t size)
+=======
+ssize_t TLSInStream::pull(gnutls_transport_ptr_t str, void* data, size_t size)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
   TLSInStream* self= (TLSInStream*) str;
   InStream *in = self->in;
 
   try {
     if (!in->check(1, 1, false)) {
+<<<<<<< HEAD
       gnutls_errno_helper(self->session, EAGAIN);
       return -1;
     }
 
     if (in->getend() - in->getptr() < size)
+=======
+      gnutls_transport_set_errno(self->session, EAGAIN);
+      return -1;
+    }
+
+    if (in->getend() - in->getptr() < (ptrdiff_t)size)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       size = in->getend() - in->getptr();
   
     in->readBytes(data, size);
 
   } catch (Exception& e) {
+<<<<<<< HEAD
     gnutls_errno_helper(self->session, EINVAL);
+=======
+    gnutls_transport_set_errno(self->session, EINVAL);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return -1;
   }
 
   return size;
 }
 
+<<<<<<< HEAD
 TLSInStream::TLSInStream(InStream* _in, gnutls_session _session)
   : session(_session), in(_in), bufSize(DEFAULT_BUF_SIZE), offset(0)
 {
   gnutls_transport_ptr recv, send;
+=======
+TLSInStream::TLSInStream(InStream* _in, gnutls_session_t _session)
+  : session(_session), in(_in), bufSize(DEFAULT_BUF_SIZE), offset(0)
+{
+  gnutls_transport_ptr_t recv, send;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   ptr = end = start = new U8[bufSize];
 

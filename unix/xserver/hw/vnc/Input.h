@@ -1,7 +1,11 @@
 /* Copyright (C) 2009 TightVNC Team
  * Copyright (C) 2009, 2010 Red Hat, Inc.
  * Copyright (C) 2009, 2010 TigerVNC Team
+<<<<<<< HEAD
  * Copyright 2013 Pierre Ossman for Cendio AB
+=======
+ * Copyright 2013-2015 Pierre Ossman for Cendio AB
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
  *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +27,7 @@
 #ifndef INPUT_H_
 #define INPUT_H_
 
+<<<<<<< HEAD
 #ifdef HAVE_DIX_CONFIG_H
 #include <dix-config.h>
 #endif
@@ -128,4 +133,46 @@ private:
 	static InputDevice singleton;
 };
 
+=======
+#include <stdlib.h>
+#include <X11/X.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void vncInitInputDevice(void);
+
+void vncPointerButtonAction(int buttonMask);
+void vncPointerMove(int x, int y);
+void vncGetPointerPos(int *x, int *y);
+
+void vncKeyboardEvent(KeySym keysym, int down);
+
+/* Backend dependent functions below here */
+
+void vncPrepareInputDevices(void);
+
+unsigned vncGetKeyboardState(void);
+unsigned vncGetLevelThreeMask(void);
+
+KeyCode vncPressShift(void);
+size_t vncReleaseShift(KeyCode *keys, size_t maxKeys);
+
+KeyCode vncPressLevelThree(void);
+size_t vncReleaseLevelThree(KeyCode *keys, size_t maxKeys);
+
+KeyCode vncKeysymToKeycode(KeySym keysym, unsigned state, unsigned *new_state);
+
+int vncIsLockModifier(KeyCode keycode, unsigned state);
+
+int vncIsAffectedByNumLock(KeyCode keycode);
+
+KeyCode vncAddKeysym(KeySym keysym, unsigned state);
+
+#ifdef __cplusplus
+}
+#endif
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #endif

@@ -63,9 +63,15 @@ namespace winvnc {
 
 class STrayIcon : public TrayIcon {
 public:
+<<<<<<< HEAD
   STrayIcon(STrayIconThread& t) : thread(t),
     vncConfig(_T("vncconfig.exe"), isServiceProcess() ? _T("-noconsole -service") : _T("-noconsole")),
     vncConnect(_T("winvnc4.exe"), _T("-noconsole -connect")) {
+=======
+  STrayIcon(STrayIconThread& t) :
+    vncConfig(_T("vncconfig.exe"), isServiceProcess() ? _T("-noconsole -service") : _T("-noconsole")),
+    vncConnect(_T("winvnc4.exe"), _T("-noconsole -connect")), thread(t) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     // ***
     SetWindowText(getHandle(), _T("winvnc::IPC_Interface"));
@@ -179,7 +185,11 @@ public:
         case 2:
           return thread.server.disconnectClients("IPC disconnect") ? 1 : 0;
         case 3:
+<<<<<<< HEAD
           thread.server.setClientsStatus((rfb::ListConnInfo *)command->cbData);
+=======
+          thread.server.setClientsStatus((rfb::ListConnInfo *)command->lpData);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         case 4:
           thread.server.getClientsInfo(&LCInfo);
           CPanel->UpdateListView(&LCInfo);
@@ -231,9 +241,16 @@ protected:
 
 STrayIconThread::STrayIconThread(VNCServerWin32& sm, UINT inactiveIcon_, UINT activeIcon_, 
                                  UINT dis_inactiveIcon_, UINT dis_activeIcon_, UINT menu_)
+<<<<<<< HEAD
 : Thread("TrayIcon"), server(sm), inactiveIcon(inactiveIcon_), activeIcon(activeIcon_),
   dis_inactiveIcon(dis_inactiveIcon_), dis_activeIcon(dis_activeIcon_),menu(menu_),
   windowHandle(0), runTrayIcon(true) {
+=======
+: Thread("TrayIcon"), windowHandle(0), server(sm),
+  inactiveIcon(inactiveIcon_), activeIcon(activeIcon_),
+  dis_inactiveIcon(dis_inactiveIcon_), dis_activeIcon(dis_activeIcon_),
+  menu(menu_), runTrayIcon(true) {
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   start();
 }
 

@@ -204,11 +204,19 @@ void ProcessWindowMessage(UINT msg, HWND wnd, WPARAM wParam, LPARAM lParam) {
     // Handle pop-up menus having items selected
 	case 485:
 		{
+<<<<<<< HEAD
 			HANDLE prop = GetProp(wnd, (LPCTSTR) MAKELONG(ATOM_Popup_Selection, 0));
       if (prop != (HANDLE) wParam) {
         NotifyWindow(wnd, 485);
 				SetProp(wnd,
 					(LPCTSTR) MAKELONG(ATOM_Popup_Selection, 0),
+=======
+			HANDLE prop = GetProp(wnd, (LPCTSTR) (intptr_t) ATOM_Popup_Selection);
+      if (prop != (HANDLE) wParam) {
+        NotifyWindow(wnd, 485);
+				SetProp(wnd,
+					(LPCTSTR) (intptr_t) ATOM_Popup_Selection,
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 					(HANDLE) wParam);
 			}
 		}

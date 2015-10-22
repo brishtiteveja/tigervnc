@@ -62,12 +62,23 @@ set(RFB_SOURCES
   encodings.cxx
   util.cxx)
 
+<<<<<<< HEAD
+=======
+if(UNIX)
+  set(RFB_SOURCES ${RFB_SOURCES} Logger_syslog.cxx)
+endif()
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 if(WIN32)
   include_directories(${CMAKE_SOURCE_DIR}/win)
   set(RFB_SOURCES ${RFB_SOURCES} WinPasswdValidator.cxx)
 endif(WIN32)
 
+<<<<<<< HEAD
 set(RFB_LIBRARIES ${JPEG_LIBRARIES} os rdr)
+=======
+set(RFB_LIBRARIES ${JPEG_LIBRARIES} os rdr Xregion)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 if(HAVE_PAM)
   set(RFB_SOURCES ${RFB_SOURCES} UnixPasswordValidator.cxx

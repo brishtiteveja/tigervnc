@@ -39,7 +39,11 @@ void SMsgHandler::setPixelFormat(const PixelFormat& pf)
   cp.setPF(pf);
 }
 
+<<<<<<< HEAD
 void SMsgHandler::setEncodings(int nEncodings, rdr::S32* encodings)
+=======
+void SMsgHandler::setEncodings(int nEncodings, const rdr::S32* encodings)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
   bool firstFence, firstContinuousUpdates;
 

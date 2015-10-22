@@ -112,7 +112,11 @@ void Sid::getUserNameAndDomain(TCHAR** name, TCHAR** domain) {
   LookupAccountSid(0, (PSID)buf, 0, &nameLen, 0, &domainLen, &use);
   if (GetLastError() != ERROR_INSUFFICIENT_BUFFER)
     throw rdr::SystemException("Unable to determine SID name lengths", GetLastError());
+<<<<<<< HEAD
   vlog.info("nameLen=%d, domainLen=%d, use=%d", nameLen, domainLen, use);
+=======
+  vlog.info("nameLen=%lu, domainLen=%lu, use=%d", nameLen, domainLen, use);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   *name = new TCHAR[nameLen];
   *domain = new TCHAR[domainLen];
   if (!LookupAccountSid(0, (PSID)buf, *name, &nameLen, *domain, &domainLen, &use))
@@ -122,7 +126,11 @@ void Sid::getUserNameAndDomain(TCHAR** name, TCHAR** domain) {
 
 Sid::Administrators::Administrators() {
   PSID sid = 0;
+<<<<<<< HEAD
   SID_IDENTIFIER_AUTHORITY ntAuth = SECURITY_NT_AUTHORITY;
+=======
+  SID_IDENTIFIER_AUTHORITY ntAuth = { SECURITY_NT_AUTHORITY };
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (!AllocateAndInitializeSid(&ntAuth, 2,
                                 SECURITY_BUILTIN_DOMAIN_RID,
                                 DOMAIN_ALIAS_RID_ADMINS,
@@ -134,7 +142,11 @@ Sid::Administrators::Administrators() {
 
 Sid::SYSTEM::SYSTEM() {
   PSID sid = 0;
+<<<<<<< HEAD
   SID_IDENTIFIER_AUTHORITY ntAuth = SECURITY_NT_AUTHORITY;
+=======
+  SID_IDENTIFIER_AUTHORITY ntAuth = { SECURITY_NT_AUTHORITY };
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (!AllocateAndInitializeSid(&ntAuth, 1,
                                 SECURITY_LOCAL_SYSTEM_RID,
                                 0, 0, 0, 0, 0, 0, 0, &sid))

@@ -25,8 +25,13 @@ using namespace rfb;
 
 Encoder::Encoder(SConnection *conn_, int encoding_,
                  enum EncoderFlags flags_, unsigned int maxPaletteSize_) :
+<<<<<<< HEAD
   conn(conn_), encoding(encoding_), flags(flags_),
   maxPaletteSize(maxPaletteSize_)
+=======
+  encoding(encoding_), flags(flags_),
+  maxPaletteSize(maxPaletteSize_), conn(conn_)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
 }
 
@@ -38,13 +43,20 @@ void Encoder::writeSolidRect(int width, int height,
                              const PixelFormat& pf, const rdr::U8* colour)
 {
   ManagedPixelBuffer buffer(pf, width, height);
+<<<<<<< HEAD
   Pixel pixel;
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   Palette palette;
   rdr::U32 palcol;
 
+<<<<<<< HEAD
   pixel = pf.pixelFromBuffer(colour);
   buffer.fillRect(buffer.getRect(), pixel);
+=======
+  buffer.fillRect(buffer.getRect(), colour);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   palcol = 0;
   memcpy(&palcol, colour, pf.bpp/8);

@@ -50,7 +50,11 @@ void KeyRemapper::setMapping(const char* m) {
       if (bidi == '<')
         mapping[to] = from;
     } else {
+<<<<<<< HEAD
       vlog.error("warning: bad mapping %.*s", nextComma-m, m);
+=======
+      vlog.error("warning: bad mapping %.*s", (int)(nextComma-m), m);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
     m = nextComma;
     if (nextComma[0])

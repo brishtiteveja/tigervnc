@@ -33,7 +33,11 @@ namespace rdr {
 
   class TLSInStream : public InStream {
   public:
+<<<<<<< HEAD
     TLSInStream(InStream* in, gnutls_session session);
+=======
+    TLSInStream(InStream* in, gnutls_session_t session);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     virtual ~TLSInStream();
 
     int pos();
@@ -41,9 +45,15 @@ namespace rdr {
   private:
     int overrun(int itemSize, int nItems, bool wait);
     int readTLS(U8* buf, int len, bool wait);
+<<<<<<< HEAD
     static ssize_t pull(gnutls_transport_ptr str, void* data, size_t size);
 
     gnutls_session session;
+=======
+    static ssize_t pull(gnutls_transport_ptr_t str, void* data, size_t size);
+
+    gnutls_session_t session;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     InStream* in;
     int bufSize;
     int offset;

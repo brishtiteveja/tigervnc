@@ -6,6 +6,9 @@
 
 # Upstream patches
 504_tigervnc-cookie.patch
+<<<<<<< HEAD
 510_tigervnc11-ldnow.patch
 511_tigervnc11-gethomedir.patch
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 516_tigervnc-xorg-manpages.patch

@@ -29,7 +29,11 @@ using namespace winvnc;
 using namespace rfb;
 using namespace win32;
 
+<<<<<<< HEAD
 const TCHAR* winvnc::VNCServerService::Name = _T("WinVNC4");
+=======
+const TCHAR* winvnc::VNCServerService::Name = _T("TigerVNC Server");
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 VNCServerService::VNCServerService()
   : Service(Name)
@@ -97,9 +101,14 @@ HANDLE LaunchProcessWin(DWORD dwSessionId)
     if (GetSessionUserTokenWin(&hToken))
     {
         ModuleFileName filename;
+<<<<<<< HEAD
         static const char cmdLineFmt[] = "\"%s\" -noconsole -service_run";
         TCharArray cmdLine(_tcslen(filename.buf) + sizeof(cmdLineFmt)/sizeof(cmdLineFmt[0]));
         _stprintf(cmdLine.buf, cmdLineFmt, filename.buf);
+=======
+        TCharArray cmdLine;
+        cmdLine.format("\"%s\" -noconsole -service_run", filename.buf);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         STARTUPINFO si;
         ZeroMemory(&si, sizeof si);
         si.cb = sizeof si;

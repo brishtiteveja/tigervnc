@@ -104,6 +104,7 @@ static const int fakeKeyBase = 0x200;
 Viewport::Viewport(int w, int h, const rfb::PixelFormat& serverPF, CConn* cc_)
   : Fl_Widget(0, 0, w, h), cc(cc_), frameBuffer(NULL),
     lastPointerPos(0, 0), lastButtonMask(0),
+<<<<<<< HEAD
     cursor(NULL), menuCtrlKey(false), menuAltKey(false)
 {
 // FLTK STR #2636 gives us the ability to monitor clipboard changes
@@ -115,6 +116,14 @@ Viewport::Viewport(int w, int h, const rfb::PixelFormat& serverPF, CConn* cc_)
   // We need to intercept keyboard events early
   Fl::add_system_handler(handleSystemEvent, this);
 #endif
+=======
+    menuCtrlKey(false), menuAltKey(false), cursor(NULL)
+{
+  Fl::add_clipboard_notify(handleClipboardChange, this);
+
+  // We need to intercept keyboard events early
+  Fl::add_system_handler(handleSystemEvent, this);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   frameBuffer = createFramebuffer(w, h);
   assert(frameBuffer);
@@ -148,6 +157,7 @@ Viewport::~Viewport()
   // again later when this object is already gone.
   Fl::remove_timeout(handlePointerTimeout, this);
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_XHANDLERS
   Fl::remove_system_handler(handleSystemEvent);
 #endif
@@ -155,6 +165,11 @@ Viewport::~Viewport()
 #ifdef HAVE_FLTK_CLIPBOARD
   Fl::remove_clipboard_notify(handleClipboardChange);
 #endif
+=======
+  Fl::remove_system_handler(handleSystemEvent);
+
+  Fl::remove_clipboard_notify(handleClipboardChange);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   OptionsDialog::removeCallback(handleOptions);
 
@@ -194,7 +209,10 @@ rfb::ModifiablePixelBuffer* Viewport::getFramebuffer(void)
   return frameBuffer;
 }
 
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_CURSOR
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 static const char * dotcursor_xpm[] = {
   "5 5 2 1",
   ".	c #000000",
@@ -204,12 +222,18 @@ static const char * dotcursor_xpm[] = {
   " ... ",
   " ... ",
   "     "};
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 void Viewport::setCursor(int width, int height, const Point& hotspot,
                               void* data, void* mask)
 {
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_CURSOR
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   if (cursor) {
     if (!cursor->alloc_array)
       delete [] cursor->array;
@@ -269,7 +293,10 @@ void Viewport::setCursor(int width, int height, const Point& hotspot,
 
   if (Fl::belowmouse() == this)
     window()->cursor(cursor, cursorHotspot.x, cursorHotspot.y);
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 
@@ -294,6 +321,11 @@ void Viewport::resize(int x, int y, int w, int h)
   const rdr::U8* data;
   int stride;
 
+<<<<<<< HEAD
+=======
+  const rdr::U8 black[4] = { 0, 0, 0, 0 };
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   // FIXME: Resize should probably be a feature of the pixel buffer itself
 
   if ((w == frameBuffer->width()) && (h == frameBuffer->height()))
@@ -317,14 +349,22 @@ void Viewport::resize(int x, int y, int w, int h)
     rect.setXYWH(frameBuffer->width(), 0,
                  newBuffer->width() - frameBuffer->width(),
                  newBuffer->height());
+<<<<<<< HEAD
     newBuffer->fillRect(rect, 0);
+=======
+    newBuffer->fillRect(rect, black);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   if (newBuffer->height() > frameBuffer->height()) {
     rect.setXYWH(0, frameBuffer->height(),
                  newBuffer->width(),
                  newBuffer->height() - frameBuffer->height());
+<<<<<<< HEAD
     newBuffer->fillRect(rect, 0);
+=======
+    newBuffer->fillRect(rect, black);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   }
 
   delete frameBuffer;
@@ -351,7 +391,11 @@ int Viewport::handle(int event)
                      Fl::event_length() + 1);
     assert(ret < (Fl::event_length() + 1));
 
+<<<<<<< HEAD
     vlog.debug("Sending clipboard data (%d bytes)", strlen(buffer));
+=======
+    vlog.debug("Sending clipboard data (%d bytes)", (int)strlen(buffer));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
     try {
       cc->writer()->clientCutText(buffer, ret);
@@ -365,6 +409,7 @@ int Viewport::handle(int event)
     return 1;
 
   case FL_ENTER:
+<<<<<<< HEAD
     // Yes, we would like some pointer events please!
 #ifdef HAVE_FLTK_CURSOR
     if (cursor)
@@ -376,6 +421,15 @@ int Viewport::handle(int event)
 #ifdef HAVE_FLTK_CURSOR
     window()->cursor(FL_CURSOR_DEFAULT);
 #endif
+=======
+    if (cursor)
+      window()->cursor(cursor, cursorHotspot.x, cursorHotspot.y);
+    // Yes, we would like some pointer events please!
+    return 1;
+
+  case FL_LEAVE:
+    window()->cursor(FL_CURSOR_DEFAULT);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     // Fall through as we want a last move event to help trigger edge stuff
   case FL_PUSH:
   case FL_RELEASE:
@@ -411,9 +465,13 @@ int Viewport::handle(int event)
     return 1;
 
   case FL_FOCUS:
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_IM
     Fl::disable_im();
 #endif
+=======
+    Fl::disable_im();
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     // Yes, we would like some focus please!
     return 1;
 
@@ -422,6 +480,7 @@ int Viewport::handle(int event)
     // sense (e.g. Alt+Tab where we only see the Alt press)
     while (!downKeySym.empty())
       handleKeyRelease(downKeySym.begin()->first);
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_IM
     Fl::enable_im();
 #endif
@@ -433,6 +492,14 @@ int Viewport::handle(int event)
 
   case FL_KEYUP:
     handleKeyRelease(Fl::event_original_key());
+=======
+    Fl::enable_im();
+    return 1;
+
+  case FL_KEYDOWN:
+  case FL_KEYUP:
+    // Just ignore these as keys were handled in the event handler
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     return 1;
   }
 
@@ -782,11 +849,17 @@ int Viewport::handleSystemEvent(void *event, void *data)
     // For the first few years, there wasn't a good consensus on what the
     // Windows keys should be mapped to for X11. So we need to help out a
     // bit and map all variants to the same key...
+<<<<<<< HEAD
     case XK_Meta_L:
     case XK_Hyper_L:
       keysym = XK_Super_L;
       break;
     case XK_Meta_R:
+=======
+    case XK_Hyper_L:
+      keysym = XK_Super_L;
+      break;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     case XK_Hyper_R:
       keysym = XK_Super_R;
       break;
@@ -808,6 +881,7 @@ int Viewport::handleSystemEvent(void *event, void *data)
   return 0;
 }
 
+<<<<<<< HEAD
 
 rdr::U32 Viewport::translateKeyEvent(void)
 {
@@ -1060,10 +1134,13 @@ void Viewport::handleFLTKKeyPress(void)
 }
 
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 void Viewport::initContextMenu()
 {
   contextMenu->clear();
 
+<<<<<<< HEAD
   contextMenu->add(_("Exit viewer"), 0, NULL, (void*)ID_EXIT, FL_MENU_DIVIDER);
 
 #ifdef HAVE_FLTK_FULLSCREEN
@@ -1080,10 +1157,27 @@ void Viewport::initContextMenu()
 		   FL_MENU_TOGGLE | (menuCtrlKey?FL_MENU_VALUE:0));
   contextMenu->add(_("Alt"), 0, NULL, (void*)ID_ALT,
 		   FL_MENU_TOGGLE | (menuAltKey?FL_MENU_VALUE:0));
+=======
+  fltk_menu_add(contextMenu, _("E&xit viewer"), 0, NULL,
+                (void*)ID_EXIT, FL_MENU_DIVIDER);
+
+  fltk_menu_add(contextMenu, _("&Full screen"), 0, NULL, (void*)ID_FULLSCREEN,
+                FL_MENU_TOGGLE | (window()->fullscreen_active()?FL_MENU_VALUE:0));
+  fltk_menu_add(contextMenu, _("Resize &window to session"), 0, NULL,
+                (void*)ID_RESIZE,
+                (window()->fullscreen_active()?FL_MENU_INACTIVE:0) |
+                FL_MENU_DIVIDER);
+
+  fltk_menu_add(contextMenu, _("&Ctrl"), 0, NULL, (void*)ID_CTRL,
+                FL_MENU_TOGGLE | (menuCtrlKey?FL_MENU_VALUE:0));
+  fltk_menu_add(contextMenu, _("&Alt"), 0, NULL, (void*)ID_ALT,
+                FL_MENU_TOGGLE | (menuAltKey?FL_MENU_VALUE:0));
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   if (menuKeySym) {
     char sendMenuKey[64];
     snprintf(sendMenuKey, 64, _("Send %s"), (const char *)menuKey);
+<<<<<<< HEAD
     contextMenu->add(sendMenuKey, 0, NULL, (void*)ID_MENUKEY, 0);
     contextMenu->add("Secret shortcut menu key", menuKeyCode, NULL, (void*)ID_MENUKEY, FL_MENU_INVISIBLE);
   }
@@ -1097,6 +1191,28 @@ void Viewport::initContextMenu()
   contextMenu->add(_("About TigerVNC viewer..."), 0, NULL, (void*)ID_ABOUT, FL_MENU_DIVIDER);
 
   contextMenu->add(_("Dismiss menu"), 0, NULL, (void*)ID_DISMISS, 0);
+=======
+    fltk_menu_add(contextMenu, sendMenuKey, 0, NULL, (void*)ID_MENUKEY, 0);
+    fltk_menu_add(contextMenu, "Secret shortcut menu key", menuKeyCode, NULL,
+                  (void*)ID_MENUKEY, FL_MENU_INVISIBLE);
+  }
+
+  fltk_menu_add(contextMenu, _("Send Ctrl-Alt-&Del"), 0, NULL,
+                (void*)ID_CTRLALTDEL, FL_MENU_DIVIDER);
+
+  fltk_menu_add(contextMenu, _("&Refresh screen"), 0, NULL,
+                (void*)ID_REFRESH, FL_MENU_DIVIDER);
+
+  fltk_menu_add(contextMenu, _("&Options..."), 0, NULL,
+                (void*)ID_OPTIONS, 0);
+  fltk_menu_add(contextMenu, _("Connection &info..."), 0, NULL,
+                (void*)ID_INFO, 0);
+  fltk_menu_add(contextMenu, _("About &TigerVNC viewer..."), 0, NULL,
+                (void*)ID_ABOUT, FL_MENU_DIVIDER);
+
+  fltk_menu_add(contextMenu, _("Dismiss &menu"), 0, NULL,
+                (void*)ID_DISMISS, 0);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 }
 
 
@@ -1114,18 +1230,28 @@ void Viewport::popupContextMenu()
 
   // Unfortunately FLTK doesn't reliably restore the mouse pointer for
   // menus, so we have to help it out.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_CURSOR
   if (Fl::belowmouse() == this)
     window()->cursor(FL_CURSOR_DEFAULT);
 #endif
+=======
+  if (Fl::belowmouse() == this)
+    window()->cursor(FL_CURSOR_DEFAULT);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   m = contextMenu->popup();
 
   // Back to our proper mouse pointer.
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_CURSOR
   if ((Fl::belowmouse() == this) && cursor)
     window()->cursor(cursor, cursorHotspot.x, cursorHotspot.y);
 #endif
+=======
+  if ((Fl::belowmouse() == this) && cursor)
+    window()->cursor(cursor, cursorHotspot.x, cursorHotspot.y);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   if (m == NULL)
     return;
@@ -1134,19 +1260,28 @@ void Viewport::popupContextMenu()
   case ID_EXIT:
     exit_vncviewer();
     break;
+<<<<<<< HEAD
 #ifdef HAVE_FLTK_FULLSCREEN
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   case ID_FULLSCREEN:
     if (window()->fullscreen_active())
       window()->fullscreen_off();
     else
       ((DesktopWindow*)window())->fullscreen_on();
     break;
+<<<<<<< HEAD
 #endif
   case ID_RESIZE:
 #ifdef HAVE_FLTK_FULLSCREEN
     if (window()->fullscreen_active())
       break;
 #endif
+=======
+  case ID_RESIZE:
+    if (window()->fullscreen_active())
+      break;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     window()->size(w(), h());
     break;
   case ID_CTRL:

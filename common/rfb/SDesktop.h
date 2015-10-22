@@ -92,12 +92,25 @@ namespace rfb {
   public:
     SStaticDesktop(const Point& size) : server(0), buffer(0) {
       PixelFormat pf;
+<<<<<<< HEAD
       buffer = new ManagedPixelBuffer(pf, size.x, size.y);
       if (buffer) buffer->fillRect(buffer->getRect(), 0);
     }
     SStaticDesktop(const Point& size, const PixelFormat& pf) : buffer(0) {
       buffer = new ManagedPixelBuffer(pf, size.x, size.y);
       if (buffer) buffer->fillRect(buffer->getRect(), 0);
+=======
+      const rdr::U8 black[4] = { 0, 0, 0, 0 };
+      buffer = new ManagedPixelBuffer(pf, size.x, size.y);
+      if (buffer)
+        buffer->fillRect(buffer->getRect(), black);
+    }
+    SStaticDesktop(const Point& size, const PixelFormat& pf) : buffer(0) {
+      const rdr::U8 black[4] = { 0, 0, 0, 0 };
+      buffer = new ManagedPixelBuffer(pf, size.x, size.y);
+      if (buffer)
+        buffer->fillRect(buffer->getRect(), black);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     }
     virtual ~SStaticDesktop() {
       if (buffer) delete buffer;

@@ -23,6 +23,7 @@
 
 #include <stdio.h>
 #include <string.h>
+<<<<<<< HEAD
 #ifdef _WIN32
 #include <winsock2.h>
 #define write(s,b,l) send(s,(const char*)b,l,0)
@@ -34,6 +35,17 @@
 #else
 #include <sys/types.h>
 #include <errno.h>
+=======
+#include <errno.h>
+#ifdef _WIN32
+#include <winsock2.h>
+#define write(s,b,l) send(s,(const char*)b,l,0)
+#undef errno
+#define errno WSAGetLastError()
+#include <os/winerrno.h>
+#else
+#include <sys/types.h>
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #include <unistd.h>
 #include <sys/time.h>
 #endif

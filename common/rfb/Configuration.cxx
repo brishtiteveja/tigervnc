@@ -88,7 +88,10 @@ bool Configuration::set(const char* name, int len,
         strncasecmp(current->getName(), name, len) == 0)
     {
       bool b = current->setParam(val);
+<<<<<<< HEAD
       current->setHasBeenSet(); 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       if (b && immutable) 
 	current->setImmutable();
       return b;
@@ -113,7 +116,10 @@ bool Configuration::set(const char* config, bool immutable) {
     while (current) {
       if (strcasecmp(current->getName(), config) == 0) {
         bool b = current->setParam();
+<<<<<<< HEAD
 	current->setHasBeenSet(); 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         if (b && immutable) 
 	  current->setImmutable();
         return b;
@@ -182,7 +188,11 @@ void Configuration::list(int width, int nameWidth) {
 
 VoidParameter::VoidParameter(const char* name_, const char* desc_,
 			     ConfigurationObject co)
+<<<<<<< HEAD
   : immutable(false), _hasBeenSet(false), name(name_), description(desc_)
+=======
+  : immutable(false), name(name_), description(desc_)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 {
   Configuration *conf = NULL;
 
@@ -226,6 +236,7 @@ VoidParameter::setImmutable() {
   immutable = true;
 }
 
+<<<<<<< HEAD
 void
 VoidParameter::setHasBeenSet() {
   _hasBeenSet = true;
@@ -236,6 +247,8 @@ VoidParameter::hasBeenSet() {
   return _hasBeenSet;
 }
 
+=======
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 // -=- AliasParameter
 
 AliasParameter::AliasParameter(const char* name_, const char* desc_,

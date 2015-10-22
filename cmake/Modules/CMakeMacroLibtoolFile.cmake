@@ -130,7 +130,11 @@ macro(libtool_create_control_file _target)
   file(APPEND ${_laname} "shouldnotlink=no\n\n")
   file(APPEND ${_laname} "dlopen=''\n")
   file(APPEND ${_laname} "dlpreopen=''\n\n")
+<<<<<<< HEAD
   file(APPEND ${_laname} "libdir=''\n\n")
+=======
+  file(APPEND ${_laname} "libdir='/usr/lib'\n\n")
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
 
   # Add custom command to symlink the static library so that autotools finds

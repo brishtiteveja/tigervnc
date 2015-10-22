@@ -51,15 +51,26 @@ namespace rfb {
 
   protected:
     void shutdown();
+<<<<<<< HEAD
     void setParams(gnutls_session session);
+=======
+    void setParams(gnutls_session_t session);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 
   private:
     static void initGlobal();
 
+<<<<<<< HEAD
     gnutls_session session;
     gnutls_dh_params dh_params;
     gnutls_anon_server_credentials anon_cred;
     gnutls_certificate_credentials cert_cred;
+=======
+    gnutls_session_t session;
+    gnutls_dh_params_t dh_params;
+    gnutls_anon_server_credentials_t anon_cred;
+    gnutls_certificate_credentials_t cert_cred;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     char *keyfile, *certfile;
 
     int type;

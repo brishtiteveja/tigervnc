@@ -287,6 +287,11 @@ public:
     server->add_changed(rect);
 
     return true;
+<<<<<<< HEAD
+=======
+#else
+  return false;
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
 #endif
   }
 
@@ -475,6 +480,11 @@ int main(int argc, char** argv)
   signal(SIGINT, CleanupSignalHandler);
   signal(SIGTERM, CleanupSignalHandler);
 
+<<<<<<< HEAD
+=======
+  std::list<TcpListener> listeners;
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   try {
     TXWindow::init(dpy,"x0vncserver");
     Geometry geo(DisplayWidth(dpy, DefaultScreen(dpy)),
@@ -489,13 +499,24 @@ int main(int argc, char** argv)
     QueryConnHandler qcHandler(dpy, &server);
     server.setQueryConnectionHandler(&qcHandler);
 
+<<<<<<< HEAD
     TcpListener listener(NULL, (int)rfbport);
+=======
+    createTcpListeners(&listeners, 0, (int)rfbport);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     vlog.info("Listening on port %d", (int)rfbport);
 
     const char *hostsData = hostsFile.getData();
     FileTcpFilter fileTcpFilter(hostsData);
     if (strlen(hostsData) != 0)
+<<<<<<< HEAD
       listener.setFilter(&fileTcpFilter);
+=======
+      for (std::list<TcpListener>::iterator i = listeners.begin();
+           i != listeners.end();
+           i++)
+        (*i).setFilter(&fileTcpFilter);
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     delete[] hostsData;
 
     PollingScheduler sched((int)pollingCycle, (int)maxProcessorUsage);
@@ -511,7 +532,15 @@ int main(int argc, char** argv)
 
       FD_ZERO(&rfds);
       FD_SET(ConnectionNumber(dpy), &rfds);
+<<<<<<< HEAD
       FD_SET(listener.getFd(), &rfds);
+=======
+      for (std::list<TcpListener>::iterator i = listeners.begin();
+           i != listeners.end();
+           i++)
+        FD_SET((*i).getFd(), &rfds);
+
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       server.getSockets(&sockets);
       int clients_connected = 0;
       for (i = sockets.begin(); i != sockets.end(); i++) {
@@ -556,12 +585,25 @@ int main(int argc, char** argv)
       }
 
       // Accept new VNC connections
+<<<<<<< HEAD
       if (FD_ISSET(listener.getFd(), &rfds)) {
         Socket* sock = listener.accept();
         if (sock) {
           server.addSocket(sock);
         } else {
           vlog.status("Client connection rejected");
+=======
+      for (std::list<TcpListener>::iterator i = listeners.begin();
+           i != listeners.end();
+           i++) {
+        if (FD_ISSET((*i).getFd(), &rfds)) {
+          Socket* sock = (*i).accept();
+          if (sock) {
+            server.addSocket(sock);
+          } else {
+            vlog.status("Client connection rejected");
+          }
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
         }
       }
 

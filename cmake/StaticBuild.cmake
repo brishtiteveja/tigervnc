@@ -15,7 +15,11 @@ if(BUILD_STATIC)
 
   set(JPEG_LIBRARIES "-Wl,-Bstatic -ljpeg -Wl,-Bdynamic")
 
+<<<<<<< HEAD
   if(WIN32 AND NOT USE_INCLUDED_ZLIB)
+=======
+  if(WIN32)
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     set(ZLIB_LIBRARIES "-Wl,-Bstatic -lz -Wl,-Bdynamic")
   endif()
 
@@ -47,6 +51,7 @@ if(BUILD_STATIC)
 
     set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -Wl,-Bdynamic")
 
+<<<<<<< HEAD
     # GnuTLS uses various crypto-api stuff
     if (WIN32)
       set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -lcrypt32")
@@ -55,6 +60,20 @@ if(BUILD_STATIC)
     # nanosleep() lives here on Solaris
     if(${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
       set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -lrt")
+=======
+    if (WIN32)
+      # GnuTLS uses various crypto-api stuff
+      set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -lcrypt32")
+      # And sockets
+      set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -lws2_32")
+    endif()
+
+    if(${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
+      # nanosleep() lives here on Solaris
+      set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -lrt")
+      # and socket functions are hidden here
+      set(GNUTLS_LIBRARIES "${GNUTLS_LIBRARIES} -lsocket")
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     endif()
 
     # GnuTLS uses gettext and zlib, so make sure those are always
@@ -75,12 +94,20 @@ if(BUILD_STATIC)
     elseif(APPLE)
       set(FLTK_LIBRARIES "${FLTK_LIBRARIES} -framework Cocoa")
     else()
+<<<<<<< HEAD
       set(FLTK_LIBRARIES "${FLTK_LIBRARIES} -lm")
+=======
+      set(FLTK_LIBRARIES "${FLTK_LIBRARIES} -lm -ldl")
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
     endif()
 
     if(X11_FOUND AND NOT APPLE)
       if(${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
+<<<<<<< HEAD
         set(FLTK_LIBRARIES "${FLTK_LIBRARIES} ${X11_Xcursor_LIB} ${X11_Xfixes_LIB} -Wl,-Bstatic -lXft -Wl,-Bdynamic -lfontconfig -lXext -R/usr/sfw/lib")
+=======
+        set(FLTK_LIBRARIES "${FLTK_LIBRARIES} ${X11_Xcursor_LIB} ${X11_Xfixes_LIB} -Wl,-Bstatic -lXft -Wl,-Bdynamic -lfontconfig -lXrender -lXext -R/usr/sfw/lib -L=/usr/sfw/lib -lfreetype -lsocket -lnsl")
+>>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
       else()
         set(FLTK_LIBRARIES "${FLTK_LIBRARIES} -Wl,-Bstatic -lXcursor -lXfixes -lXft -lfontconfig -lexpat -lfreetype -lbz2 -lXrender -lXext -lXinerama -Wl,-Bdynamic")
       endif()

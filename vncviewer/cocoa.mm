@@ -56,7 +56,6 @@ static const int kvk_map_qwerty[][3] = {
   { 0x10, XK_y ,XK_Y },
   { 0x11, XK_t ,XK_T },
   { 0x12, XK_1 ,XK_exclam },
-<<<<<<< HEAD
   { 0x13, XK_2 ,XK_at},
   { 0x14, XK_3 ,XK_numbersign },
   { 0x15, XK_4 ,XK_dollar },
@@ -72,47 +71,20 @@ static const int kvk_map_qwerty[][3] = {
   { 0x1F, XK_o ,XK_O },
   { 0x20, XK_u ,XK_U },
   { 0x21, XK_bracketleft ,XK_braceleft },
-=======
-  { 0x13, XK_2 ,XK_quotedbl },
-  { 0x14, XK_3 ,XK_numbersign },
-  { 0x15, XK_4 ,XK_dollar },
-  { 0x16, XK_6 ,XK_ampersand },
-  { 0x17, XK_5 ,XK_percent },
-  { 0x18, XK_asciicircum ,XK_asciitilde },
-  { 0x19, XK_9 ,XK_parenright },
-  { 0x1A, XK_7 ,XK_quoteright },
-  { 0x1B, XK_minus ,XK_equal },
-  { 0x1C, XK_8 ,XK_parenleft },
-  { 0x1D, XK_0 , XK_0 },
-  { 0x1E, XK_bracketleft ,XK_braceleft },
-  { 0x1F, XK_o ,XK_O },
-  { 0x20, XK_u ,XK_U },
-  { 0x21, XK_at ,XK_grave },
->>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   { 0x22, XK_i ,XK_I },
   { 0x23, XK_p ,XK_P },
   { 0x25, XK_l ,XK_L },
   { 0x26, XK_j ,XK_J },
-<<<<<<< HEAD
   { 0x27, XK_quoteright ,XK_quotedbl },
   { 0x28, XK_k ,XK_K },
   { 0x29, XK_semicolon ,XK_colon },
   { 0x2A, XK_backslash ,XK_bar },
-=======
-  { 0x27, XK_colon ,XK_asterisk },
-  { 0x28, XK_k ,XK_K },
-  { 0x29, XK_semicolon ,XK_plus },
-  { 0x2A, XK_bracketright ,XK_braceright },
->>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   { 0x2B, XK_comma ,XK_less },
   { 0x2C, XK_slash ,XK_question },
   { 0x2D, XK_n ,XK_N },
   { 0x2E, XK_m ,XK_M },
   { 0x2F, XK_period ,XK_greater },
-<<<<<<< HEAD
   { 0x32, XK_grave, XK_asciitilde },
-=======
->>>>>>> 4c33f2ca86586bb8461526b93cba57a0a14c8baa
   { 0x5D, XK_backslash, XK_bar },
   { 0x5E, XK_underscore , XK_underscore },
   { 0x68, XK_Kanji },

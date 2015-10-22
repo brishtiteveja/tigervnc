@@ -4,5 +4,5 @@
 # compile CXX with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 CXX_FLAGS =  -UNDEBUG -I/usr/local/Cellar/gnutls/3.3.15/include -I/Library/Caches/Homebrew/tigervnc-1.4.0 -I/Library/Caches/Homebrew/tigervnc-1.4.0/common   
 
-CXX_DEFINES = -DBUILD_TIMESTAMP="\"2015-10-22 03:38\"" -DHAVE_CONFIG_H -DHAVE_GNUTLS
+CXX_DEFINES = -DBUILD_TIMESTAMP="\"2015-10-22 04:01\"" -DHAVE_CONFIG_H -DHAVE_GNUTLS
 

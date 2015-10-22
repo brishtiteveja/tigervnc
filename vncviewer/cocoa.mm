@@ -84,7 +84,7 @@ static const int kvk_map_qwerty[][3] = {
   { 0x2D, XK_n ,XK_N },
   { 0x2E, XK_m ,XK_M },
   { 0x2F, XK_period ,XK_greater },
-  { 0x50, XK_grave, XK_asciitilde },
+  { 0x32, XK_grave, XK_asciitilde },
   { 0x5D, XK_backslash, XK_bar },
   { 0x5E, XK_underscore , XK_underscore },
   { 0x68, XK_Kanji },

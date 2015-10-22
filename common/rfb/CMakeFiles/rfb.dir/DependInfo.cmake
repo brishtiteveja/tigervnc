@@ -77,7 +77,7 @@ set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS
-  "BUILD_TIMESTAMP=\"2015-10-22 03:38\""
+  "BUILD_TIMESTAMP=\"2015-10-22 04:01\""
   "HAVE_CONFIG_H"
   "HAVE_GNUTLS"
   )

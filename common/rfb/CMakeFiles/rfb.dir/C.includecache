@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/rfb/d3des.c
+d3des.h
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/rfb/d3des.h
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/rfb/d3des.h
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/rfb/pam.c
+config.h
+-
+stdlib.h
+-
+string.h
+-
+security/pam_appl.h
+-
+rfb/pam.h
+-
+
+common/rfb/pam.h
+config.h
+-
+
+config.h
+stddef.h
+-
+

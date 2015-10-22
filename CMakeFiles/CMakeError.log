@@ -1,0 +1,120 @@
+Performing C SOURCE FILE Test ICONV_SECOND_ARGUMENT_IS_CONST failed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3639864485/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3639864485.dir/build.make CMakeFiles/cmTryCompileExec3639864485.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3639864485.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Werror -DICONV_SECOND_ARGUMENT_IS_CONST   -o CMakeFiles/cmTryCompileExec3639864485.dir/src.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.c
+/Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.c:9:17: error: passing 'const char **' to parameter of type 'char **' discards qualifiers in nested pointer types [-Werror,-Wincompatible-pointer-types-discards-qualifiers]
+    iconv(conv, &in, &ilen, &out, &olen);
+                ^~~
+/usr/include/iconv.h:70:30: note: passing argument to parameter here
+        char ** __restrict /*inbuf*/,  size_t * __restrict /*inbytesleft*/,
+                                    ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTryCompileExec3639864485.dir/src.c.o] Error 1
+make: *** [cmTryCompileExec3639864485/fast] Error 2
+
+Source file was:
+
+  #include <iconv.h>
+  int main(){
+    iconv_t conv = 0;
+    const char* in = 0;
+    size_t ilen = 0;
+    char* out = 0;
+    size_t olen = 0;
+    iconv(conv, &in, &ilen, &out, &olen);
+    return 0;
+  }
+
+Determining if the function dgettext exists failed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4137834199/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4137834199.dir/build.make CMakeFiles/cmTryCompileExec4137834199.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4137834199.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=dgettext   -o CMakeFiles/cmTryCompileExec4137834199.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4137834199
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4137834199.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=dgettext -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec4137834199.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4137834199  /usr/lib/libiconv.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+Undefined symbols for architecture x86_64:
+  "_dgettext", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTryCompileExec4137834199] Error 1
+make: *** [cmTryCompileExec4137834199/fast] Error 2
+
+
+Determining if the function dgettext exists in the LIBINTL_LIBRARY-NOTFOUND failed with the following output:
+
+
+Performing C SOURCE FILE Test FOUND_LIBJPEG_TURBO failed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3181444899/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3181444899.dir/build.make CMakeFiles/cmTryCompileExec3181444899.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3181444899.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DFOUND_LIBJPEG_TURBO -I/usr/local/include   -o CMakeFiles/cmTryCompileExec3181444899.dir/src.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.c
+/Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.c:21:28: error: use of undeclared identifier 'JCS_EXT_RGB'
+    cinfo.in_color_space = JCS_EXT_RGB;
+                           ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTryCompileExec3181444899.dir/src.c.o] Error 1
+make: *** [cmTryCompileExec3181444899/fast] Error 2
+
+Return value: 1
+Source file was:
+
+
+  #include <stdio.h>
+
+  #include <jpeglib.h>
+
+  int main(void) {
+
+    struct jpeg_compress_struct cinfo;
+
+    struct jpeg_error_mgr jerr;
+
+    cinfo.err=jpeg_std_error(&jerr);
+
+    jpeg_create_compress(&cinfo);
+
+    cinfo.input_components = 3;
+
+    jpeg_set_defaults(&cinfo);
+
+    cinfo.in_color_space = JCS_EXT_RGB;
+
+    jpeg_default_colorspace(&cinfo);
+
+    return 0;
+
+  }
+Determining if the function gnutls_transport_set_global_errno exists failed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3929019849/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3929019849.dir/build.make CMakeFiles/cmTryCompileExec3929019849.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3929019849.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gnutls_transport_set_global_errno -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec3929019849.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3929019849
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3929019849.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gnutls_transport_set_global_errno -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3929019849.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3929019849  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+Undefined symbols for architecture x86_64:
+  "_gnutls_transport_set_global_errno", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTryCompileExec3929019849] Error 1
+make: *** [cmTryCompileExec3929019849/fast] Error 2
+
+

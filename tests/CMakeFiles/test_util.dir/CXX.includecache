@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/tests/util.cxx
+stdint.h
+-
+windows.h
+-
+sys/resource.h
+-
+

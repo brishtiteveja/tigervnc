@@ -1,0 +1,4 @@
+/usr/local/share/doc/tigervnc-1.4.0/LICENCE.TXT
+/usr/local/share/doc/tigervnc-1.4.0/README.txt
+/usr/local/bin/vncviewer
+/usr/local/share/man/man1/vncviewer.1

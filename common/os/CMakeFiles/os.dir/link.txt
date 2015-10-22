@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq libos.a  CMakeFiles/os.dir/w32tiger.c.o CMakeFiles/os.dir/os.cxx.o CMakeFiles/os.dir/tls.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libos.a

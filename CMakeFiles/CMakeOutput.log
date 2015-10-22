@@ -1,0 +1,980 @@
+The system is: Darwin - 13.4.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is AppleClang, found in "/Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/3.2.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is AppleClang, found in "/Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/3.2.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4031408725/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4031408725.dir/build.make CMakeFiles/cmTryCompileExec4031408725.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4031408725.dir/testCCompiler.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4031408725.dir/testCCompiler.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec4031408725
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4031408725.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec4031408725.dir/testCCompiler.c.o  -o cmTryCompileExec4031408725  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1874019177/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1874019177.dir/build.make CMakeFiles/cmTryCompileExec1874019177.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec1874019177
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1874019177.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -v -Wl,-v CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1874019177   
+Apple LLVM version 6.0 (clang-600.0.57) (based on LLVM 3.5svn)
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec1874019177 -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o -L. -L. -L. -L. -L. -L. -L/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib -L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin -L. -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-241.9
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7m armv7em
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+Library search paths:
+	/usr/local/opt/jpeg-turbo/lib
+	/usr/local/opt/gettext/lib
+	/usr/local/opt/qt5/lib
+	.
+	.
+	.
+	.
+	.
+	.
+	/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib
+	.
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTryCompileExec1874019177/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1874019177.dir/build.make CMakeFiles/cmTryCompileExec1874019177.dir/build]
+  ignore line: [/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec1874019177]
+  ignore line: [/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1874019177.dir/link.txt --verbose=1]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -v -Wl,-v CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1874019177   ]
+  ignore line: [Apple LLVM version 6.0 (clang-600.0.57) (based on LLVM 3.5svn)]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec1874019177 -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o -L. -L. -L. -L. -L. -L. -L/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib -L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin -L. -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1874019177] ==> ignore
+    arg [-L/usr/local/opt/jpeg-turbo/lib] ==> dir [/usr/local/opt/jpeg-turbo/lib]
+    arg [-L/usr/local/opt/gettext/lib] ==> dir [/usr/local/opt/gettext/lib]
+    arg [-L/usr/local/opt/qt5/lib] ==> dir [/usr/local/opt/qt5/lib]
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1874019177.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib] ==> dir [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib]
+    arg [-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin] ==> dir [/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin]
+    arg [-L.] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/usr/local/opt/jpeg-turbo/lib;/usr/local/opt/gettext/lib;/usr/local/opt/qt5/lib;.;.;.;.;.;.;/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib;.;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/usr/local/opt/jpeg-turbo/lib] ==> [/usr/local/opt/jpeg-turbo/lib]
+  collapse library dir [/usr/local/opt/gettext/lib] ==> [/usr/local/opt/gettext/lib]
+  collapse library dir [/usr/local/opt/qt5/lib] ==> [/usr/local/opt/qt5/lib]
+  collapse library dir [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib] ==> [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib]
+  collapse library dir [/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin] ==> [/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin]
+  collapse library dir [/usr/local/opt/jpeg-turbo/lib] ==> [/usr/local/opt/jpeg-turbo/lib]
+  collapse library dir [/usr/local/opt/gettext/lib] ==> [/usr/local/opt/gettext/lib]
+  collapse library dir [/usr/local/opt/qt5/lib] ==> [/usr/local/opt/qt5/lib]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib] ==> [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/usr/local/opt/jpeg-turbo/lib;/usr/local/opt/gettext/lib;/usr/local/opt/qt5/lib;/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib;/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin;/Library/Caches/Homebrew/tigervnc-1.4.0;/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2957762992/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2957762992.dir/build.make CMakeFiles/cmTryCompileExec2957762992.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2957762992.dir/feature_tests.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c11 -o CMakeFiles/cmTryCompileExec2957762992.dir/feature_tests.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/feature_tests.c
+Linking C executable cmTryCompileExec2957762992
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2957762992.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2957762992.dir/feature_tests.c.o  -o cmTryCompileExec2957762992  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3910637966/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3910637966.dir/build.make CMakeFiles/cmTryCompileExec3910637966.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3910637966.dir/feature_tests.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -o CMakeFiles/cmTryCompileExec3910637966.dir/feature_tests.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/feature_tests.c
+Linking C executable cmTryCompileExec3910637966
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3910637966.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3910637966.dir/feature_tests.c.o  -o cmTryCompileExec3910637966  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1715732755/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1715732755.dir/build.make CMakeFiles/cmTryCompileExec1715732755.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1715732755.dir/feature_tests.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c90 -o CMakeFiles/cmTryCompileExec1715732755.dir/feature_tests.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/feature_tests.c
+Linking C executable cmTryCompileExec1715732755
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1715732755.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1715732755.dir/feature_tests.c.o  -o cmTryCompileExec1715732755  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4167479862/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4167479862.dir/build.make CMakeFiles/cmTryCompileExec4167479862.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4167479862.dir/testCXXCompiler.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -o CMakeFiles/cmTryCompileExec4167479862.dir/testCXXCompiler.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec4167479862
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4167479862.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec4167479862.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec4167479862  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2807762617/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2807762617.dir/build.make CMakeFiles/cmTryCompileExec2807762617.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec2807762617
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2807762617.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -v -Wl,-v CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2807762617   
+Apple LLVM version 6.0 (clang-600.0.57) (based on LLVM 3.5svn)
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec2807762617 -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o -L. -L. -L. -L. -L. -L. -L/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib -L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin -L. -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-241.9
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7m armv7em
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+Library search paths:
+	/usr/local/opt/jpeg-turbo/lib
+	/usr/local/opt/gettext/lib
+	/usr/local/opt/qt5/lib
+	.
+	.
+	.
+	.
+	.
+	.
+	/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib
+	.
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTryCompileExec2807762617/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2807762617.dir/build.make CMakeFiles/cmTryCompileExec2807762617.dir/build]
+  ignore line: [/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec2807762617]
+  ignore line: [/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2807762617.dir/link.txt --verbose=1]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -v -Wl,-v CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2807762617   ]
+  ignore line: [Apple LLVM version 6.0 (clang-600.0.57) (based on LLVM 3.5svn)]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec2807762617 -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o -L. -L. -L. -L. -L. -L. -L/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib -L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin -L. -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2807762617] ==> ignore
+    arg [-L/usr/local/opt/jpeg-turbo/lib] ==> dir [/usr/local/opt/jpeg-turbo/lib]
+    arg [-L/usr/local/opt/gettext/lib] ==> dir [/usr/local/opt/gettext/lib]
+    arg [-L/usr/local/opt/qt5/lib] ==> dir [/usr/local/opt/qt5/lib]
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec2807762617.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L.] ==> ignore
+    arg [-L/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib] ==> dir [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib]
+    arg [-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin] ==> dir [/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin]
+    arg [-L.] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/usr/local/opt/jpeg-turbo/lib;/usr/local/opt/gettext/lib;/usr/local/opt/qt5/lib;.;.;.;.;.;.;/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib;.;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/usr/local/opt/jpeg-turbo/lib] ==> [/usr/local/opt/jpeg-turbo/lib]
+  collapse library dir [/usr/local/opt/gettext/lib] ==> [/usr/local/opt/gettext/lib]
+  collapse library dir [/usr/local/opt/qt5/lib] ==> [/usr/local/opt/qt5/lib]
+  collapse library dir [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib] ==> [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib]
+  collapse library dir [/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin] ==> [/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin]
+  collapse library dir [/usr/local/opt/jpeg-turbo/lib] ==> [/usr/local/opt/jpeg-turbo/lib]
+  collapse library dir [/usr/local/opt/gettext/lib] ==> [/usr/local/opt/gettext/lib]
+  collapse library dir [/usr/local/opt/qt5/lib] ==> [/usr/local/opt/qt5/lib]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib] ==> [/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib]
+  collapse library dir [.] ==> [/Library/Caches/Homebrew/tigervnc-1.4.0]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [c++;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/usr/local/opt/jpeg-turbo/lib;/usr/local/opt/gettext/lib;/usr/local/opt/qt5/lib;/Users/ananda/Documents/Workspace/my_github/llvm/build/Debug+Asserts/lib;/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin;/Library/Caches/Homebrew/tigervnc-1.4.0;/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+
+
+Detecting CXX [-std=c++1y] compiler features compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1191924457/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1191924457.dir/build.make CMakeFiles/cmTryCompileExec1191924457.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1191924457.dir/feature_tests.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTryCompileExec1191924457.dir/feature_tests.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTryCompileExec1191924457
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1191924457.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1191924457.dir/feature_tests.cxx.o  -o cmTryCompileExec1191924457  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1284842517/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1284842517.dir/build.make CMakeFiles/cmTryCompileExec1284842517.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1284842517.dir/feature_tests.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTryCompileExec1284842517.dir/feature_tests.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTryCompileExec1284842517
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1284842517.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1284842517.dir/feature_tests.cxx.o  -o cmTryCompileExec1284842517  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2942323008/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2942323008.dir/build.make CMakeFiles/cmTryCompileExec2942323008.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2942323008.dir/feature_tests.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTryCompileExec2942323008.dir/feature_tests.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTryCompileExec2942323008
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2942323008.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2942323008.dir/feature_tests.cxx.o  -o cmTryCompileExec2942323008  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Performing C SOURCE FILE Test ICONV_HAVE_WERROR succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3133289395/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3133289395.dir/build.make CMakeFiles/cmTryCompileExec3133289395.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3133289395.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DICONV_HAVE_WERROR   -Werror -o CMakeFiles/cmTryCompileExec3133289395.dir/src.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3133289395
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3133289395.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DICONV_HAVE_WERROR -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3133289395.dir/src.c.o  -o cmTryCompileExec3133289395  /usr/lib/libiconv.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+int main(void) { return 0; }
+Determining if the function XOpenDisplay exists in the /usr/X11R6/lib/libX11.dylib;/usr/X11R6/lib/libXext.dylib passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3499355530/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3499355530.dir/build.make CMakeFiles/cmTryCompileExec3499355530.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3499355530.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec3499355530.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3499355530
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3499355530.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3499355530.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3499355530  -L/usr/X11R6/lib  /usr/X11R6/lib/libX11.dylib /usr/X11R6/lib/libXext.dylib -Wl,-rpath,/usr/X11R6/lib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec938878612/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec938878612.dir/build.make CMakeFiles/cmTryCompileExec938878612.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec938878612.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec938878612.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec938878612
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec938878612.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec938878612.dir/CheckFunctionExists.c.o  -o cmTryCompileExec938878612  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec554656719/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec554656719.dir/build.make CMakeFiles/cmTryCompileExec554656719.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec554656719.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec554656719.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec554656719
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec554656719.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec554656719.dir/CheckFunctionExists.c.o  -o cmTryCompileExec554656719  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec540853290/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec540853290.dir/build.make CMakeFiles/cmTryCompileExec540853290.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec540853290.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec540853290.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec540853290
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec540853290.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec540853290.dir/CheckFunctionExists.c.o  -o cmTryCompileExec540853290  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec408375871/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec408375871.dir/build.make CMakeFiles/cmTryCompileExec408375871.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec408375871.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec408375871.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec408375871
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec408375871.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec408375871.dir/CheckFunctionExists.c.o  -o cmTryCompileExec408375871  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2103416532/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2103416532.dir/build.make CMakeFiles/cmTryCompileExec2103416532.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2103416532.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec2103416532.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2103416532
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2103416532.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2103416532.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2103416532  -L/usr/X11R6/lib  -lICE -Wl,-rpath,/usr/X11R6/lib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Performing C++ SOURCE FILE Test HAVE_FLTK_CLIPBOARD succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3808185104/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3808185104.dir/build.make CMakeFiles/cmTryCompileExec3808185104.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3808185104.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_CLIPBOARD -I/usr/local/include    -o CMakeFiles/cmTryCompileExec3808185104.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3808185104
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3808185104.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_CLIPBOARD -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3808185104.dir/src.cxx.o  -o cmTryCompileExec3808185104  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl.H>
+int main(int c, char** v) { Fl::add_clipboard_notify(NULL, NULL); return 0; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_MEDIAKEYS succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2136789745/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2136789745.dir/build.make CMakeFiles/cmTryCompileExec2136789745.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2136789745.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_MEDIAKEYS -I/usr/local/include    -o CMakeFiles/cmTryCompileExec2136789745.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2136789745
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2136789745.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_MEDIAKEYS -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2136789745.dir/src.cxx.o  -o cmTryCompileExec2136789745  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Enumerations.H>
+int main(int c, char** v) { return FL_Volume_Down; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_FULLSCREEN succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3878898243/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3878898243.dir/build.make CMakeFiles/cmTryCompileExec3878898243.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3878898243.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_FULLSCREEN -I/usr/local/include    -o CMakeFiles/cmTryCompileExec3878898243.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3878898243
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3878898243.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_FULLSCREEN -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3878898243.dir/src.cxx.o  -o cmTryCompileExec3878898243  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Enumerations.H>
+int main(int c, char** v) { return FL_FULLSCREEN; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_CURSOR succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1473015823/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1473015823.dir/build.make CMakeFiles/cmTryCompileExec1473015823.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1473015823.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_CURSOR -I/usr/local/include    -o CMakeFiles/cmTryCompileExec1473015823.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1473015823
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1473015823.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_CURSOR -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1473015823.dir/src.cxx.o  -o cmTryCompileExec1473015823  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl_Window.H>
+int main(int c, char** v) { void (Fl_Window::*foo)(const Fl_RGB_Image*,int,int) = &Fl_Window::cursor; return 0; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_WORK_AREA succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1835417579/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1835417579.dir/build.make CMakeFiles/cmTryCompileExec1835417579.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1835417579.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_WORK_AREA -I/usr/local/include    -o CMakeFiles/cmTryCompileExec1835417579.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1835417579
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1835417579.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_WORK_AREA -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1835417579.dir/src.cxx.o  -o cmTryCompileExec1835417579  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl.H>
+int main(int c, char** v) { int X, Y, W, H; Fl::screen_work_area(X, Y, W, H); return 0; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_ICONS succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3904730154/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3904730154.dir/build.make CMakeFiles/cmTryCompileExec3904730154.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3904730154.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_ICONS -I/usr/local/include    -o CMakeFiles/cmTryCompileExec3904730154.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3904730154
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3904730154.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_ICONS -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3904730154.dir/src.cxx.o  -o cmTryCompileExec3904730154  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl_Window.H>
+int main(int c, char** v) { Fl_Window::default_icons(0, 0); return 0; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_FULLSCREEN_SCREENS succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3794113284/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3794113284.dir/build.make CMakeFiles/cmTryCompileExec3794113284.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3794113284.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_FULLSCREEN_SCREENS -I/usr/local/include    -o CMakeFiles/cmTryCompileExec3794113284.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3794113284
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3794113284.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_FULLSCREEN_SCREENS -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3794113284.dir/src.cxx.o  -o cmTryCompileExec3794113284  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl_Window.H>
+int main(int c, char** v) { void (Fl_Window::*foo)(int,int,int,int) = &Fl_Window::fullscreen_screens; return 0; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_XHANDLERS succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1444290983/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1444290983.dir/build.make CMakeFiles/cmTryCompileExec1444290983.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1444290983.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_XHANDLERS -I/usr/local/include    -o CMakeFiles/cmTryCompileExec1444290983.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1444290983
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1444290983.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_XHANDLERS -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1444290983.dir/src.cxx.o  -o cmTryCompileExec1444290983  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl.H>
+int main(int c, char** v) { Fl::add_system_handler(NULL, NULL); return 0; }
+Performing C++ SOURCE FILE Test HAVE_FLTK_IM succeded with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2965809132/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2965809132.dir/build.make CMakeFiles/cmTryCompileExec2965809132.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2965809132.dir/src.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_IM -I/usr/local/include    -o CMakeFiles/cmTryCompileExec2965809132.dir/src.cxx.o -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2965809132
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2965809132.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -DHAVE_FLTK_IM -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2965809132.dir/src.cxx.o  -o cmTryCompileExec2965809132  -framework Carbon -framework Cocoa -framework ApplicationServices -lz /usr/local/lib/libfltk_images.dylib /usr/local/lib/libfltk.dylib 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+Source file was:
+#include <FL/Fl.H>
+int main(int c, char** v) { Fl::disable_im(); return 0; }
+Determining if the function gnutls_transport_set_errno exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3232825460/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3232825460.dir/build.make CMakeFiles/cmTryCompileExec3232825460.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3232825460.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gnutls_transport_set_errno -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec3232825460.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3232825460
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3232825460.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gnutls_transport_set_errno -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3232825460.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3232825460  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function gnutls_x509_crt_print exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3445951464/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3445951464.dir/build.make CMakeFiles/cmTryCompileExec3445951464.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3445951464.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gnutls_x509_crt_print -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec3445951464.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3445951464
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3445951464.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gnutls_x509_crt_print -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3445951464.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3445951464  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2238470376/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2238470376.dir/build.make CMakeFiles/cmTryCompileExec2238470376.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2238470376.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec2238470376.dir/CheckIncludeFile.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec2238470376
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2238470376.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2238470376.dir/CheckIncludeFile.c.o  -o cmTryCompileExec2238470376  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1533134230/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1533134230.dir/build.make CMakeFiles/cmTryCompileExec1533134230.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1533134230.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec1533134230.dir/CheckIncludeFile.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec1533134230
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1533134230.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1533134230.dir/CheckIncludeFile.c.o  -o cmTryCompileExec1533134230  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec275288965/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec275288965.dir/build.make CMakeFiles/cmTryCompileExec275288965.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec275288965.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec275288965.dir/CheckIncludeFile.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec275288965
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec275288965.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec275288965.dir/CheckIncludeFile.c.o  -o cmTryCompileExec275288965  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining size of gnutls_x509_crt_t passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec511133059/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec511133059.dir/build.make CMakeFiles/cmTryCompileExec511133059.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec511133059.dir/GNUTLS_X509_CRT_T.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec511133059.dir/GNUTLS_X509_CRT_T.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CheckTypeSize/GNUTLS_X509_CRT_T.c
+Linking C executable cmTryCompileExec511133059
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec511133059.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec511133059.dir/GNUTLS_X509_CRT_T.c.o  -o cmTryCompileExec511133059  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining size of gnutls_datum_t passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2913045103/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2913045103.dir/build.make CMakeFiles/cmTryCompileExec2913045103.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2913045103.dir/GNUTLS_DATUM_T.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec2913045103.dir/GNUTLS_DATUM_T.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CheckTypeSize/GNUTLS_DATUM_T.c
+Linking C executable cmTryCompileExec2913045103
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2913045103.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2913045103.dir/GNUTLS_DATUM_T.c.o  -o cmTryCompileExec2913045103  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining size of gnutls_pk_algorithm_t passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1155475897/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1155475897.dir/build.make CMakeFiles/cmTryCompileExec1155475897.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1155475897.dir/GNUTLS_PK_ALGORITHM_T.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec1155475897.dir/GNUTLS_PK_ALGORITHM_T.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CheckTypeSize/GNUTLS_PK_ALGORITHM_T.c
+Linking C executable cmTryCompileExec1155475897
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1155475897.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec1155475897.dir/GNUTLS_PK_ALGORITHM_T.c.o  -o cmTryCompileExec1155475897  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining size of gnutls_sign_algorithm_t passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4143186026/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4143186026.dir/build.make CMakeFiles/cmTryCompileExec4143186026.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4143186026.dir/GNUTLS_SIGN_ALGORITHM_T.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include   -o CMakeFiles/cmTryCompileExec4143186026.dir/GNUTLS_SIGN_ALGORITHM_T.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CheckTypeSize/GNUTLS_SIGN_ALGORITHM_T.c
+Linking C executable cmTryCompileExec4143186026
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4143186026.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/usr/local/Cellar/gnutls/3.3.15/include -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec4143186026.dir/GNUTLS_SIGN_ALGORITHM_T.c.o  -o cmTryCompileExec4143186026  /usr/local/Cellar/gnutls/3.3.15/lib/libgnutls.dylib -lz 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if files security/pam_appl.h exist passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2219012631/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2219012631.dir/build.make CMakeFiles/cmTryCompileExec2219012631.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2219012631.dir/CheckIncludeFiles.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2219012631.dir/CheckIncludeFiles.c.o   -c /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2219012631
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2219012631.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2219012631.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2219012631  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function pam_start exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3279341350/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3279341350.dir/build.make CMakeFiles/cmTryCompileExec3279341350.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3279341350.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pam_start   -o CMakeFiles/cmTryCompileExec3279341350.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3279341350
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3279341350.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pam_start -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec3279341350.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3279341350  -lpam 
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function inet_aton exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2630890645/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2630890645.dir/build.make CMakeFiles/cmTryCompileExec2630890645.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2630890645.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=inet_aton   -o CMakeFiles/cmTryCompileExec2630890645.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2630890645
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2630890645.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=inet_aton -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2630890645.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2630890645  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+
+Determining if the function getaddrinfo exists passed with the following output:
+Change Dir: /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2527695711/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2527695711.dir/build.make CMakeFiles/cmTryCompileExec2527695711.dir/build
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2527695711.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=getaddrinfo   -o CMakeFiles/cmTryCompileExec2527695711.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.2.2/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2527695711
+/usr/local/Cellar/cmake/3.2.2/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2527695711.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=getaddrinfo -Wl,-search_paths_first -Wl,-headerpad_max_install_names   -L/usr/local/opt/jpeg-turbo/lib -L/usr/local/opt/gettext/lib -L/usr/local/opt/qt5/lib  CMakeFiles/cmTryCompileExec2527695711.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2527695711  
+ld: warning: directory not found for option '-L/Users/ananda/Documents/Workspace/my_github/libomp_oss/exports/mac_32e/lib.thin'
+
+

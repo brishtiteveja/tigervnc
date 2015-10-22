@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/vncviewer/keysym2ucs.c
+keysym2ucs.h
+/Library/Caches/Homebrew/tigervnc-1.4.0/vncviewer/keysym2ucs.h
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/vncviewer/keysym2ucs.h
+

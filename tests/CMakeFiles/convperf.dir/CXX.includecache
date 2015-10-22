@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/tests/convperf.cxx
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+rfb/PixelFormat.h
+-
+util.h
+/Library/Caches/Homebrew/tigervnc-1.4.0/tests/util.h
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/tests/util.h
+
+common/rdr/types.h
+
+common/rfb/Pixel.h
+rdr/types.h
+-
+
+common/rfb/PixelFormat.h
+rfb/Pixel.h
+-
+rfb/PixelFormat.inl
+-
+
+common/rfb/PixelFormat.inl
+

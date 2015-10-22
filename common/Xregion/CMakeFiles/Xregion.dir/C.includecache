@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/Xregion/Region.c
+Xregion.h
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/Xregion/Xregion.h
+region.h
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/Xregion/region.h
+stdio.h
+-
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/Xregion/Xregion.h
+stdlib.h
+-
+string.h
+-
+
+/Library/Caches/Homebrew/tigervnc-1.4.0/common/Xregion/region.h
+

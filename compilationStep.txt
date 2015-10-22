@@ -1,0 +1,4 @@
+cd tiger-vnc
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -G "Unix Makefiles" .
+make 
+make install

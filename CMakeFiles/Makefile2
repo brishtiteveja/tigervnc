@@ -504,11 +504,11 @@ vncviewer/preinstall:
 # Target rules for target vncviewer/CMakeFiles/vncviewer.dir
 
 # All Build rule for target.
-vncviewer/CMakeFiles/vncviewer.dir/all: common/network/CMakeFiles/network.dir/all
 vncviewer/CMakeFiles/vncviewer.dir/all: common/os/CMakeFiles/os.dir/all
-vncviewer/CMakeFiles/vncviewer.dir/all: common/Xregion/CMakeFiles/Xregion.dir/all
-vncviewer/CMakeFiles/vncviewer.dir/all: common/rfb/CMakeFiles/rfb.dir/all
 vncviewer/CMakeFiles/vncviewer.dir/all: common/rdr/CMakeFiles/rdr.dir/all
+vncviewer/CMakeFiles/vncviewer.dir/all: common/rfb/CMakeFiles/rfb.dir/all
+vncviewer/CMakeFiles/vncviewer.dir/all: common/network/CMakeFiles/network.dir/all
+vncviewer/CMakeFiles/vncviewer.dir/all: common/Xregion/CMakeFiles/Xregion.dir/all
 	$(MAKE) -f vncviewer/CMakeFiles/vncviewer.dir/build.make vncviewer/CMakeFiles/vncviewer.dir/depend
 	$(MAKE) -f vncviewer/CMakeFiles/vncviewer.dir/build.make vncviewer/CMakeFiles/vncviewer.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles  87 88 89 90 91 92 93 94 95 96 97 98 99 100
@@ -609,8 +609,8 @@ tests/preinstall:
 
 # All Build rule for target.
 tests/CMakeFiles/conv.dir/all: common/os/CMakeFiles/os.dir/all
-tests/CMakeFiles/conv.dir/all: common/rfb/CMakeFiles/rfb.dir/all
 tests/CMakeFiles/conv.dir/all: common/rdr/CMakeFiles/rdr.dir/all
+tests/CMakeFiles/conv.dir/all: common/rfb/CMakeFiles/rfb.dir/all
 	$(MAKE) -f tests/CMakeFiles/conv.dir/build.make tests/CMakeFiles/conv.dir/depend
 	$(MAKE) -f tests/CMakeFiles/conv.dir/build.make tests/CMakeFiles/conv.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Library/Caches/Homebrew/tigervnc-1.4.0/CMakeFiles  1
@@ -646,8 +646,8 @@ clean: tests/CMakeFiles/conv.dir/clean
 
 # All Build rule for target.
 tests/CMakeFiles/convperf.dir/all: common/os/CMakeFiles/os.dir/all
-tests/CMakeFiles/convperf.dir/all: common/rfb/CMakeFiles/rfb.dir/all
 tests/CMakeFiles/convperf.dir/all: common/rdr/CMakeFiles/rdr.dir/all
+tests/CMakeFiles/convperf.dir/all: common/rfb/CMakeFiles/rfb.dir/all
 tests/CMakeFiles/convperf.dir/all: tests/CMakeFiles/test_util.dir/all
 	$(MAKE) -f tests/CMakeFiles/convperf.dir/build.make tests/CMakeFiles/convperf.dir/depend
 	$(MAKE) -f tests/CMakeFiles/convperf.dir/build.make tests/CMakeFiles/convperf.dir/build
